@@ -1,0 +1,31 @@
+{
+  "initial_cash": 1000000,
+  "data_provider": "tencent_public",
+  "symbols": ["510300", "510500", "159915", "588000"],
+  "names": {"510300": "沪深300ETF", "510500": "中证500ETF", "159915": "创业板ETF", "588000": "科创50ETF"},
+  "strategies": ["ma_trend", "donchian", "ts_momentum", "volume_momentum"],
+  "risk": {
+    "max_drawdown_budget": 0.12,
+    "soft_drawdown": 0.06,
+    "hard_drawdown": 0.10,
+    "max_gross_weight": 0.60,
+    "max_symbol_weight": 0.25,
+    "target_annual_vol": 0.10
+  },
+  "execution": {
+    "lot_size": 100,
+    "commission_rate": 0.0001,
+    "min_commission": 5.0,
+    "slippage_bps": 5.0,
+    "max_previous_volume_participation": 0.01,
+    "min_trade_value": 2000,
+    "price_tick": 0.001,
+    "limit_pct": {"510300": 0.10, "510500": 0.10, "159915": 0.20, "588000": 0.20}
+  },
+  "history_start": "2021-01-01",
+  "holdout_sessions": 252,
+  "news_max_age_hours": 24,
+  "paper_months": 1,
+  "max_data_age_days": 5,
+  "corporate_actions_verified": false
+}

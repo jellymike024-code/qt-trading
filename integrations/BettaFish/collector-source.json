@@ -1,0 +1,114 @@
+{
+  "revision": "b67928ff1ce515dd7672408221fb1e9500d0972d",
+  "submodule": {
+    "repository": "https://github.com/NanmiCoder/MediaCrawler",
+    "revision": "4de2a325a9cd4f7de7dfb58204b154fc2bb86e40",
+    "path": "MindSpider/DeepSentimentCrawling/MediaCrawler"
+  },
+  "files": [
+    {
+      "path": ".env.example",
+      "git_blob_sha1": "1ae4aab32772c31ed57be583574d012058c08301"
+    },
+    {
+      "path": ".gitmodules",
+      "git_blob_sha1": "73342a42937de9d4ed7c8c822095f684ff505d20"
+    },
+    {
+      "path": "LICENSE",
+      "git_blob_sha1": "a4831ac3a432ee77b0718d8f4879cd1e88a26cf8"
+    },
+    {
+      "path": "MindSpider/BroadTopicExtraction/database_manager.py",
+      "git_blob_sha1": "5c7b66272f97b41e93b3ba0c01d425ec5715cb6a"
+    },
+    {
+      "path": "MindSpider/BroadTopicExtraction/get_today_news.py",
+      "git_blob_sha1": "972d44154b8b76bdcea86d804e091bf328e56878"
+    },
+    {
+      "path": "MindSpider/BroadTopicExtraction/main.py",
+      "git_blob_sha1": "438db736733d73dc693b64182cd11c930096e14a"
+    },
+    {
+      "path": "MindSpider/BroadTopicExtraction/topic_extractor.py",
+      "git_blob_sha1": "1173e4bf067339c43751c57790110af14cb7af93"
+    },
+    {
+      "path": "MindSpider/DeepSentimentCrawling/keyword_manager.py",
+      "git_blob_sha1": "59a19db9140024985fdad8f09f8ec1bc9031489b"
+    },
+    {
+      "path": "MindSpider/DeepSentimentCrawling/main.py",
+      "git_blob_sha1": "d1d84ca34fe86b9f55097acaf8aa0fba610cb191"
+    },
+    {
+      "path": "MindSpider/DeepSentimentCrawling/platform_crawler.py",
+      "git_blob_sha1": "1fe1db38a616625f563e097608e2e2ec9c20e5f5"
+    },
+    {
+      "path": "MindSpider/LICENSE",
+      "git_blob_sha1": "b7d972ba40d2f455c003828fd9b21cdc21f5d703"
+    },
+    {
+      "path": "MindSpider/README.md",
+      "git_blob_sha1": "621841b17d903254361b2ce10c7bcd8021dfa90d"
+    },
+    {
+      "path": "MindSpider/config.py",
+      "git_blob_sha1": "05d5206b189737561b26de5d06a6c7c478699e7c"
+    },
+    {
+      "path": "MindSpider/config.py.example",
+      "git_blob_sha1": "05d5206b189737561b26de5d06a6c7c478699e7c"
+    },
+    {
+      "path": "MindSpider/main.py",
+      "git_blob_sha1": "0988082717621f33555587d18e4442473c07fa06"
+    },
+    {
+      "path": "MindSpider/requirements.txt",
+      "git_blob_sha1": "6f764226e71c656ad9a15c67dd68fb4cea5de93e"
+    },
+    {
+      "path": "MindSpider/schema/__init__.py",
+      "git_blob_sha1": "902262ae998a6a55e1d1b2a09d116bfb6f54c408"
+    },
+    {
+      "path": "MindSpider/schema/db_manager.py",
+      "git_blob_sha1": "26f423fab65d78e878d65ec55f6d381f2a32fee5"
+    },
+    {
+      "path": "MindSpider/schema/init_database.py",
+      "git_blob_sha1": "e2275253bd7a3304b10178d52313ff4f3043877b"
+    },
+    {
+      "path": "MindSpider/schema/mindspider_tables.sql",
+      "git_blob_sha1": "1b05489c288ee6b2027df384d32ef104b9576237"
+    },
+    {
+      "path": "MindSpider/schema/models_bigdata.py",
+      "git_blob_sha1": "978df8a88f367df8d67ca559537ad9e007f028db"
+    },
+    {
+      "path": "MindSpider/schema/models_sa.py",
+      "git_blob_sha1": "440ca6920f2ad6b2327727c3b4f035e4458748d1"
+    },
+    {
+      "path": "README.md",
+      "git_blob_sha1": "c985ad330c50470378ea3cb0287bb8730c65cbb4"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "git_blob_sha1": "54cb54b7c5ec32242dec556714aac4766f13b7e3"
+    },
+    {
+      "path": "config.py",
+      "git_blob_sha1": "e28b4ceb84f40b57e4ab1e703892f23e4d8a085a"
+    },
+    {
+      "path": "requirements.txt",
+      "git_blob_sha1": "46e6ae9ff4a33c177511543136c29b8b83c45e39"
+    }
+  ]
+}

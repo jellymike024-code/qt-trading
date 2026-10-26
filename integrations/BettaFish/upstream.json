@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/666ghj/BettaFish",
+  "revision": "b67928ff1ce515dd7672408221fb1e9500d0972d",
+  "reference_only": false,
+  "deployment": "MindSpider_collection_runtime",
+  "mediacrawler_revision": "4de2a325a9cd4f7de7dfb58204b154fc2bb86e40",
+  "source_verification": "collector-source.json and mediacrawler-source.json Git blob hashes"
+}

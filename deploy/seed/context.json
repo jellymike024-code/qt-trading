@@ -1,0 +1,2695 @@
+{
+  "served_at": "2026-10-26T04:22:50.356508+00:00",
+  "quote_mode": "real_sources_only",
+  "publication": {
+    "mode": "public_snapshot",
+    "original_comments_published": false,
+    "paper_ledger_published": false,
+    "note": "公开页仅展示真实公开行情、热榜/财经标题及历史研究汇总；不发布原始评论、登录会话或模拟账本。"
+  },
+  "markets": {
+    "mode": "real_sources_only",
+    "collected_at": "2026-10-25 14:10:57.607405+00:00",
+    "status": "ok",
+    "coverage": {
+      "london": {
+        "index": true,
+        "index_fresh": true,
+        "stocks": 24,
+        "fresh_stocks": 24,
+        "requested_stocks": 24,
+        "complete_sector_samples": 8
+      },
+      "newyork": {
+        "index": true,
+        "index_fresh": true,
+        "stocks": 24,
+        "fresh_stocks": 24,
+        "requested_stocks": 24,
+        "complete_sector_samples": 8
+      },
+      "seoul": {
+        "index": true,
+        "index_fresh": true,
+        "stocks": 24,
+        "fresh_stocks": 24,
+        "requested_stocks": 24,
+        "complete_sector_samples": 8
+      },
+      "shanghai": {
+        "index": true,
+        "index_fresh": true,
+        "stocks": 24,
+        "fresh_stocks": 24,
+        "requested_stocks": 24,
+        "complete_sector_samples": 8
+      }
+    },
+    "notes": [
+      "公开报价可能延迟；日线按真实交易日期显示，缺失数据不填充。",
+      "板块表现为人工观察列表全部样本等权均值，非官方行业指数。"
+    ],
+    "regions": {
+      "london": {
+        "index": {
+          "price": 10690.36,
+          "change_pct": -0.32326249903263937,
+          "source": "新浪环球指数日线",
+          "source_url": "https://gi.finance.sina.com.cn/hq/daily?symbol=UKX",
+          "observed_at": "2026-10-25 14:10:31.899694+00:00",
+          "quote_time": null,
+          "session_date": "2026-10-23",
+          "currency": "index_points",
+          "interval": "1d",
+          "status": "ok",
+          "history": [
+            {
+              "date": "2026-09-14",
+              "close": 10697.57
+            },
+            {
+              "date": "2026-09-15",
+              "close": 10658.13
+            },
+            {
+              "date": "2026-09-16",
+              "close": 10688.47
+            },
+            {
+              "date": "2026-09-17",
+              "close": 10816.14
+            },
+            {
+              "date": "2026-09-18",
+              "close": 10659.13
+            },
+            {
+              "date": "2026-09-21",
+              "close": 10739.01
+            },
+            {
+              "date": "2026-09-22",
+              "close": 10708.33
+            },
+            {
+              "date": "2026-09-23",
+              "close": 10705.26
+            },
+            {
+              "date": "2026-09-24",
+              "close": 10679.99
+            },
+            {
+              "date": "2026-09-25",
+              "close": 10695.25
+            },
+            {
+              "date": "2026-09-28",
+              "close": 10684.88
+            },
+            {
+              "date": "2026-09-29",
+              "close": 10636.71
+            },
+            {
+              "date": "2026-09-30",
+              "close": 10606.0
+            },
+            {
+              "date": "2026-10-01",
+              "close": 10428.27
+            },
+            {
+              "date": "2026-10-02",
+              "close": 10461.95
+            },
+            {
+              "date": "2026-10-05",
+              "close": 10497.94
+            },
+            {
+              "date": "2026-10-06",
+              "close": 10541.69
+            },
+            {
+              "date": "2026-10-07",
+              "close": 10458.5
+            },
+            {
+              "date": "2026-10-08",
+              "close": 10441.6
+            },
+            {
+              "date": "2026-10-09",
+              "close": 10552.05
+            },
+            {
+              "date": "2026-10-12",
+              "close": 10656.28
+            },
+            {
+              "date": "2026-10-13",
+              "close": 10650.33
+            },
+            {
+              "date": "2026-10-14",
+              "close": 10724.86
+            },
+            {
+              "date": "2026-10-15",
+              "close": 10840.35
+            },
+            {
+              "date": "2026-10-16",
+              "close": 10881.9
+            },
+            {
+              "date": "2026-10-19",
+              "close": 10764.69
+            },
+            {
+              "date": "2026-10-20",
+              "close": 10733.0
+            },
+            {
+              "date": "2026-10-21",
+              "close": 10752.88
+            },
+            {
+              "date": "2026-10-22",
+              "close": 10725.03
+            },
+            {
+              "date": "2026-10-23",
+              "close": 10690.36
+            }
+          ]
+        },
+        "stocks": {
+          "HSBA.L": {
+            "price": 1366.4,
+            "change_pct": -0.01,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/HSBA:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T16:46:05.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "LSEG.L": {
+            "price": 9500.0,
+            "change_pct": 0.36,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/LSEG:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T16:15:00.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "PRU.L": {
+            "price": 894.2,
+            "change_pct": 0.9,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/PRU:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T16:15:00.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "SHEL.L": {
+            "price": 4033.0,
+            "change_pct": 3.72,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/SHEL:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:39:02.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "HBR.L": {
+            "price": 300.4,
+            "change_pct": 1.97,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/HBR:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:35:30.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "RIO.L": {
+            "price": 6234.41,
+            "change_pct": -0.41,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/RIO:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T16:40:13.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "GLEN.L": {
+            "price": 537.0,
+            "change_pct": 0.09,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/GLEN:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T16:15:00.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "BP.L": {
+            "price": 623.6,
+            "change_pct": 1.91,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/BP:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T16:37:09.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "AAL.L": {
+            "price": 3684.0,
+            "change_pct": 1.63,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/AAL:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T16:48:43.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "AZN.L": {
+            "price": 12824.0,
+            "change_pct": -1.2,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/AZN:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:39:51.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "GSK.L": {
+            "price": 1893.28,
+            "change_pct": -1.08,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/GSK:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:56:57.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "SN.L": {
+            "price": 1153.0,
+            "change_pct": 1.68,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/SN:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:39:39.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "ULVR.L": {
+            "price": 4937.5,
+            "change_pct": -0.76,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/ULVR:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:56:57.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "DGE.L": {
+            "price": 1787.49,
+            "change_pct": -0.11,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/DGE:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T16:08:01.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "BATS.L": {
+            "price": 4432.0,
+            "change_pct": -1.01,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/BATS:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:39:39.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "RR.L": {
+            "price": 1164.2,
+            "change_pct": -7.57,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/RR:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T16:07:44.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "BA.L": {
+            "price": 1932.0,
+            "change_pct": 0.08,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/BA:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:38:22.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "SMIN.L": {
+            "price": 2607.0,
+            "change_pct": -0.57,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/SMIN:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:35:23.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "NG.L": {
+            "price": 1221.92,
+            "change_pct": -0.17,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/NG:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:41:38.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "SSE.L": {
+            "price": 2549.08,
+            "change_pct": -0.58,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/SSE:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:51:25.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "CNA.L": {
+            "price": 150.58,
+            "change_pct": 0.19,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/CNA:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:46:17.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "SGRO.L": {
+            "price": 903.21,
+            "change_pct": -0.11,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/SGRO:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:56:57.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "BLND.L": {
+            "price": 417.0,
+            "change_pct": -0.38,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/BLND:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:39:40.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "LAND.L": {
+            "price": 658.5,
+            "change_pct": 0.08,
+            "source": "Google Finance报价页快照",
+            "source_url": "https://www.google.com/finance/quote/LAND:LON",
+            "observed_at": "2026-10-25 14:05:39+00:00",
+            "quote_time": "2026-10-23T15:39:44.000Z",
+            "session_date": "2026-10-23",
+            "currency": "GBX",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          }
+        },
+        "sectors": {
+          "金融服务": {
+            "change_pct": 0.4166666666666667,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "能源": {
+            "change_pct": 2.533333333333333,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "基础资源": {
+            "change_pct": 0.4366666666666666,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "医药健康": {
+            "change_pct": -0.20000000000000004,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "必需消费": {
+            "change_pct": -0.6266666666666667,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "工业制造": {
+            "change_pct": -2.686666666666667,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "公用事业": {
+            "change_pct": -0.18666666666666665,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "房地产": {
+            "change_pct": -0.1366666666666667,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          }
+        }
+      },
+      "newyork": {
+        "index": {
+          "price": 25955.34,
+          "change_pct": -0.21,
+          "source": "腾讯证券公开报价",
+          "source_url": "https://qt.gtimg.cn/q=us.IXIC",
+          "observed_at": "2026-10-25 14:10:31.203376+00:00",
+          "quote_time": "2026-10-23 17:15:59-04:00",
+          "session_date": "2026-10-23",
+          "currency": "USD",
+          "interval": "snapshot",
+          "status": "ok",
+          "history": []
+        },
+        "stocks": {
+          "NVDA": {
+            "price": 210.96,
+            "change_pct": -0.59,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usNVDA",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:00:01-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "MSFT": {
+            "price": 524.51,
+            "change_pct": 0.66,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usMSFT",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:00:01-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "AAPL": {
+            "price": 347.73,
+            "change_pct": -0.14,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usAAPL",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:00:01-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "META": {
+            "price": 642.62,
+            "change_pct": -0.96,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usMETA",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:00:01-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "GOOGL": {
+            "price": 320.21,
+            "change_pct": -1.24,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usGOOGL",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:00:01-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "NFLX": {
+            "price": 65.85,
+            "change_pct": -1.79,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usNFLX",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:00:01-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "AMZN": {
+            "price": 248.0,
+            "change_pct": -0.95,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usAMZN",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:00:01-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "TSLA": {
+            "price": 372.22,
+            "change_pct": -0.63,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usTSLA",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:00:01-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "HD": {
+            "price": 319.83,
+            "change_pct": -2.41,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usHD",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "JPM": {
+            "price": 331.58,
+            "change_pct": -1.47,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usJPM",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "BAC": {
+            "price": 50.56,
+            "change_pct": -1.02,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usBAC",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "GS": {
+            "price": 875.68,
+            "change_pct": -1.75,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usGS",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "LLY": {
+            "price": 1273.46,
+            "change_pct": -2.54,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usLLY",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "UNH": {
+            "price": 418.09,
+            "change_pct": -1.62,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usUNH",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "JNJ": {
+            "price": 263.81,
+            "change_pct": -1.42,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usJNJ",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "XOM": {
+            "price": 183.21,
+            "change_pct": 2.79,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usXOM",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "CVX": {
+            "price": 233.21,
+            "change_pct": 2.88,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usCVX",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "COP": {
+            "price": 150.8,
+            "change_pct": 3.55,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usCOP",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "CAT": {
+            "price": 687.0,
+            "change_pct": -2.42,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usCAT",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "GE": {
+            "price": 285.64,
+            "change_pct": -2.69,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usGE",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "HON": {
+            "price": 221.15,
+            "change_pct": 1.3,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usHON",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:00:01-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "NEE": {
+            "price": 82.1,
+            "change_pct": 0.24,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usNEE",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "SO": {
+            "price": 92.89,
+            "change_pct": -0.99,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usSO",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "DUK": {
+            "price": 124.98,
+            "change_pct": -0.33,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=usDUK",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:04:27-04:00",
+            "session_date": "2026-10-23",
+            "currency": "USD",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          }
+        },
+        "sectors": {
+          "信息科技": {
+            "change_pct": -0.023333333333333317,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "通信服务": {
+            "change_pct": -1.33,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "可选消费": {
+            "change_pct": -1.33,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "金融": {
+            "change_pct": -1.4133333333333333,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "医疗保健": {
+            "change_pct": -1.86,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "能源": {
+            "change_pct": 3.073333333333333,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "工业": {
+            "change_pct": -1.2699999999999998,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "公用事业": {
+            "change_pct": -0.36000000000000004,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          }
+        }
+      },
+      "seoul": {
+        "index": {
+          "price": 5550.2998,
+          "change_pct": 0.29870775258096227,
+          "source": "新浪环球指数日线",
+          "source_url": "https://gi.finance.sina.com.cn/hq/daily?symbol=KOSPI",
+          "observed_at": "2026-10-25 14:10:32.372495+00:00",
+          "quote_time": null,
+          "session_date": "2026-10-23",
+          "currency": "index_points",
+          "interval": "1d",
+          "status": "ok",
+          "history": [
+            {
+              "date": "2026-09-08",
+              "close": 6954.52
+            },
+            {
+              "date": "2026-09-09",
+              "close": 7051.64
+            },
+            {
+              "date": "2026-09-10",
+              "close": 7033.92
+            },
+            {
+              "date": "2026-09-11",
+              "close": 6909.91
+            },
+            {
+              "date": "2026-09-14",
+              "close": 6684.37
+            },
+            {
+              "date": "2026-09-15",
+              "close": 6627.26
+            },
+            {
+              "date": "2026-09-16",
+              "close": 6717.97
+            },
+            {
+              "date": "2026-09-17",
+              "close": 6715.41
+            },
+            {
+              "date": "2026-09-18",
+              "close": 6894.23
+            },
+            {
+              "date": "2026-09-21",
+              "close": 7007.72
+            },
+            {
+              "date": "2026-09-22",
+              "close": 7017.91
+            },
+            {
+              "date": "2026-09-23",
+              "close": 7080.92
+            },
+            {
+              "date": "2026-09-28",
+              "close": 6889.74
+            },
+            {
+              "date": "2026-09-29",
+              "close": 6870.81
+            },
+            {
+              "date": "2026-09-30",
+              "close": 6838.04
+            },
+            {
+              "date": "2026-10-01",
+              "close": 6971.35
+            },
+            {
+              "date": "2026-10-02",
+              "close": 7003.74
+            },
+            {
+              "date": "2026-10-06",
+              "close": 6941.39
+            },
+            {
+              "date": "2026-10-07",
+              "close": 6803.9
+            },
+            {
+              "date": "2026-10-08",
+              "close": 6625.93
+            },
+            {
+              "date": "2026-10-12",
+              "close": 6384.24
+            },
+            {
+              "date": "2026-10-13",
+              "close": 6035.35
+            },
+            {
+              "date": "2026-10-14",
+              "close": 6008.81
+            },
+            {
+              "date": "2026-10-15",
+              "close": 5554.22
+            },
+            {
+              "date": "2026-10-16",
+              "close": 5668.05
+            },
+            {
+              "date": "2026-10-19",
+              "close": 5768.0098
+            },
+            {
+              "date": "2026-10-20",
+              "close": 5552.7402
+            },
+            {
+              "date": "2026-10-21",
+              "close": 5735.6602
+            },
+            {
+              "date": "2026-10-22",
+              "close": 5533.77
+            },
+            {
+              "date": "2026-10-23",
+              "close": 5550.2998
+            }
+          ]
+        },
+        "stocks": {
+          "005490": {
+            "price": 275500.0,
+            "change_pct": -3.67,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/005490/price",
+            "observed_at": "2026-10-25 14:10:33.066476+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "012330": {
+            "price": 325500.0,
+            "change_pct": -3.41,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/012330/price",
+            "observed_at": "2026-10-25 14:10:33.230823+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "000660": {
+            "price": 1263000.0,
+            "change_pct": 3.27,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/000660/price",
+            "observed_at": "2026-10-25 14:10:33.358881+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "003670": {
+            "price": 160100.0,
+            "change_pct": -4.02,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/003670/price",
+            "observed_at": "2026-10-25 14:10:33.950319+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "105560": {
+            "price": 153000.0,
+            "change_pct": -3.29,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/105560/price",
+            "observed_at": "2026-10-25 14:10:53.357214+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "373220": {
+            "price": 381500.0,
+            "change_pct": -2.18,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/373220/price",
+            "observed_at": "2026-10-25 14:10:53.511436+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "259960": {
+            "price": 185400.0,
+            "change_pct": -3.34,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/259960/price",
+            "observed_at": "2026-10-25 14:10:53.792252+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "004020": {
+            "price": 26700.0,
+            "change_pct": -2.02,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/004020/price",
+            "observed_at": "2026-10-25 14:10:54.214714+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "005380": {
+            "price": 293000.0,
+            "change_pct": -2.82,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/005380/price",
+            "observed_at": "2026-10-25 14:10:54.499539+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "011170": {
+            "price": 48300.0,
+            "change_pct": -3.78,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/011170/price",
+            "observed_at": "2026-10-25 14:10:54.728846+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "051910": {
+            "price": 228500.0,
+            "change_pct": -3.99,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/051910/price",
+            "observed_at": "2026-10-25 14:10:55.071758+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "000270": {
+            "price": 106700.0,
+            "change_pct": -1.93,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/000270/price",
+            "observed_at": "2026-10-25 14:10:55.243726+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "009830": {
+            "price": 28400.0,
+            "change_pct": -2.41,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/009830/price",
+            "observed_at": "2026-10-25 14:10:55.504206+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "035420": {
+            "price": 172600.0,
+            "change_pct": -2.15,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/035420/price",
+            "observed_at": "2026-10-25 14:10:55.866356+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "068270": {
+            "price": 192600.0,
+            "change_pct": -0.87,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/068270/price",
+            "observed_at": "2026-10-25 14:10:55.912329+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "207940": {
+            "price": 1460000.0,
+            "change_pct": 7.27,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/207940/price",
+            "observed_at": "2026-10-25 14:10:56.186195+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "055550": {
+            "price": 88000.0,
+            "change_pct": -2.55,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/055550/price",
+            "observed_at": "2026-10-25 14:10:56.695641+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "006400": {
+            "price": 484500.0,
+            "change_pct": -5.37,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/006400/price",
+            "observed_at": "2026-10-25 14:10:56.832215+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "005930": {
+            "price": 213500.0,
+            "change_pct": -0.47,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/005930/price",
+            "observed_at": "2026-10-25 14:10:57.181530+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "035720": {
+            "price": 29800.0,
+            "change_pct": -1.81,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/035720/price",
+            "observed_at": "2026-10-25 14:10:57.551626+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "086790": {
+            "price": 117000.0,
+            "change_pct": -2.42,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/086790/price",
+            "observed_at": "2026-10-25 14:10:57.594463+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "042700": {
+            "price": 188500.0,
+            "change_pct": -1.41,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/042700/price",
+            "observed_at": "2026-10-25 14:20:19.150907+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "000100": {
+            "price": 84800.0,
+            "change_pct": 0.95,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/000100/price",
+            "observed_at": "2026-10-25 14:20:19.999097+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          },
+          "460860": {
+            "price": 9390.0,
+            "change_pct": -1.57,
+            "source": "Naver证券公开报价",
+            "source_url": "https://stock.naver.com/domestic/stock/460860/price",
+            "observed_at": "2026-10-25 14:20:20.631011+00:00",
+            "quote_time": "2026-10-23T20:00:00+09:00",
+            "session_date": "2026-10-23",
+            "currency": "KRW",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": [],
+            "session_note": "来源可能包含盘后交易会话"
+          }
+        },
+        "sectors": {
+          "半导体": {
+            "change_pct": 0.4633333333333334,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "动力电池": {
+            "change_pct": -3.856666666666667,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "汽车制造": {
+            "change_pct": -2.72,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "互联网": {
+            "change_pct": -2.433333333333333,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "生物医药": {
+            "change_pct": 2.4499999999999997,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "金融": {
+            "change_pct": -2.7533333333333334,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "化学工业": {
+            "change_pct": -3.393333333333333,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "钢铁": {
+            "change_pct": -2.42,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          }
+        }
+      },
+      "shanghai": {
+        "index": {
+          "price": 3690.48,
+          "change_pct": 0.89,
+          "source": "腾讯证券公开报价",
+          "source_url": "https://qt.gtimg.cn/q=sh000001",
+          "observed_at": "2026-10-25 14:10:31.203376+00:00",
+          "quote_time": "2026-10-23 16:15:00+08:00",
+          "session_date": "2026-10-23",
+          "currency": "CNY",
+          "interval": "snapshot",
+          "status": "ok",
+          "history": []
+        },
+        "stocks": {
+          "688981": {
+            "price": 104.1,
+            "change_pct": 4.01,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh688981",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:45+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "002371": {
+            "price": 537.49,
+            "change_pct": -0.83,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sz002371",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:54+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "603501": {
+            "price": 82.2,
+            "change_pct": 4.85,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh603501",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:41+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "603019": {
+            "price": 78.11,
+            "change_pct": 2.51,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh603019",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:57+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "000977": {
+            "price": 58.5,
+            "change_pct": 3.36,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sz000977",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:15:00+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "688111": {
+            "price": 248.96,
+            "change_pct": 5.1,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh688111",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:49+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "300750": {
+            "price": 237.6,
+            "change_pct": 7.8,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sz300750",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:30+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "300274": {
+            "price": 72.2,
+            "change_pct": 2.4,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sz300274",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:54+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "600406": {
+            "price": 23.42,
+            "change_pct": 0.6,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh600406",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:54+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "600030": {
+            "price": 25.45,
+            "change_pct": 0.67,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh600030",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:44+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "300059": {
+            "price": 18.55,
+            "change_pct": 4.33,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sz300059",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:48+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "601688": {
+            "price": 17.25,
+            "change_pct": 1.95,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh601688",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:43+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "600276": {
+            "price": 47.02,
+            "change_pct": 2.22,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh600276",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:48+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "300760": {
+            "price": 177.3,
+            "change_pct": 3.65,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sz300760",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:42+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "603259": {
+            "price": 144.72,
+            "change_pct": 2.41,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh603259",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:33+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "600036": {
+            "price": 41.77,
+            "change_pct": -0.12,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh600036",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:51+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "601398": {
+            "price": 8.32,
+            "change_pct": -3.14,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh601398",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:58+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "601939": {
+            "price": 11.3,
+            "change_pct": -3.09,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh601939",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:31+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "600519": {
+            "price": 1335.0,
+            "change_pct": 1.25,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh600519",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:58+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "600887": {
+            "price": 28.19,
+            "change_pct": 1.4,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh600887",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:50+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "000333": {
+            "price": 85.59,
+            "change_pct": 0.35,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sz000333",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:15+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "300308": {
+            "price": 612.63,
+            "change_pct": 3.82,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sz300308",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:45+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "300502": {
+            "price": 261.0,
+            "change_pct": 1.16,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sz300502",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:45+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          },
+          "600941": {
+            "price": 99.14,
+            "change_pct": 0.14,
+            "source": "腾讯证券公开报价",
+            "source_url": "https://qt.gtimg.cn/q=sh600941",
+            "observed_at": "2026-10-25 14:10:31.203376+00:00",
+            "quote_time": "2026-10-23 16:14:57+08:00",
+            "session_date": "2026-10-23",
+            "currency": "CNY",
+            "interval": "snapshot",
+            "status": "ok",
+            "history": []
+          }
+        },
+        "sectors": {
+          "半导体": {
+            "change_pct": 2.6766666666666663,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "计算机": {
+            "change_pct": 3.6566666666666663,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "电力设备": {
+            "change_pct": 3.5999999999999996,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "证券": {
+            "change_pct": 2.316666666666667,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "医药生物": {
+            "change_pct": 2.7600000000000002,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "银行": {
+            "change_pct": -2.1166666666666667,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "消费": {
+            "change_pct": 1.0,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          },
+          "通信": {
+            "change_pct": 1.7066666666666668,
+            "coverage": 3,
+            "session_date": "2026-10-23",
+            "status": "ok"
+          }
+        }
+      }
+    }
+  },
+  "social": {
+    "status": {
+      "at": "2026-10-26 03:31:06.191975+00:00",
+      "status": "ok",
+      "active_records": 638,
+      "financial_candidates": 17,
+      "actual_comment_texts": 0,
+      "trading_effect": "shadow_analysis_only_frozen_paper_unchanged",
+      "sources": {
+        "weibo": {
+          "status": "ok",
+          "records": 50,
+          "comment_text_records": 0,
+          "provider_updated_at": "2026-10-26 03:26:43.253000+00:00"
+        },
+        "douyin": {
+          "status": "ok",
+          "records": 50,
+          "comment_text_records": 0,
+          "provider_updated_at": "2026-10-26 03:07:51.908000+00:00"
+        },
+        "xiaohongshu": {
+          "status": "ok",
+          "records": 20,
+          "comment_text_records": 0,
+          "provider_updated_at": "2026-10-26 03:06:45.792000+00:00"
+        },
+        "zhihu": {
+          "status": "ok",
+          "records": 30,
+          "comment_text_records": 0,
+          "provider_updated_at": "2026-10-26 03:28:32.026000+00:00"
+        },
+        "bilibili": {
+          "status": "ok",
+          "records": 100,
+          "comment_text_records": 0,
+          "provider_updated_at": "2026-10-26 02:26:53.324000+00:00"
+        },
+        "toutiao": {
+          "status": "ok",
+          "records": 50,
+          "comment_text_records": 0,
+          "provider_updated_at": "2026-10-26 03:26:42.835000+00:00"
+        },
+        "eastmoney_news": {
+          "status": "ok",
+          "records": 50,
+          "comment_text_records": 0,
+          "provider_updated_at": "2026-10-26 03:31:05.907717+00:00"
+        }
+      }
+    },
+    "items": [
+      {
+        "id": "015d3371964af55aba867de12f0df48a2725b3fe62e6cc396cb1be72a1832371",
+        "platform": "douyin",
+        "content_kind": "hot_topic",
+        "title": "A股指数调整10月26日落地",
+        "source_url": "https://www.douyin.com/search/A%E8%82%A1%E6%8C%87%E6%95%B0%E8%B0%83%E6%95%B410%E6%9C%8826%E6%97%A5%E8%90%BD%E5%9C%B0?type=general",
+        "published_at": null,
+        "observed_at": "2026-10-25 14:22:44.029289+00:00",
+        "first_seen_at": "2026-10-25 13:10:56.231343+00:00",
+        "matched_keywords": [
+          "A股"
+        ]
+      },
+      {
+        "id": "028922a34d0883244d0e74a33d131318f7d247a055a56cf7585e9814d083d86f",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "高盛：今天可能出现美元兑巴西雷亚尔汇率上涨10%、巴西股市下跌15%的极端行情",
+        "source_url": "https://finance.eastmoney.com/a/202610263907769355.html",
+        "published_at": "2026-10-26 02:55:27+00:00",
+        "observed_at": "2026-10-26 03:31:05.907717+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "matched_keywords": [
+          "股市"
+        ]
+      },
+      {
+        "id": "0465dd8fb3cf8fe0877c1c3529fed546bccd3aac835730f78ad4313c01c524b8",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "民德电子：向特定对象发行股票获证监会同意注册批复",
+        "source_url": "https://finance.eastmoney.com/a/202610253907217621.html",
+        "published_at": "2026-10-25 08:25:08+00:00",
+        "observed_at": "2026-10-25 14:22:46.660139+00:00",
+        "first_seen_at": "2026-10-25 13:12:35.972294+00:00",
+        "matched_keywords": [
+          "股票",
+          "证监会"
+        ]
+      },
+      {
+        "id": "234a6ead0109fb8fb59541f3543b9be40e1e001122d2a4296b8e1498c560fc5f",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "天风证券吴开达：业绩兑现与资金结构改善支撑A股信心",
+        "source_url": "https://finance.eastmoney.com/a/202610263907766373.html",
+        "published_at": "2026-10-26 02:49:00+00:00",
+        "observed_at": "2026-10-26 03:31:05.907717+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "matched_keywords": [
+          "A股",
+          "证券"
+        ]
+      },
+      {
+        "id": "2e31f4d92885a9396b6ff68aa2a4b8cda48472d428acfe9b36980cc6be05042c",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "科瑞思：拟购买宏钢光电100%股份 股票复牌",
+        "source_url": "https://finance.eastmoney.com/a/202610253907218232.html",
+        "published_at": "2026-10-25 08:34:43+00:00",
+        "observed_at": "2026-10-25 14:22:46.660139+00:00",
+        "first_seen_at": "2026-10-25 13:12:35.972294+00:00",
+        "matched_keywords": [
+          "股票"
+        ]
+      },
+      {
+        "id": "417e2f1c6990223d5c3fe778c3d895feab6133f963320cdb66ae11ec86e014bc",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "纳尔股份：拟回购注销1.95万股限制性股票",
+        "source_url": "https://finance.eastmoney.com/a/202610253907233254.html",
+        "published_at": "2026-10-25 09:00:41+00:00",
+        "observed_at": "2026-10-25 14:22:46.660139+00:00",
+        "first_seen_at": "2026-10-25 13:12:35.972294+00:00",
+        "matched_keywords": [
+          "股票"
+        ]
+      },
+      {
+        "id": "4d29d4f4ca056f18177dba1cac01d2840c2361416813a7ba8cc6ca9b86445abc",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "市场震荡调整，红利风格相对占优，A500红利ETF国联安(560570)跟踪指数涨超1%",
+        "source_url": "https://finance.eastmoney.com/a/202610263907767464.html",
+        "published_at": "2026-10-26 02:51:55+00:00",
+        "observed_at": "2026-10-26 03:31:05.907717+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "matched_keywords": [
+          "ETF"
+        ]
+      },
+      {
+        "id": "660efec18cbe00b2c091f88631aeecc3ee8a642a118a06c50823d6eef375b6b8",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "佳贤通信董事长任恩贤：英伟达要靠算力基站实现端侧物理AI",
+        "source_url": "https://finance.eastmoney.com/a/202610263907773360.html",
+        "published_at": "2026-10-26 03:03:28+00:00",
+        "observed_at": "2026-10-26 03:31:05.907717+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "matched_keywords": [
+          "英伟达"
+        ]
+      },
+      {
+        "id": "675444b78604cc114eea898b3721435b57667173d69b9b55df964308b15862f1",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "长江证券伍戈：稳增长举措有序衔接 经济边际改善窗口有望打开",
+        "source_url": "https://finance.eastmoney.com/a/202610263907779187.html",
+        "published_at": "2026-10-26 03:05:00+00:00",
+        "observed_at": "2026-10-26 03:31:05.907717+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "matched_keywords": [
+          "证券"
+        ]
+      },
+      {
+        "id": "8016169731cde7bd7696b59a1f1ef0e01d0688b450087342f5289e3a54e1f7da",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "A股多项指标已接近历史底部区间，大盘年底年初或迎修复窗口，大盘价值ETF博时(159391)跟踪指数上涨0.7%",
+        "source_url": "https://finance.eastmoney.com/a/202610263907788384.html",
+        "published_at": "2026-10-26 03:15:06+00:00",
+        "observed_at": "2026-10-26 03:31:05.907717+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "matched_keywords": [
+          "A股",
+          "ETF"
+        ]
+      },
+      {
+        "id": "80212b2feeef549bbf89043517c00c98fd265c63f937ba9ea97928f4583b8395",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "首创证券韦志超：价值投资理念逐步取代短线投机 “长钱长投”格局加速成型",
+        "source_url": "https://finance.eastmoney.com/a/202610263907788886.html",
+        "published_at": "2026-10-26 03:18:00+00:00",
+        "observed_at": "2026-10-26 03:31:05.907717+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "matched_keywords": [
+          "证券"
+        ]
+      },
+      {
+        "id": "84f5b67ad5fa74e2408b6411ccac658d5c98ece9c8999bac9fafc5f05c0ab05f",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "招商策略：A股多项指标已接近历史底部区间",
+        "source_url": "https://finance.eastmoney.com/a/202610253907309672.html",
+        "published_at": "2026-10-25 13:44:04+00:00",
+        "observed_at": "2026-10-25 14:22:46.660139+00:00",
+        "first_seen_at": "2026-10-25 14:22:46.660139+00:00",
+        "matched_keywords": [
+          "A股"
+        ]
+      },
+      {
+        "id": "bfecf899bfc85685fd77b06cf912b603318a0d6053d605a37b253f181a77f91d",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "A股指数“换算法”有何影响？看懂两大核心变化",
+        "source_url": "https://finance.eastmoney.com/a/202610263907772077.html",
+        "published_at": "2026-10-26 02:58:46+00:00",
+        "observed_at": "2026-10-26 03:31:05.907717+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "matched_keywords": [
+          "A股"
+        ]
+      },
+      {
+        "id": "c3e01ecb0c5a000aa6e9bf07a7078b25a47e398c7d60e36ec68545a33941f0c3",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "华神科技：向特定对象发行股票申请获证监会同意注册批复",
+        "source_url": "https://finance.eastmoney.com/a/202610253907217761.html",
+        "published_at": "2026-10-25 08:25:12+00:00",
+        "observed_at": "2026-10-25 14:22:46.660139+00:00",
+        "first_seen_at": "2026-10-25 13:12:35.972294+00:00",
+        "matched_keywords": [
+          "股票",
+          "证监会"
+        ]
+      },
+      {
+        "id": "f61c8c3c6ca55c498b279aae528a83a0e1e5c49f71287cc552ae834d01fa02d7",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "沪深两市成交额突破1万亿 较上一日此时缩量超600亿",
+        "source_url": "https://finance.eastmoney.com/a/202610263907799685.html",
+        "published_at": "2026-10-26 03:29:23+00:00",
+        "observed_at": "2026-10-26 03:31:05.907717+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "matched_keywords": [
+          "沪深"
+        ]
+      },
+      {
+        "id": "791c050d3ceab1d3654c0c68b9822a62cabc0d03125893c4957c40db211baea9",
+        "platform": "weibo",
+        "content_kind": "hot_topic",
+        "title": "A股指数重要调整",
+        "source_url": "https://s.weibo.com/weibo?q=%23A%E8%82%A1%E6%8C%87%E6%95%B0%E9%87%8D%E8%A6%81%E8%B0%83%E6%95%B4%23",
+        "published_at": null,
+        "observed_at": "2026-10-25 13:12:34.568834+00:00",
+        "first_seen_at": "2026-10-25 13:10:55.782284+00:00",
+        "matched_keywords": [
+          "A股"
+        ]
+      },
+      {
+        "id": "47e5afc3542d8aa8c590b9fab4ca3a77854a89637d1d21cbec85d630c229384c",
+        "platform": "weibo",
+        "content_kind": "hot_topic",
+        "title": "A股",
+        "source_url": "https://s.weibo.com/weibo?q=%23A%E8%82%A1%23",
+        "published_at": null,
+        "observed_at": "2026-10-26 03:31:00.866630+00:00",
+        "first_seen_at": "2026-10-26 03:31:00.866630+00:00",
+        "matched_keywords": [
+          "A股"
+        ]
+      }
+    ],
+    "analysis": []
+  },
+  "research": {
+    "provider": "tencent_public",
+    "latest_session": "2026-10-23 07:00:00+00:00",
+    "holdout_start": "2025-10-10 07:00:00+00:00",
+    "holdout": {
+      "ma_trend": {
+        "sessions": 252,
+        "total_return": -0.023964904609999893,
+        "max_drawdown": 0.026614804230547406,
+        "sharpe": -0.6114151858644048,
+        "annualized_return": -0.023964904609999893,
+        "fees": 1177.00461,
+        "fills": 218,
+        "turnover": 3.8639627,
+        "mean_exposure": 0.12052711949721201
+      },
+      "donchian": {
+        "sessions": 252,
+        "total_return": -0.042441230569999266,
+        "max_drawdown": 0.04499706209935039,
+        "sharpe": -1.159863148410574,
+        "annualized_return": -0.042441230569999266,
+        "fees": 967.03057,
+        "fills": 184,
+        "turnover": 2.5188238,
+        "mean_exposure": 0.10539147668014345
+      },
+      "ts_momentum": {
+        "sessions": 252,
+        "total_return": -0.02585067116999895,
+        "max_drawdown": 0.037895216989935254,
+        "sharpe": -0.5847468819458381,
+        "annualized_return": -0.02585067116999895,
+        "fees": 2018.77117,
+        "fills": 401,
+        "turnover": 5.4009219,
+        "mean_exposure": 0.16976924740105195
+      },
+      "volume_momentum": {
+        "sessions": 252,
+        "total_return": -0.012920121089999848,
+        "max_drawdown": 0.019790587563028317,
+        "sharpe": -0.4864512462756843,
+        "annualized_return": -0.012920121089999848,
+        "fees": 1469.92109,
+        "fills": 283,
+        "turnover": 7.7646032,
+        "mean_exposure": 0.08152592417261927
+      },
+      "ensemble": {
+        "sessions": 252,
+        "total_return": -0.026601783249999178,
+        "max_drawdown": 0.02746335426193891,
+        "sharpe": -0.7643049674239826,
+        "annualized_return": -0.026601783249999178,
+        "fees": 2162.38325,
+        "fills": 431,
+        "turnover": 4.453201,
+        "mean_exposure": 0.11888132868480686
+      },
+      "ensemble_sentiment": {
+        "sessions": 252,
+        "total_return": -0.026601783249999178,
+        "max_drawdown": 0.02746335426193891,
+        "sharpe": -0.7643049674239826,
+        "annualized_return": -0.026601783249999178,
+        "fees": 2162.38325,
+        "fills": 431,
+        "turnover": 4.453201,
+        "mean_exposure": 0.11888132868480686
+      },
+      "buy_hold": {
+        "sessions": 252,
+        "total_return": -0.028567504179999426,
+        "max_drawdown": 0.07276638355589515,
+        "sharpe": -0.46651104764071283,
+        "annualized_return": -0.028567504179999426,
+        "fees": 1845.30418,
+        "fills": 368,
+        "turnover": 2.2389384,
+        "mean_exposure": 0.24546685545096364
+      }
+    }
+  },
+  "equity": [
+    {
+      "timestamp": "2026-04-27 07:00:00+00:00",
+      "equity": 983952.6167500006
+    },
+    {
+      "timestamp": "2026-04-28 07:00:00+00:00",
+      "equity": 982718.1167500005
+    },
+    {
+      "timestamp": "2026-04-29 07:00:00+00:00",
+      "equity": 985070.2167500006
+    },
+    {
+      "timestamp": "2026-04-30 07:00:00+00:00",
+      "equity": 985703.4167500006
+    },
+    {
+      "timestamp": "2026-05-06 07:00:00+00:00",
+      "equity": 989613.7167500005
+    },
+    {
+      "timestamp": "2026-05-07 07:00:00+00:00",
+      "equity": 991653.2167500006
+    },
+    {
+      "timestamp": "2026-05-08 07:00:00+00:00",
+      "equity": 989809.1167500006
+    },
+    {
+      "timestamp": "2026-05-11 07:00:00+00:00",
+      "equity": 995372.3167500007
+    },
+    {
+      "timestamp": "2026-05-12 07:00:00+00:00",
+      "equity": 994810.7167500006
+    },
+    {
+      "timestamp": "2026-05-13 07:00:00+00:00",
+      "equity": 999436.1167500005
+    },
+    {
+      "timestamp": "2026-05-14 07:00:00+00:00",
+      "equity": 993070.2167500006
+    },
+    {
+      "timestamp": "2026-05-15 07:00:00+00:00",
+      "equity": 989890.8167500005
+    },
+    {
+      "timestamp": "2026-05-18 07:00:00+00:00",
+      "equity": 989191.0167500005
+    },
+    {
+      "timestamp": "2026-05-19 07:00:00+00:00",
+      "equity": 991394.1167500005
+    },
+    {
+      "timestamp": "2026-05-20 07:00:00+00:00",
+      "equity": 993117.3167500005
+    },
+    {
+      "timestamp": "2026-05-21 07:00:00+00:00",
+      "equity": 987837.1167500004
+    },
+    {
+      "timestamp": "2026-05-22 07:00:00+00:00",
+      "equity": 991676.5167500004
+    },
+    {
+      "timestamp": "2026-05-25 07:00:00+00:00",
+      "equity": 996974.3167500003
+    },
+    {
+      "timestamp": "2026-05-26 07:00:00+00:00",
+      "equity": 997104.7167500005
+    },
+    {
+      "timestamp": "2026-05-27 07:00:00+00:00",
+      "equity": 994638.0167500005
+    },
+    {
+      "timestamp": "2026-05-28 07:00:00+00:00",
+      "equity": 996346.3167500005
+    },
+    {
+      "timestamp": "2026-05-29 07:00:00+00:00",
+      "equity": 992555.9167500006
+    },
+    {
+      "timestamp": "2026-06-01 07:00:00+00:00",
+      "equity": 988628.5167500004
+    },
+    {
+      "timestamp": "2026-06-02 07:00:00+00:00",
+      "equity": 991585.2167500005
+    },
+    {
+      "timestamp": "2026-06-03 07:00:00+00:00",
+      "equity": 993624.0167500004
+    },
+    {
+      "timestamp": "2026-06-04 07:00:00+00:00",
+      "equity": 992767.6167500005
+    },
+    {
+      "timestamp": "2026-06-05 07:00:00+00:00",
+      "equity": 988442.6167500005
+    },
+    {
+      "timestamp": "2026-06-08 07:00:00+00:00",
+      "equity": 982892.6167500005
+    },
+    {
+      "timestamp": "2026-06-09 07:00:00+00:00",
+      "equity": 985666.6167500005
+    },
+    {
+      "timestamp": "2026-06-10 07:00:00+00:00",
+      "equity": 984402.4167500006
+    },
+    {
+      "timestamp": "2026-06-11 07:00:00+00:00",
+      "equity": 983843.6167500005
+    },
+    {
+      "timestamp": "2026-06-12 07:00:00+00:00",
+      "equity": 984481.4167500006
+    },
+    {
+      "timestamp": "2026-06-15 07:00:00+00:00",
+      "equity": 987418.1167500005
+    },
+    {
+      "timestamp": "2026-06-16 07:00:00+00:00",
+      "equity": 988090.8167500005
+    },
+    {
+      "timestamp": "2026-06-17 07:00:00+00:00",
+      "equity": 989998.9167500006
+    },
+    {
+      "timestamp": "2026-06-18 07:00:00+00:00",
+      "equity": 991953.6167500005
+    },
+    {
+      "timestamp": "2026-06-22 07:00:00+00:00",
+      "equity": 995192.4167500006
+    },
+    {
+      "timestamp": "2026-06-23 07:00:00+00:00",
+      "equity": 990442.8167500007
+    },
+    {
+      "timestamp": "2026-06-24 07:00:00+00:00",
+      "equity": 992915.5167500007
+    },
+    {
+      "timestamp": "2026-06-25 07:00:00+00:00",
+      "equity": 996238.8167500006
+    },
+    {
+      "timestamp": "2026-06-26 07:00:00+00:00",
+      "equity": 991568.9167500007
+    },
+    {
+      "timestamp": "2026-06-29 07:00:00+00:00",
+      "equity": 994157.1167500005
+    },
+    {
+      "timestamp": "2026-06-30 07:00:00+00:00",
+      "equity": 998281.9167500006
+    },
+    {
+      "timestamp": "2026-07-01 07:00:00+00:00",
+      "equity": 996703.6167500005
+    },
+    {
+      "timestamp": "2026-07-02 07:00:00+00:00",
+      "equity": 989676.1167500005
+    },
+    {
+      "timestamp": "2026-07-03 07:00:00+00:00",
+      "equity": 989749.3167500006
+    },
+    {
+      "timestamp": "2026-07-06 07:00:00+00:00",
+      "equity": 989227.4167500007
+    },
+    {
+      "timestamp": "2026-07-07 07:00:00+00:00",
+      "equity": 987910.1167500007
+    },
+    {
+      "timestamp": "2026-07-08 07:00:00+00:00",
+      "equity": 986934.8167500007
+    },
+    {
+      "timestamp": "2026-07-09 07:00:00+00:00",
+      "equity": 991142.7167500007
+    },
+    {
+      "timestamp": "2026-07-10 07:00:00+00:00",
+      "equity": 986788.8167500007
+    },
+    {
+      "timestamp": "2026-07-13 07:00:00+00:00",
+      "equity": 982075.2167500007
+    },
+    {
+      "timestamp": "2026-07-14 07:00:00+00:00",
+      "equity": 982813.8167500007
+    },
+    {
+      "timestamp": "2026-07-15 07:00:00+00:00",
+      "equity": 981029.6167500006
+    },
+    {
+      "timestamp": "2026-07-16 07:00:00+00:00",
+      "equity": 979359.5167500007
+    },
+    {
+      "timestamp": "2026-07-17 07:00:00+00:00",
+      "equity": 977012.2167500006
+    },
+    {
+      "timestamp": "2026-07-20 07:00:00+00:00",
+      "equity": 977543.5167500005
+    },
+    {
+      "timestamp": "2026-07-21 07:00:00+00:00",
+      "equity": 978064.6167500006
+    },
+    {
+      "timestamp": "2026-07-22 07:00:00+00:00",
+      "equity": 977856.5167500005
+    },
+    {
+      "timestamp": "2026-07-23 07:00:00+00:00",
+      "equity": 977619.4167500006
+    },
+    {
+      "timestamp": "2026-07-24 07:00:00+00:00",
+      "equity": 977348.2167500006
+    },
+    {
+      "timestamp": "2026-07-27 07:00:00+00:00",
+      "equity": 977443.8167500007
+    },
+    {
+      "timestamp": "2026-07-28 07:00:00+00:00",
+      "equity": 976922.6167500007
+    },
+    {
+      "timestamp": "2026-07-29 07:00:00+00:00",
+      "equity": 976914.4167500008
+    },
+    {
+      "timestamp": "2026-07-30 07:00:00+00:00",
+      "equity": 976664.0167500008
+    },
+    {
+      "timestamp": "2026-07-31 07:00:00+00:00",
+      "equity": 976852.4167500008
+    },
+    {
+      "timestamp": "2026-08-03 07:00:00+00:00",
+      "equity": 976705.2167500007
+    },
+    {
+      "timestamp": "2026-08-04 07:00:00+00:00",
+      "equity": 976817.2167500007
+    },
+    {
+      "timestamp": "2026-08-05 07:00:00+00:00",
+      "equity": 977022.1167500007
+    },
+    {
+      "timestamp": "2026-08-06 07:00:00+00:00",
+      "equity": 977030.4167500008
+    },
+    {
+      "timestamp": "2026-08-07 07:00:00+00:00",
+      "equity": 977141.8167500008
+    },
+    {
+      "timestamp": "2026-08-10 07:00:00+00:00",
+      "equity": 977141.0167500008
+    },
+    {
+      "timestamp": "2026-08-11 07:00:00+00:00",
+      "equity": 977034.2167500007
+    },
+    {
+      "timestamp": "2026-08-12 07:00:00+00:00",
+      "equity": 977121.2167500007
+    },
+    {
+      "timestamp": "2026-08-13 07:00:00+00:00",
+      "equity": 977058.4167500007
+    },
+    {
+      "timestamp": "2026-08-14 07:00:00+00:00",
+      "equity": 977076.4167500008
+    },
+    {
+      "timestamp": "2026-08-17 07:00:00+00:00",
+      "equity": 977463.9167500007
+    },
+    {
+      "timestamp": "2026-08-18 07:00:00+00:00",
+      "equity": 977380.7167500007
+    },
+    {
+      "timestamp": "2026-08-19 07:00:00+00:00",
+      "equity": 976508.5167500008
+    },
+    {
+      "timestamp": "2026-08-20 07:00:00+00:00",
+      "equity": 976540.0167500008
+    },
+    {
+      "timestamp": "2026-08-21 07:00:00+00:00",
+      "equity": 976575.7167500008
+    },
+    {
+      "timestamp": "2026-08-24 07:00:00+00:00",
+      "equity": 976324.6167500007
+    },
+    {
+      "timestamp": "2026-08-25 07:00:00+00:00",
+      "equity": 976252.7167500007
+    },
+    {
+      "timestamp": "2026-08-26 07:00:00+00:00",
+      "equity": 976316.3167500008
+    },
+    {
+      "timestamp": "2026-08-27 07:00:00+00:00",
+      "equity": 976595.8167500008
+    },
+    {
+      "timestamp": "2026-08-28 07:00:00+00:00",
+      "equity": 976375.9167500008
+    },
+    {
+      "timestamp": "2026-08-31 07:00:00+00:00",
+      "equity": 976486.5167500008
+    },
+    {
+      "timestamp": "2026-09-01 07:00:00+00:00",
+      "equity": 976213.9167500008
+    },
+    {
+      "timestamp": "2026-09-02 07:00:00+00:00",
+      "equity": 975708.2167500008
+    },
+    {
+      "timestamp": "2026-09-03 07:00:00+00:00",
+      "equity": 975777.4167500009
+    },
+    {
+      "timestamp": "2026-09-04 07:00:00+00:00",
+      "equity": 975651.1167500009
+    },
+    {
+      "timestamp": "2026-09-07 07:00:00+00:00",
+      "equity": 975837.6167500009
+    },
+    {
+      "timestamp": "2026-09-08 07:00:00+00:00",
+      "equity": 975752.6167500009
+    },
+    {
+      "timestamp": "2026-09-09 07:00:00+00:00",
+      "equity": 975731.3167500008
+    },
+    {
+      "timestamp": "2026-09-10 07:00:00+00:00",
+      "equity": 975693.2167500008
+    },
+    {
+      "timestamp": "2026-09-11 07:00:00+00:00",
+      "equity": 975604.7167500008
+    },
+    {
+      "timestamp": "2026-09-14 07:00:00+00:00",
+      "equity": 975457.0167500009
+    },
+    {
+      "timestamp": "2026-09-15 07:00:00+00:00",
+      "equity": 975395.4167500008
+    },
+    {
+      "timestamp": "2026-09-16 07:00:00+00:00",
+      "equity": 975717.6167500009
+    },
+    {
+      "timestamp": "2026-09-17 07:00:00+00:00",
+      "equity": 975620.0167500009
+    },
+    {
+      "timestamp": "2026-09-18 07:00:00+00:00",
+      "equity": 976031.2167500008
+    },
+    {
+      "timestamp": "2026-09-21 07:00:00+00:00",
+      "equity": 976178.0167500009
+    },
+    {
+      "timestamp": "2026-09-22 07:00:00+00:00",
+      "equity": 976025.3167500008
+    },
+    {
+      "timestamp": "2026-09-23 07:00:00+00:00",
+      "equity": 975806.0167500009
+    },
+    {
+      "timestamp": "2026-09-24 07:00:00+00:00",
+      "equity": 974970.2167500008
+    },
+    {
+      "timestamp": "2026-09-28 07:00:00+00:00",
+      "equity": 974056.0167500009
+    },
+    {
+      "timestamp": "2026-09-29 07:00:00+00:00",
+      "equity": 974008.2167500008
+    },
+    {
+      "timestamp": "2026-09-30 07:00:00+00:00",
+      "equity": 973897.0167500009
+    },
+    {
+      "timestamp": "2026-10-08 07:00:00+00:00",
+      "equity": 973710.4167500009
+    },
+    {
+      "timestamp": "2026-10-09 07:00:00+00:00",
+      "equity": 973720.0167500009
+    },
+    {
+      "timestamp": "2026-10-12 07:00:00+00:00",
+      "equity": 973636.0167500009
+    },
+    {
+      "timestamp": "2026-10-13 07:00:00+00:00",
+      "equity": 973638.4167500009
+    },
+    {
+      "timestamp": "2026-10-14 07:00:00+00:00",
+      "equity": 973520.8167500008
+    },
+    {
+      "timestamp": "2026-10-15 07:00:00+00:00",
+      "equity": 973398.2167500008
+    },
+    {
+      "timestamp": "2026-10-16 07:00:00+00:00",
+      "equity": 973398.2167500008
+    },
+    {
+      "timestamp": "2026-10-19 07:00:00+00:00",
+      "equity": 973398.2167500008
+    },
+    {
+      "timestamp": "2026-10-20 07:00:00+00:00",
+      "equity": 973398.2167500008
+    },
+    {
+      "timestamp": "2026-10-21 07:00:00+00:00",
+      "equity": 973398.2167500008
+    },
+    {
+      "timestamp": "2026-10-22 07:00:00+00:00",
+      "equity": 973398.2167500008
+    },
+    {
+      "timestamp": "2026-10-23 07:00:00+00:00",
+      "equity": 973398.2167500008
+    }
+  ],
+  "paper": {},
+  "configuration": {},
+  "bettafish": {
+    "status": {
+      "status": "private_data_not_published",
+      "comments": 0
+    },
+    "dashboard": {},
+    "collector": {}
+  }
+}

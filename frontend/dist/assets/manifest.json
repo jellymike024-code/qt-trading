@@ -1,0 +1,37 @@
+{
+  "vendor/three.module.js": {
+    "source": "https://unpkg.com/three@0.180.0/build/three.module.js",
+    "bytes": 603113,
+    "sha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a"
+  },
+  "vendor/three.core.js": {
+    "source": "https://unpkg.com/three@0.180.0/build/three.core.js",
+    "bytes": 1403455,
+    "sha256": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20"
+  },
+  "vendor/OrbitControls.js": {
+    "source": "https://unpkg.com/three@0.180.0/examples/jsm/controls/OrbitControls.js",
+    "bytes": 38703,
+    "sha256": "b97879c748170baadeb3fb84cea1ffdf4674e283dc06042f34e2acb95a76042c"
+  },
+  "vendor/THREE-LICENSE.txt": {
+    "source": "https://unpkg.com/three@0.180.0/LICENSE",
+    "bytes": 1081,
+    "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+  },
+  "assets/earth_day.jpg": {
+    "source": "https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg",
+    "bytes": 512606,
+    "sha256": "2faa400d1eade3bc44caf6750d1b772bd9bbb6d87362c02bc7c3304e78fa0a9d"
+  },
+  "assets/earth_night.png": {
+    "source": "https://threejs.org/examples/textures/planets/earth_lights_2048.png",
+    "bytes": 410160,
+    "sha256": "0564fa57f5fade2f65e56d3ad59b3c6bf5e32c44f60370a3e46fd367b0cabaee"
+  },
+  "assets/countries.geojson": {
+    "source": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson",
+    "bytes": 838726,
+    "sha256": "6866c877d39cba9c357620878839b336d569f8c662d3cfab4cb1dbe2d39c977f"
+  }
+}

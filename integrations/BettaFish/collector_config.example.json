@@ -1,0 +1,16 @@
+{
+  "platforms": ["wb", "xhs", "dy"],
+  "keywords": ["A股ETF", "沪深300ETF"],
+  "max_notes_per_keyword": 20,
+  "max_comments_per_note": 10,
+  "sleep_seconds": 5,
+  "max_concurrency": 1,
+  "platform_timeout_seconds": 900,
+  "login_timeout_seconds": 600,
+  "database_port": 55432,
+  "browser_path": null,
+  "automatic_platforms": [],
+  "analysis_mode": "scheduled_chat_agent_no_paid_api",
+  "xhs_sort": "time_descending",
+  "douyin_publish_time_days": 1
+}

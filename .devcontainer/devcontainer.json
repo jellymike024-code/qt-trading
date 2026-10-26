@@ -1,0 +1,12 @@
+{
+  "name": "Quant Orbit · research and collector",
+  "build": {"dockerfile": "Dockerfile", "context": ".."},
+  "remoteUser": "vscode",
+  "features": {"ghcr.io/devcontainers/features/node:1": {"version": "22"}},
+  "forwardPorts": [8765],
+  "portsAttributes": {"8765": {"label": "Quant Orbit (private)", "onAutoForward": "openPreview", "visibility": "private"}},
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "postStartCommand": "bash .devcontainer/start-dashboard.sh",
+  "containerEnv": {"TZ": "Asia/Shanghai", "QUANTLAB_PG_BIN": "/usr/lib/postgresql/15/bin"},
+  "hostRequirements": {"cpus": 2, "memory": "4gb"}
+}

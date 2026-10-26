@@ -1,0 +1,2 @@
+# Keep the frozen experiment's source bytes identical across platforms.
+* -text

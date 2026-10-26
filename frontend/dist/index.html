@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#030b17">
+  <meta name="description" content="全球市场量化研究监控台。WebGL三维地球，伦敦、纽约、首尔、上海市场交互。">
+  <title>观澜 ORBIT · 全球量化监控台</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='23' fill='%2307162c' stroke='%2337c7ff' stroke-width='4'/%3E%3Cellipse cx='32' cy='32' rx='30' ry='11' fill='none' stroke='%2337c7ff' stroke-width='3' transform='rotate(-30 32 32)'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/"}}</script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="观澜全球量化监控台首页"><span class="brand-orbit"><i></i></span><span>观澜<span class="brand-en">QUANT ORBIT</span></span></a>
+    <div class="masthead"><span class="header-wing left"></span><div><h1>全球市场量化监控平台</h1><p>GLOBAL MARKETS · SIGNALS · INTELLIGENCE</p></div><span class="header-wing right"></span></div>
+    <div class="header-right"><time id="header-clock"></time><span class="demo-badge"><i></i><span id="quote-badge">行情待采集</span></span></div>
+  </header>
+
+  <main class="workspace">
+    <aside class="left-rail" aria-label="舆情监控">
+      <section class="panel news-panel">
+        <div class="panel-heading"><h2><span class="heading-icon">◉</span> 舆情监控</h2><span id="news-count" class="small-count">LOCAL</span></div>
+        <div class="segmented news-tabs" role="group" aria-label="舆情类型"><button class="active" data-news-filter="all" aria-pressed="true">全部</button><button data-news-filter="market" aria-pressed="false">市场</button><button data-news-filter="policy" aria-pressed="false">政策</button><button data-news-filter="comments" aria-pressed="false">评论</button></div>
+        <a class="bettafish-status" id="bettafish-status" href="/collector.html" target="_blank" rel="noopener">BettaFish 采集端状态 ↗</a><div class="feed-label"><span class="live-dot"></span><span id="feed-subtitle">本地舆情快照</span><span class="feed-line"></span></div>
+        <div class="news-list" id="news-list"><p class="empty-state">正在读取本地舆情…</p></div>
+        <a class="panel-link" href="./research/social_dashboard.html" target="_blank" rel="noopener">查看舆情证据与采集覆盖 <span>↗</span></a>
+      </section>
+      <section class="panel sentiment-panel">
+        <div class="panel-heading"><h2>舆情证据分析</h2><div class="analysis-mode"><button data-analysis-mode="comments" class="active" aria-pressed="true">评论</button><button data-analysis-mode="topics" aria-pressed="false">主题</button></div></div>
+        <div class="sentiment-body"><div class="donut-wrap"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="donut-track" cx="60" cy="60" r="48"/><circle id="donut-arc" cx="60" cy="60" r="48"/></svg><div class="donut-center"><strong id="sentiment-total">—</strong><span id="sentiment-unit">已评分真实评论</span></div></div><div class="sentiment-legend"><div><span><i class="legend-dot positive"></i>偏正面</span><b id="sentiment-positive">—</b></div><div><span><i class="legend-dot neutral"></i>中性</span><b id="sentiment-neutral">—</b></div><div><span><i class="legend-dot negative"></i>偏负面</span><b id="sentiment-negative">—</b></div></div></div>
+        <div class="mini-wave" id="sentiment-wave"></div><p class="data-note" id="sentiment-note">未评分不计为中性 · 缺失比例留空</p>
+      </section>
+      <section class="panel keyword-panel"><div class="panel-heading"><h2>热点关键词</h2><span class="quiet-label">TOP 5</span></div><div id="keyword-list" class="keyword-list"></div><div class="source-health"><span class="live-dot"></span><span id="source-health">读取采集状态中</span></div></section>
+    </aside>
+
+    <section class="market-strip" id="market-strip" aria-label="四地代表指数，真实公开数据"></section>
+
+    <section class="globe-stage" aria-label="全球市场交互式三维地球">
+      <div class="globe-stage-grid"></div>
+      <div class="stage-topline"><div><span class="eyebrow">GLOBAL MARKET NETWORK</span><h2>连接全球，洞察市场</h2></div><span class="renderer-badge" id="renderer-badge"><i></i>WebGL 初始化</span></div>
+      <div id="globe-container" class="globe-container"><canvas id="globe-canvas" aria-label="可拖动缩放的WebGL地球，四个城市的快捷按钮位于下方"></canvas><div id="city-labels" class="city-labels"></div><div class="globe-loading" id="globe-loading"><span class="loading-orbit"></span><span>正在连接全球市场</span></div></div>
+      <div class="globe-hud hud-left"><span>市场节点</span><strong>04<span> / REGIONS</span></strong><div class="hud-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p>伦敦 · 纽约 · 首尔 · 上海</p></div>
+      <div class="coordinate-hud"><span>FOCUSED COORDINATES</span><b id="focus-coordinates">31.23° N / 121.47° E</b><span id="focus-timezone">UTC +08:00</span></div>
+      <div class="orbital-note" title="城市地理导航示意，弧线和粒子不代表真实资金流向"><span class="orbit-cross">+</span> 跨时区市场联动 <span class="orbit-cross">+</span></div>
+      <div class="globe-toolbar"><button id="rotation-toggle" class="tool-button" aria-pressed="true" title="暂停或恢复地球自转"><span id="rotation-icon">Ⅱ</span><span id="rotation-label">暂停自转</span></button><span class="toolbar-divider"></span><button id="reset-view" class="tool-button" title="恢复上海视角和默认缩放"><span>⌖</span>重置视角</button><span class="toolbar-divider"></span><button id="zoom-in" class="icon-button" aria-label="放大地球">＋</button><button id="zoom-out" class="icon-button" aria-label="缩小地球">−</button></div>
+      <div class="city-navigation" id="city-navigation" role="group" aria-label="选择市场地区"></div>
+      <div class="stage-footnote"><span><i class="mouse-symbol"></i> 拖动旋转 <span>·</span> 滚轮缩放 <span>·</span> 点击城市聚焦</span><span class="globe-status"><i></i><span id="globe-state">地球自动旋转中</span></span></div>
+    </section>
+
+    <aside class="panel region-panel" aria-label="所选地区的股票市场及板块信息">
+      <div class="panel-heading"><h2>区域市场洞察</h2><span class="quiet-label">MARKET INTELLIGENCE</span></div>
+      <div class="region-identity" aria-live="polite"><div class="region-monogram" id="region-monogram">SH</div><div><span class="eyebrow" id="region-country">CHINA · A-SHARES</span><h2 id="region-city">上海 <span>SHANGHAI</span></h2><p id="region-exchange">上海证券交易所 / 深圳证券交易所</p></div></div>
+      <div class="region-session"><span id="region-session-status">时段参考</span><time id="region-local-time"></time></div>
+      <div class="region-index"><div><span id="region-index-name">上证指数</span><small>公开数据</small></div><strong id="region-index-value">—</strong><span id="region-index-change">—</span></div>
+      <p id="region-data-source" class="data-source-note">真实行情待采集</p><p class="region-description" id="region-description"></p>
+      <div class="section-divider"><h3>板块观察样本</h3><span>样本等权均值 · 非行业指数</span></div>
+      <div class="sector-grid" id="sector-grid" role="group" aria-label="地区板块选择"></div>
+      <div class="section-divider stocks-heading"><h3 id="sector-stocks-title">半导体 · 观察样本</h3><span class="demo-small">公开来源</span></div>
+      <div class="stock-table-wrap"><table class="stock-table"><thead><tr><th>名称 / 代码</th><th>报价</th><th>涨跌幅</th></tr></thead><tbody id="sector-stocks"></tbody></table></div>
+      <div class="region-footer"><span class="legend-dot positive"></span>红涨绿跌<span class="region-footer-divider">|</span>数据缺失留空 · 悬停查看来源日期</div>
+    </aside>
+
+    <section class="bottom-deck">
+      <section class="panel strategy-panel"><div class="panel-heading"><h2>量化策略观察</h2><a href="./research/dashboard.html" target="_blank" rel="noopener" title="打开真实回测报告">研究报告 ↗</a></div><div class="strategy-meta"><span class="pill active">历史样本外</span><span id="strategy-date">读取研究快照中</span></div><table class="strategy-table"><thead><tr><th>策略名称</th><th>净收益</th><th>最大回撤</th><th>状态</th></tr></thead><tbody id="strategy-table"></tbody></table></section>
+      <section class="panel capital-panel"><div class="panel-heading"><h2>组合净值与风控</h2><span class="quiet-label" id="equity-mode">本地研究快照</span></div><div class="risk-stats"><div><span>模拟本金</span><strong id="configured-capital">—</strong></div><div><span>回撤预算</span><strong id="configured-drawdown">—</strong></div><div><span>当前组合目标</span><strong id="portfolio-exposure">—</strong></div></div><div id="equity-chart" class="equity-chart"></div><div class="chart-caption"><span id="equity-caption">历史样本外组合净值 · 等待数据</span><span>收益不作保证</span></div></section>
+    </section>
+  </main>
+  <footer class="app-footer"><span><i></i> ORBIT / RESEARCH TERMINAL</span><span id="data-timestamp">舆情与回测：本地快照　·　全球行情：真实公开数据</span><span>WEBGL 3D <b>·</b> LOCAL WORKSPACE</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

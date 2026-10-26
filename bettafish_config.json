@@ -1,0 +1,14 @@
+{
+  "integration_mode": "validated_export_adapter",
+  "input_directory": "integrations/BettaFish/inbox",
+  "lookback_hours": 24,
+  "max_comments_per_author": 3,
+  "annotation_min_confidence": 0.6,
+  "default_source_timezone": "Asia/Shanghai",
+  "city_aliases": {
+    "shanghai": ["A股", "沪深", "上证", "中证", "中国股市", "创业板", "科创板", "510300", "510500", "159915", "588000"],
+    "newyork": ["美股", "美国股市", "纳斯达克", "标普", "NYSE", "NASDAQ", "美联储"],
+    "london": ["伦敦", "英国股市", "富时", "FTSE", "英镑", "英国央行"],
+    "seoul": ["韩股", "韩国股市", "首尔", "KOSPI", "KOSDAQ", "三星电子", "海力士"]
+  }
+}

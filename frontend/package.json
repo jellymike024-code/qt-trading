@@ -1,0 +1,8 @@
+{
+  "name": "orbit-quant-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "python serve.py", "check": "node --check dist/js/app.js && node --check dist/js/globe.js && node --test tests/markets.test.js" },
+  "description": "Local WebGL global market dashboard with vendored Three.js 0.180.0"
+}

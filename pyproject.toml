@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "etf-quantlab"
+version = "0.1.0"
+description = "Local daily ETF research and forward paper signal lab"
+requires-python = ">=3.11"
+dependencies = ["pandas>=2.2,<3", "numpy>=2,<3", "requests>=2.32,<3"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.setuptools.packages.find]
+include = ["quantlab*"]

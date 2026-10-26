@@ -1,0 +1,7 @@
+{
+  "hotboards": ["weibo", "douyin", "xiaohongshu", "zhihu", "bilibili", "toutiao"],
+  "eastmoney_fast_news": true,
+  "max_source_age_hours": 6,
+  "lookback_hours": 24,
+  "keywords": ["A股", "股市", "股票", "ETF", "沪深", "中证", "创业板", "科创", "上证", "证监会", "央行", "降准", "降息", "加息", "美联储", "关税", "出口管制", "半导体", "英伟达", "证券", "基金", "人民币", "国常会"]
+}

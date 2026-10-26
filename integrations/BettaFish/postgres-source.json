@@ -1,0 +1,134 @@
+{
+  "source_url": "https://get.enterprisedb.com/postgresql/postgresql-17.11-5-windows-x64-binaries.zip",
+  "version": "17.11-5",
+  "method": "HTTPS byte ranges; ZIP CRC checked on extraction",
+  "parts": [
+    {
+      "start": 45165,
+      "end_exclusive": 2142317,
+      "sha256": "5284ff59fb3db1b9b1d3f81330cbf9eaea7edf6a81c593560cf2808d4e9f4161"
+    },
+    {
+      "start": 2142317,
+      "end_exclusive": 4239469,
+      "sha256": "7e8473b726ac3993245097a94a93b8760af9e7f8a0e5bd5106395ce53c75a41c"
+    },
+    {
+      "start": 4239469,
+      "end_exclusive": 6336621,
+      "sha256": "a85d3ccee4319cdf0321aea8be1acb6eaf95dc8e66960505ca0f4145db244214"
+    },
+    {
+      "start": 6336621,
+      "end_exclusive": 8433773,
+      "sha256": "d535ae26481c918df7b9aabb5da455f617afe59e1f2fdc357e0212a8f639dfa6"
+    },
+    {
+      "start": 8433773,
+      "end_exclusive": 10530925,
+      "sha256": "d3cab7c7c99d02e44f83175798e589363f44dd7c2daad1d3e6bf5c144cea4fe7"
+    },
+    {
+      "start": 10530925,
+      "end_exclusive": 12628077,
+      "sha256": "a3ae7fb70083e1aac6a84ae4e115653e97402d75da798a45f504b6121db0539a"
+    },
+    {
+      "start": 12628077,
+      "end_exclusive": 14725229,
+      "sha256": "2f4790a44fec7f4ee20f1e972b9c49099ed61fc9f53ec1018d3f173fd4dc3b20"
+    },
+    {
+      "start": 14725229,
+      "end_exclusive": 16822381,
+      "sha256": "ccf2001cf258f9ecc2caa128fddf6c6fb2a84cdd88d944633cc8f72687de5bca"
+    },
+    {
+      "start": 16822381,
+      "end_exclusive": 18919533,
+      "sha256": "e8ea7f190771fc441656c2a912185cd7a5e8d4697f763e854c387e66e3b19b68"
+    },
+    {
+      "start": 18919533,
+      "end_exclusive": 21016685,
+      "sha256": "ab0241ccbf383102ee002e9f08961dec1c19d4863d3883924931701dbaa2c58c"
+    },
+    {
+      "start": 21016685,
+      "end_exclusive": 23113837,
+      "sha256": "d60813b9e546fe6dfb27023fb4b83689b424461888e1d645142e21566858bee9"
+    },
+    {
+      "start": 23113837,
+      "end_exclusive": 25210989,
+      "sha256": "ad72cde3d5464aab94cf3f807c5da254e302a83e481a6cc19ced5859cde04fa2"
+    },
+    {
+      "start": 25210989,
+      "end_exclusive": 27308141,
+      "sha256": "3e29628ceafd3a59fbd1fc4068f39023f9e725d464e6c997bc80dd357cb16809"
+    },
+    {
+      "start": 27308141,
+      "end_exclusive": 29405293,
+      "sha256": "3d2a1a9c7b7c0fe9d06b601734c07a8cf5d635b06b59a53f1efe8e22700a3872"
+    },
+    {
+      "start": 29405293,
+      "end_exclusive": 31502445,
+      "sha256": "d3b5f1b1514ac53c77033cba5fd3d5048f8ff52978b8cb810fa39959d92dc742"
+    },
+    {
+      "start": 31502445,
+      "end_exclusive": 32486965,
+      "sha256": "2611f3784a4987478886a1dc469fe2713e2161e05cdafac52088bd6f930e0e57"
+    },
+    {
+      "start": 43742420,
+      "end_exclusive": 45839572,
+      "sha256": "87d366c746ae4e43a229512e441690454e8d2d89960805e1cd37ec60e19e0e30"
+    },
+    {
+      "start": 45839572,
+      "end_exclusive": 47936724,
+      "sha256": "b5fb7c6233e1593da26f6f46153ece43834e0a03bb52ca77b4239c7010b526f0"
+    },
+    {
+      "start": 47936724,
+      "end_exclusive": 50033876,
+      "sha256": "ce3d138b2578b432d8c2231509c345cd347485b50cee880777075d637c7fa3fe"
+    },
+    {
+      "start": 50033876,
+      "end_exclusive": 52131028,
+      "sha256": "566241a5f658f4f4188602464703b5d7ce8468318fff4a73a47237bde476cb55"
+    },
+    {
+      "start": 52131028,
+      "end_exclusive": 53899034,
+      "sha256": "648e5060a82d0c609353b853a1156d570d9119b3541dad9b1500fd6af1350bf0"
+    },
+    {
+      "start": 371091186,
+      "end_exclusive": 373188338,
+      "sha256": "1e3a9ac7ef7429761bda205d44cc535f8a586033866ddd41cd5aea4b21cdcc1b"
+    },
+    {
+      "start": 373188338,
+      "end_exclusive": 375285490,
+      "sha256": "1d26491388c4dcb37d055b1be7ede700e6b033a54c650f3126586feda6a03dec"
+    },
+    {
+      "start": 375285490,
+      "end_exclusive": 377382642,
+      "sha256": "d59254366e1bfdf0c0e482f3136708186076480f85220c43e3efb13cb36a0b3b"
+    },
+    {
+      "start": 377382642,
+      "end_exclusive": 378632560,
+      "sha256": "70c54098a8a0549a75c6856c964c89926a5396b3ef6ac38fe685ef557f3569a6"
+    }
+  ],
+  "files": 1591,
+  "extracted_to": "E:\\Qt_trading\\integrations\\BettaFish\\postgres"
+}

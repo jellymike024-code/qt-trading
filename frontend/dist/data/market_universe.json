@@ -1,0 +1,1010 @@
+{
+  "london": {
+    "id": "london",
+    "city": "伦敦",
+    "en": "LONDON",
+    "code": "LDN",
+    "country": "UNITED KINGDOM",
+    "label": "英国市场",
+    "lat": 51.5074,
+    "lon": -0.1278,
+    "timezone": "Europe/London",
+    "offset": "UTC +00:00 / +01:00",
+    "exchange": "伦敦证券交易所 · LSE",
+    "currency": "GBX",
+    "index": "富时100",
+    "indexEn": "FTSE 100",
+    "value": null,
+    "change": null,
+    "description": "公开数据按来源与交易日期展示；行业分组是人工维护的观察列表，板块数值为所列样本真实涨跌幅的等权均值，非官方行业指数。",
+    "color": "#50c8ff",
+    "session": [
+      8,
+      16.5
+    ],
+    "sectors": [
+      {
+        "name": "金融服务",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "汇丰控股",
+            "code": "HSBA.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "伦敦证交所集团",
+            "code": "LSEG.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "保诚集团",
+            "code": "PRU.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "能源",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "壳牌",
+            "code": "SHEL.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "英国石油",
+            "code": "BP.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "港湾能源",
+            "code": "HBR.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "基础资源",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "力拓",
+            "code": "RIO.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "嘉能可",
+            "code": "GLEN.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "英美资源",
+            "code": "AAL.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "医药健康",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "阿斯利康",
+            "code": "AZN.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "葛兰素史克",
+            "code": "GSK.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "史密斯及侄",
+            "code": "SN.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "必需消费",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "联合利华",
+            "code": "ULVR.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "帝亚吉欧",
+            "code": "DGE.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "英美烟草",
+            "code": "BATS.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "工业制造",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "罗尔斯罗伊斯",
+            "code": "RR.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "英国宇航系统",
+            "code": "BA.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "史密斯集团",
+            "code": "SMIN.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "公用事业",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "国家电网",
+            "code": "NG.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "南方苏格兰电力",
+            "code": "SSE.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "森特理克",
+            "code": "CNA.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "房地产",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "SEGRO",
+            "code": "SGRO.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "英国土地",
+            "code": "BLND.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "土地证券",
+            "code": "LAND.L",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      }
+    ],
+    "quote": null,
+    "indexSecid": "100.FTSE"
+  },
+  "newyork": {
+    "id": "newyork",
+    "city": "纽约",
+    "en": "NEW YORK",
+    "code": "NYC",
+    "country": "UNITED STATES",
+    "label": "美国市场",
+    "lat": 40.7128,
+    "lon": -74.006,
+    "timezone": "America/New_York",
+    "offset": "UTC −05:00 / −04:00",
+    "exchange": "纽约证券交易所 / 纳斯达克 · NYSE / NASDAQ",
+    "currency": "USD",
+    "index": "纳斯达克综合",
+    "indexEn": "NASDAQ COMPOSITE",
+    "value": null,
+    "change": null,
+    "description": "公开数据按来源与交易日期展示；行业分组是人工维护的观察列表，板块数值为所列样本真实涨跌幅的等权均值，非官方行业指数。",
+    "color": "#fd6984",
+    "session": [
+      9.5,
+      16
+    ],
+    "sectors": [
+      {
+        "name": "信息科技",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "英伟达",
+            "code": "NVDA",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "微软",
+            "code": "MSFT",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "苹果",
+            "code": "AAPL",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "通信服务",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "Meta",
+            "code": "META",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "谷歌A",
+            "code": "GOOGL",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "奈飞",
+            "code": "NFLX",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "可选消费",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "亚马逊",
+            "code": "AMZN",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "特斯拉",
+            "code": "TSLA",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "家得宝",
+            "code": "HD",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "金融",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "摩根大通",
+            "code": "JPM",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "美国银行",
+            "code": "BAC",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "高盛集团",
+            "code": "GS",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "医疗保健",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "礼来",
+            "code": "LLY",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "联合健康",
+            "code": "UNH",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "强生",
+            "code": "JNJ",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "能源",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "埃克森美孚",
+            "code": "XOM",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "雪佛龙",
+            "code": "CVX",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "康菲石油",
+            "code": "COP",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "工业",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "卡特彼勒",
+            "code": "CAT",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "通用电气航空",
+            "code": "GE",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "霍尼韦尔",
+            "code": "HON",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "公用事业",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "新纪元能源",
+            "code": "NEE",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "南方电力",
+            "code": "SO",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "杜克能源",
+            "code": "DUK",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      }
+    ],
+    "quote": null,
+    "indexSecid": null
+  },
+  "seoul": {
+    "id": "seoul",
+    "city": "首尔",
+    "en": "SEOUL",
+    "code": "SEL",
+    "country": "SOUTH KOREA",
+    "label": "韩国市场",
+    "lat": 37.5665,
+    "lon": 126.978,
+    "timezone": "Asia/Seoul",
+    "offset": "UTC +09:00",
+    "exchange": "韩国交易所 · KRX / KOSDAQ",
+    "currency": "KRW",
+    "index": "韩国综合",
+    "indexEn": "KOSPI",
+    "value": null,
+    "change": null,
+    "description": "公开数据按来源与交易日期展示；行业分组是人工维护的观察列表，板块数值为所列样本真实涨跌幅的等权均值，非官方行业指数。",
+    "color": "#70e0da",
+    "session": [
+      9,
+      15.5
+    ],
+    "sectors": [
+      {
+        "name": "半导体",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "三星电子",
+            "code": "005930",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "SK海力士",
+            "code": "000660",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "韩美半导体",
+            "code": "042700",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "动力电池",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "LG新能源",
+            "code": "373220",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "三星SDI",
+            "code": "006400",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "浦项Future M",
+            "code": "003670",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "汽车制造",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "现代汽车",
+            "code": "005380",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "起亚汽车",
+            "code": "000270",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "现代摩比斯",
+            "code": "012330",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "互联网",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "NAVER",
+            "code": "035420",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "Kakao",
+            "code": "035720",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "Krafton",
+            "code": "259960",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "生物医药",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "三星生物",
+            "code": "207940",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "赛尔群",
+            "code": "068270",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "柳韩洋行",
+            "code": "000100",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "金融",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "KB金融",
+            "code": "105560",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "新韩金融",
+            "code": "055550",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "韩亚金融",
+            "code": "086790",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "化学工业",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "LG化学",
+            "code": "051910",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "乐天化学",
+            "code": "011170",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "韩华解决方案",
+            "code": "009830",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "钢铁",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "浦项控股",
+            "code": "005490",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "现代制铁",
+            "code": "004020",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "东国制钢",
+            "code": "460860",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      }
+    ],
+    "quote": null,
+    "indexSecid": "100.KS11"
+  },
+  "shanghai": {
+    "id": "shanghai",
+    "city": "上海",
+    "en": "SHANGHAI",
+    "code": "SHA",
+    "country": "CHINA · A-SHARES",
+    "label": "中国A股",
+    "lat": 31.2304,
+    "lon": 121.4737,
+    "timezone": "Asia/Shanghai",
+    "offset": "UTC +08:00",
+    "exchange": "上海证券交易所 / 深圳证券交易所",
+    "currency": "CNY",
+    "index": "上证指数",
+    "indexEn": "SSE COMPOSITE",
+    "value": null,
+    "change": null,
+    "description": "公开数据按来源与交易日期展示；行业分组是人工维护的观察列表，板块数值为所列样本真实涨跌幅的等权均值，非官方行业指数。",
+    "color": "#4ecaff",
+    "session": [
+      9.5,
+      15
+    ],
+    "sectors": [
+      {
+        "name": "半导体",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "中芯国际",
+            "code": "688981",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "北方华创",
+            "code": "002371",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "韦尔股份",
+            "code": "603501",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "计算机",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "中科曙光",
+            "code": "603019",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "浪潮信息",
+            "code": "000977",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "金山办公",
+            "code": "688111",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "电力设备",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "宁德时代",
+            "code": "300750",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "阳光电源",
+            "code": "300274",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "国电南瑞",
+            "code": "600406",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "证券",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "中信证券",
+            "code": "600030",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "东方财富",
+            "code": "300059",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "华泰证券",
+            "code": "601688",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "医药生物",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "恒瑞医药",
+            "code": "600276",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "迈瑞医疗",
+            "code": "300760",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "药明康德",
+            "code": "603259",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "银行",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "招商银行",
+            "code": "600036",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "工商银行",
+            "code": "601398",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "建设银行",
+            "code": "601939",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "消费",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "贵州茅台",
+            "code": "600519",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "伊利股份",
+            "code": "600887",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "美的集团",
+            "code": "000333",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      },
+      {
+        "name": "通信",
+        "change": null,
+        "methodology": "watchlist_equal_weight",
+        "stocks": [
+          {
+            "name": "中际旭创",
+            "code": "300308",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "新易盛",
+            "code": "300502",
+            "price": null,
+            "change": null,
+            "quote": null
+          },
+          {
+            "name": "中国移动",
+            "code": "600941",
+            "price": null,
+            "change": null,
+            "quote": null
+          }
+        ]
+      }
+    ],
+    "quote": null,
+    "indexSecid": "1.000001"
+  }
+}
