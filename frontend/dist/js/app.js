@@ -1,8 +1,9 @@
 import { MarketGlobe } from './globe.js';
+import { mountLiveUI, renderLiveEvidence } from './live-ui.js';
 import { MARKETS, CITY_ORDER, STRIP_ORDER, getMarket, getSector, signed, number, localTime, sessionReference } from './markets.js';
 
 const $ = selector => document.querySelector(selector);
-const state = { city: 'shanghai', sector: MARKETS.shanghai.sectors[0].name, context: null, newsFilter: 'all', analysisMode:'comments', rotating: true };
+const state = { city: 'shanghai', sector: MARKETS.shanghai.sectors[0].name, context: null, newsFilter: 'all', analysisMode:'topics', rotating: true };
 let globe, toastTimer;
 const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const safeUrl = value => { try { const url = new URL(value, location.origin); return ['http:', 'https:'].includes(url.protocol) ? url.href : '#'; } catch { return '#'; } };
@@ -67,6 +68,7 @@ function renderSectors() {
   $('#sector-stocks-title').textContent=`${sector.name} · 观察样本`;
   $('#sector-stocks').innerHTML=sector.stocks.map(stock=>`<tr title="${escapeHtml(stock.quote?`${stock.quote.source} · ${stock.quote.quote_time||stock.quote.session_date} · ${stock.quote.currency||market.currency} · ${stock.quote.session_note||'可能延迟'}`:'真实行情缺失')}"><td>${stock.name}<small>${stock.code}${stock.quote?' · '+escapeHtml(stock.quote.session_date):' · 缺失'}</small></td><td>${number(stock.price,market.currency==='KRW'?0:2)}</td><td class="${numberClass(stock.change)}">${signed(stock.change)}</td></tr>`).join('');
   $('#sector-stocks').closest('table').setAttribute('aria-label',`${market.city}${sector.name}观察样本，仅展示有来源的真实报价`);
+  if(state.city==='shanghai')$('#sector-stocks').querySelectorAll('tr').forEach((row,i)=>{const stock=sector.stocks[i];row.tabIndex=0;const choose=()=>state.selectBook?.((stock.code.startsWith('6')?'sh':'sz')+stock.code);row.addEventListener('click',choose);row.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();choose();}});});
 }
 
 function selectCity(id,{notify=true}={}) {
@@ -99,7 +101,7 @@ function category(item){return /证监会|央行|政策|注册|国常会|降息|
 function renderNews() {
   const publicSnapshot=state.context?.publication?.mode==='public_snapshot';
   const comments=state.context?.bettafish?.dashboard?.regions?.[state.city];
-  const items=[...(state.context?.social?.items||[]),...(comments?.items||[]).filter(item=>item.traceable)];
+  const items=[...(state.context?.social?.items||[]).filter(item=>!item.cities||item.cities.includes(state.city)),...(comments?.items||[]).filter(item=>item.traceable)];
   const filtered=(state.newsFilter==='all'?items:state.newsFilter==='comments'?items.filter(item=>item.content_kind==='comment'):items.filter(item=>category(item)===state.newsFilter)).sort((a,b)=>(Date.parse(b.published_at||b.first_seen_at||b.observed_at)||0)-(Date.parse(a.published_at||a.first_seen_at||a.observed_at)||0));
   $('#news-count').textContent=`${items.length} 条`;
   const platformNames={weibo:'微博',douyin:'抖音',xiaohongshu:'小红书',eastmoney_news:'东方财富',guba:'股吧',bilibili:'B站',tieba:'贴吧',zhihu:'知乎',kuaishou:'快手',toutiao:'今日头条'};
@@ -130,6 +132,7 @@ function renderNews() {
   $('#sentiment-wave').textContent=isComments?`原始 ${comments?.comments||0} · 去重 ${comments?.deduplicated_sample||0} · 已评分 ${comments?.scored_sample||0}`:'主题判断为模型解释，不是投资者支持率';
   $('#sentiment-note').textContent=isComments?'未评分不计为中性 · 缺失比例留空':'新闻事实与模型判断分开 · 非涨跌概率';
   if(publicSnapshot)$('#sentiment-note').textContent='原始评论及模拟账户未公开 · 未展示不表示没有采集';
+  if(status?.analysis_method==='transparent_keyword_rules_v1')renderLiveEvidence(state,filtered);
 }
 
 function renderResearch() {
@@ -155,7 +158,7 @@ async function loadContext() {
     state.context=await response.json();
     const timestamp=state.context?.social?.status?.at;
     $('#data-timestamp').textContent=`舆情快照 ${timestamp?new Date(timestamp).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false}):'未采集'}　·　行情均为有来源的公开数据`;
-  } catch(error) {console.warn('Local context is unavailable',error);state.context=null;$('#data-timestamp').textContent='本地接口不可用 · 所有缺失数值留空';}
+  } catch(error) {console.warn('Context snapshot is unavailable',error);state.context??={};$('#data-timestamp').textContent='研究快照不可用 · 正在连接公开行情';}
   applyQuotes(state.context?.markets);renderMarketStrip();renderRegion();renderNews();renderResearch();
   const available=Object.values(MARKETS).filter(m=>Number.isFinite(m.value)).length;
   $('#quote-badge').textContent=available===4?'公开行情 · 可能延迟':`行情覆盖 ${available}/4`;
@@ -173,9 +176,9 @@ globe=new MarketGlobe({canvas:$('#globe-canvas'),container:$('#globe-container')
   onError:error=>{$('#globe-loading').innerHTML=`<div class="webgl-error"><strong>WebGL 地球暂不可用</strong>请使用支持WebGL 2的浏览器并开启图形加速。<br>四个地区的市场快捷按钮仍可正常使用。<br><small>${escapeHtml(error.message)}</small></div>`;$('#renderer-badge').textContent='WebGL 不可用';for(const id of ['rotation-toggle','zoom-in','zoom-out'])$("#"+id).disabled=true;},
 });
 const hash=location.hash.slice(1);if(MARKETS[hash])selectCity(hash,{notify:false});
-loadContext();setInterval(updateClocks,1000);const refresh=setInterval(loadContext,60000);
-document.addEventListener('visibilitychange',()=>{if(!document.hidden)loadContext();});
-window.addEventListener('pagehide',()=>{clearInterval(refresh);globe?.dispose();});
+const clockTimer=setInterval(updateClocks,1000);
+loadContext().then(()=>mountLiveUI(state,{quotes:()=>{applyQuotes(state.context.markets);renderMarketStrip();renderRegion();},social:renderNews}));
+window.addEventListener('pagehide',()=>{clearInterval(clockTimer);globe?.dispose();});
 
 // Deliberately small inspection surface: no trading or account mutations.
 window.orbitDashboard=Object.freeze({selectCity:id=>selectCity(id),getState:()=>({city:state.city,sector:state.sector,rotating:state.rotating,hasLocalSnapshot:Boolean(state.context),quoteMode:'real_sources_only'}),renderer:()=>globe?.renderer?.getContext()?.getParameter(globe.renderer.getContext().VERSION)||null});

@@ -22,12 +22,12 @@
       <section class="panel news-panel">
         <div class="panel-heading"><h2><span class="heading-icon">◉</span> 舆情监控</h2><span id="news-count" class="small-count">LOCAL</span></div>
         <div class="segmented news-tabs" role="group" aria-label="舆情类型"><button class="active" data-news-filter="all" aria-pressed="true">全部</button><button data-news-filter="market" aria-pressed="false">市场</button><button data-news-filter="policy" aria-pressed="false">政策</button><button data-news-filter="comments" aria-pressed="false">评论</button></div>
-        <a class="bettafish-status" id="bettafish-status" href="/collector.html" target="_blank" rel="noopener">BettaFish 采集端状态 ↗</a><div class="feed-label"><span class="live-dot"></span><span id="feed-subtitle">本地舆情快照</span><span class="feed-line"></span></div>
+        <a class="bettafish-status" id="bettafish-status" href="./research/social_dashboard.html" target="_blank" rel="noopener">公开舆情证据与采集覆盖 ↗</a><div class="feed-label"><span class="live-dot"></span><span id="feed-subtitle">正在启动自动采集</span><span class="feed-line"></span></div>
         <div class="news-list" id="news-list"><p class="empty-state">正在读取本地舆情…</p></div>
         <a class="panel-link" href="./research/social_dashboard.html" target="_blank" rel="noopener">查看舆情证据与采集覆盖 <span>↗</span></a>
       </section>
       <section class="panel sentiment-panel">
-        <div class="panel-heading"><h2>舆情证据分析</h2><div class="analysis-mode"><button data-analysis-mode="comments" class="active" aria-pressed="true">评论</button><button data-analysis-mode="topics" aria-pressed="false">主题</button></div></div>
+        <div class="panel-heading"><h2>舆情证据分析</h2><div class="analysis-mode"><button data-analysis-mode="comments" aria-pressed="false">评论</button><button data-analysis-mode="topics" class="active" aria-pressed="true">证据</button></div></div>
         <div class="sentiment-body"><div class="donut-wrap"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="donut-track" cx="60" cy="60" r="48"/><circle id="donut-arc" cx="60" cy="60" r="48"/></svg><div class="donut-center"><strong id="sentiment-total">—</strong><span id="sentiment-unit">已评分真实评论</span></div></div><div class="sentiment-legend"><div><span><i class="legend-dot positive"></i>偏正面</span><b id="sentiment-positive">—</b></div><div><span><i class="legend-dot neutral"></i>中性</span><b id="sentiment-neutral">—</b></div><div><span><i class="legend-dot negative"></i>偏负面</span><b id="sentiment-negative">—</b></div></div></div>
         <div class="mini-wave" id="sentiment-wave"></div><p class="data-note" id="sentiment-note">未评分不计为中性 · 缺失比例留空</p>
       </section>
@@ -58,7 +58,14 @@
       <div class="sector-grid" id="sector-grid" role="group" aria-label="地区板块选择"></div>
       <div class="section-divider stocks-heading"><h3 id="sector-stocks-title">半导体 · 观察样本</h3><span class="demo-small">公开来源</span></div>
       <div class="stock-table-wrap"><table class="stock-table"><thead><tr><th>名称 / 代码</th><th>报价</th><th>涨跌幅</th></tr></thead><tbody id="sector-stocks"></tbody></table></div>
-      <div class="region-footer"><span class="legend-dot positive"></span>红涨绿跌<span class="region-footer-divider">|</span>数据缺失留空 · 悬停查看来源日期</div>
+      <section class="orderbook-panel" aria-label="A股五档买卖盘口">
+        <div class="section-divider"><h3>A股五档盘口</h3><span>公开 Level 1 · 非逐笔/L2</span></div>
+        <label class="book-select-label">观察标的 <select id="book-symbol" aria-label="选择A股或ETF盘口"></select></label>
+        <div class="book-quote"><strong id="book-price">—</strong><span id="book-change">—</span><small id="book-name">沪深300ETF</small></div>
+        <div class="book-table-wrap"><table class="book-table"><thead><tr><th>档位</th><th>价格 / 元</th><th>数量 / 手</th></tr></thead><tbody id="book-levels"></tbody></table></div>
+        <p class="data-note" id="book-source">正在连接真实五档报价…</p><p class="data-note" id="book-freshness">每5秒请求；源行情时间与请求时间分别显示</p>
+      </section>
+      <div class="region-footer"><span class="legend-dot positive"></span>红涨绿跌<span class="region-footer-divider">|</span>点击A股样本切换盘口 · 缺失留空</div>
     </aside>
 
     <section class="bottom-deck">
@@ -66,8 +73,8 @@
       <section class="panel capital-panel"><div class="panel-heading"><h2>组合净值与风控</h2><span class="quiet-label" id="equity-mode">本地研究快照</span></div><div class="risk-stats"><div><span>模拟本金</span><strong id="configured-capital">—</strong></div><div><span>回撤预算</span><strong id="configured-drawdown">—</strong></div><div><span>当前组合目标</span><strong id="portfolio-exposure">—</strong></div></div><div id="equity-chart" class="equity-chart"></div><div class="chart-caption"><span id="equity-caption">历史样本外组合净值 · 等待数据</span><span>收益不作保证</span></div></section>
     </section>
   </main>
-  <footer class="app-footer"><span><i></i> ORBIT / RESEARCH TERMINAL</span><span id="data-timestamp">舆情与回测：本地快照　·　全球行情：真实公开数据</span><span>WEBGL 3D <b>·</b> LOCAL WORKSPACE</span></footer>
+  <footer class="app-footer"><span><i></i> ORBIT / LIVE PUBLIC FEEDS</span><span id="data-timestamp">正在启动公开数据自动更新</span><button id="live-toggle" class="live-toggle" aria-pressed="true">暂停自动更新</button></footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="./js/app.js"></script>
+  <script type="module" src="./js/app.js?v=20261026-live"></script>
 </body>
 </html>
