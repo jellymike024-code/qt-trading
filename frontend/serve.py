@@ -6,12 +6,15 @@ import csv
 from datetime import datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
+import sys
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 BASE = Path(__file__).resolve().parent
 WORKSPACE = BASE.parent
 DIST = BASE / "dist"
+if str(WORKSPACE) not in sys.path:
+    sys.path.insert(0, str(WORKSPACE))
 
 
 def read_json(relative, default):
@@ -35,10 +38,15 @@ def context():
         curve = [{"timestamp": row["timestamp"], "equity": float(row["equity"])} for row in rows[-120:]]
     except (OSError, KeyError, ValueError):
         pass
+    # Keep private research output intact; expose the public-title daily view separately.
+    from deploy.public_site import public_agent_analysis
+    clock = datetime.now(timezone.utc)
+    social = {"status": status, "items": candidates.get("items", []),
+              "analysis": [r for r in analysis.get("items", []) if r.get('record_id') in candidate_ids]}
+    social["agent_analysis"] = public_agent_analysis(social, clock)
     return {
-        "served_at": datetime.now(timezone.utc).isoformat(), "quote_mode": "real_sources_only",
-        "social": {"status": status, "items": candidates.get("items", []),
-                   "analysis": [r for r in analysis.get("items", []) if r.get('record_id') in candidate_ids]},
+        "served_at": clock.isoformat(), "quote_mode": "real_sources_only",
+        "social": social,
         "research": {key: summary.get(key) for key in ("provider", "latest_session", "holdout_start", "holdout")},
         "paper": {key: paper.get(key) for key in ("status", "started_at", "expires_at", "signals", "metrics")},
         "equity": curve, "markets": read_json("data/markets/latest.json", {}),

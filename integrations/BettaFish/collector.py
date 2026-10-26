@@ -282,7 +282,7 @@ def _crawl(platforms=None, headless=False, notes=None, smoke=False):
                     status=read(STATUS,status);status['database_export']=totals;write(STATUS,status)
             status=read(STATUS,status);row=status['platforms'].setdefault(platform,{})
             row.update(return_code=code,finished_at=now())
-            if code:row['status']='source_unavailable' if row.get('status')=='source_unavailable' else 'login_required' if row.get('status') in ('awaiting_login','manual_verification','login_required') else 'error'
+            if code:row['status']=row['status'] if row.get('status') in ('source_unavailable','browser_startup_crash') else 'login_required' if row.get('status') in ('awaiting_login','manual_verification','login_required') else 'error'
             else:
                 row['status']='completed'
         except subprocess.TimeoutExpired:

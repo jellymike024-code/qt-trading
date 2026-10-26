@@ -1,5 +1,5 @@
 import { MarketGlobe } from './globe.js';
-import { mountLiveUI, renderLiveEvidence } from './live-ui.js?v=20261026-relay1';
+import { mountLiveUI, renderLiveEvidence } from './live-ui.js?v=20261026-reliable2';
 import { MARKETS, CITY_ORDER, STRIP_ORDER, getMarket, getSector, signed, number, localTime, sessionReference } from './markets.js';
 
 const $ = selector => document.querySelector(selector);
@@ -132,7 +132,7 @@ function renderNews() {
   $('#sentiment-wave').textContent=isComments?`原始 ${comments?.comments||0} · 去重 ${comments?.deduplicated_sample||0} · 已评分 ${comments?.scored_sample||0}`:'主题判断为模型解释，不是投资者支持率';
   $('#sentiment-note').textContent=isComments?'未评分不计为中性 · 缺失比例留空':'新闻事实与模型判断分开 · 非涨跌概率';
   if(publicSnapshot)$('#sentiment-note').textContent='原始评论及模拟账户未公开 · 未展示不表示没有采集';
-  if(status?.analysis_method==='transparent_keyword_rules_v1')renderLiveEvidence(state,filtered);
+  if(status?.analysis_method==='transparent_keyword_rules_v1'||state.context?.social?.agent_analysis?.length||analysis.some(row=>row.method==='daily_research_agent'))renderLiveEvidence(state,filtered);
 }
 
 function renderResearch() {

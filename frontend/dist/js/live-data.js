@@ -23,6 +23,7 @@ export function parseTencent(text,allowed,observed=nowIso()){
   const result={};const allow=new Set(allowed);
   for(const match of text.matchAll(/v_([^=\s]+)="([^"]*)";/g)){
     const key=match[1],fields=match[2].split('~');if(!allow.has(key)||fields.length<33)continue;
+    if(/^(sh|sz)\d{6}$/.test(key)&&fields[2]!==key.slice(2))continue;
     const price=finite(fields[3]),previous=finite(fields[4]),change=finite(fields[32]);
     if(!(price>0&&previous>0)||change===null||Math.abs((price/previous-1)*100-change)>.08)continue;
     let time;try{time=tencentTime(fields[30],key);}catch{continue;}
@@ -76,6 +77,32 @@ export function analyzeEvidence(item,analyzedAt=nowIso()){
     positive_hits:positiveHits,negative_hits:negativeHits,analyzed_at:analyzedAt,evidence_urls:[item.source_url],
     reason:`${type}。${[...positiveHits,...negativeHits].length?'命中：'+[...positiveHits,...negativeHits].join('、')+'。':'未命中明确方向词。'}${caveat?'存在传闻、否认或不确定表述。':''}仅供核查，不代表ETF方向、投资者占比或交易信号。`};
 }
+// Daily Agent interpretations arrive in the public snapshot. Polling a source
+// never calls a model and must not renew the interpretation's original clock.
+function publicLink(value){try{const url=new URL(value);return url.protocol==='https:'&&!url.username&&!url.password?url.href:null;}catch{return null;}}
+export function dailyEvidenceFor(item,analysis=[],observed=nowIso()){
+  if(!item||typeof item.title!=='string')return {status:'pending',analysis:null};
+  const now=Date.parse(observed);let expired=null;
+  for(const row of (Array.isArray(analysis)?analysis:[]).filter(row=>row&&typeof row==='object').sort((a,b)=>Date.parse(b.analyzed_at)-Date.parse(a.analyzed_at))){
+    if(row?.method!=='daily_research_agent'||typeof row.reason!=='string'||!row.reason.trim())continue;
+    const source=publicLink(row.source_url),sameSource=source&&source===publicLink(item.source_url);
+    if(row.record_id!==item.id&&!(sameSource&&row.source_title&&topicKey(row.source_title)===topicKey(item.title)))continue;
+    const at=Date.parse(row.analyzed_at),anchor=Date.parse(row.published_at||row.first_seen_at||row.analyzed_at);
+    if(!Number.isFinite(now)||!Number.isFinite(at)||!Number.isFinite(anchor)||at>now+60000||anchor>now+60000||at<anchor)continue;
+    const supplied=Date.parse(row.expires_at),expires=Math.min(anchor+86400000,at+86400000,Number.isFinite(supplied)?supplied:Infinity);
+    const evidence={...row,reason:row.reason.trim(),analyzed_at:new Date(at).toISOString(),expires_at:new Date(expires).toISOString(),
+      evidence_urls:[...new Set((Array.isArray(row.evidence_urls)?row.evidence_urls:[]).map(publicLink).filter(Boolean))]};
+    if(expires>now)return {status:'current',analysis:evidence};
+    expired??=evidence;
+  }
+  return expired?{status:'expired',analysis:expired}:{status:'pending',analysis:null};
+}
+export function agentCoverage(items,analysis=[],observed=nowIso()){
+  const states=items.map(item=>dailyEvidenceFor(item,analysis,observed));
+  const current=states.filter(row=>row.status==='current');
+  return {reviewed:current.length,pending:states.length-current.length,expired:states.filter(row=>row.status==='expired').length,
+    last_analyzed_at:current.map(row=>row.analysis.analyzed_at).sort().at(-1)||null};
+}
 export function deriveSocial(recordsBySource,statusBySource,firstSeen=new Map(),observed=nowIso()){
   const items=[],activeIds=new Set();
   for(const rows of recordsBySource.values())for(const row of rows){
@@ -91,7 +118,7 @@ export function deriveSocial(recordsBySource,statusBySource,firstSeen=new Map(),
   for(const [id,time] of firstSeen)if(!activeIds.has(id)&&Date.parse(observed)-Date.parse(time)>2*86400000)firstSeen.delete(id);
   items.sort((a,b)=>Date.parse(b.published_at||b.first_seen_at)-Date.parse(a.published_at||a.first_seen_at));
   const groups=new Map();for(const item of items)if(!groups.has(item.topic_hash))groups.set(item.topic_hash,item);
-  const sources=Object.fromEntries([...statusBySource].map(([key,row])=>[key,{...row,status:row.at&&Date.parse(observed)-Date.parse(row.at)>6*3600000?'stale':row.status}]));
+  const sources=Object.fromEntries([...statusBySource].map(([key,row])=>[key,{...row,status:(row.last_success_at||row.at)&&Date.parse(observed)-Date.parse(row.last_success_at||row.at)>6*3600000?'stale':row.status}]));
   const rows=items.slice(0,100);return {status:{at:observed,status:Object.values(sources).every(s=>s.status==='ok')?'ok':'partial',sources,financial_candidates:rows.length,actual_comment_texts:0,
     analysis_method:'transparent_keyword_rules_v1',analysis_is_llm:false},items:rows,analysis:[...groups.values()].slice(0,100).map(row=>analyzeEvidence(row,observed))};
 }
@@ -108,28 +135,51 @@ export function mergeQuotes(context,quotes,mappings){
 export function recalculateSectors(context,universe){
   for(const [city,market] of Object.entries(universe)){
     const region=context.markets?.regions?.[city];if(!region)continue;region.sectors??={};
-    for(const sector of market.sectors){const rows=sector.stocks.map(s=>region.stocks?.[s.code]).filter(Boolean),dates=new Set(rows.map(r=>r.session_date));
+    for(const sector of market.sectors){const rows=sector.stocks.map(s=>region.stocks?.[s.code]).filter(row=>Number.isFinite(row?.change_pct)&&typeof row.session_date==='string'),dates=new Set(rows.map(r=>r.session_date));
       region.sectors[sector.name]={coverage:rows.length,session_date:dates.size===1?rows[0].session_date:null,change_pct:rows.length===sector.stocks.length&&dates.size===1?rows.reduce((n,r)=>n+r.change_pct,0)/rows.length:null};}
   }
 }
 
 export class LiveFeed {
   constructor({universe,onQuotes=()=>{},onSocial=()=>{},onStatus=()=>{},fetchImpl=globalThis.fetch,
-    relayBase=globalThis.document?.documentElement?.dataset.liveRelay||'',scheduler={setTimeout:(fn,delay)=>setTimeout(fn,delay),clearTimeout:id=>clearTimeout(id)},visible=()=>!globalThis.document?.hidden}){
+    relayBase=globalThis.document?.documentElement?.dataset.liveRelay||'',snapshotUrl='',scheduler={setTimeout:(fn,delay)=>setTimeout(fn,delay),clearTimeout:id=>clearTimeout(id)},visible=()=>!globalThis.document?.hidden}){
     this.universe=universe;this.onQuotes=onQuotes;this.onSocial=onSocial;this.onStatus=onStatus;this.fetchImpl=fetchImpl;this.scheduler=scheduler;this.visible=visible;
     this.timers=new Map();this.pending=new Map();this.failures=new Map();this.records=new Map();this.statuses=new Map();this.firstSeen=new Map();this.controllers=new Set();this.enabled=false;
+    this.generation=0;this.quoteRefreshRequested=false;this.agentAnalysis=[];this.agentItems=[];this.snapshotUrl=snapshotUrl;this.agentSnapshotStatus='snapshot';
+    this.intervals={...LIVE_INTERVALS,...(snapshotUrl?{agent:60000}:{})};
     this.mappings={'sh000001':['shanghai',null],'us.IXIC':['newyork',null]};
     for(const city of ['shanghai','newyork'])for(const sector of universe[city].sectors)for(const stock of sector.stocks){const key=city==='shanghai'?(stock.code.startsWith('6')?'sh':'sz')+stock.code:'us'+stock.code;this.mappings[key]=[city,stock.code];}
-    this.symbol='sh510300';
-    this.relayBase=relayBase;this.diagnostics=new Map();
+    this.symbol='sh510300';this.relayBase=relayBase;this.diagnostics=new Map();
   }
-  async request(url,json=true,gbk=false){
+  active(generation){return this.enabled&&this.visible()&&generation===this.generation;}
+  social(){
+    const records=new Map(this.records),existing=new Set([...records.values()].flat().map(row=>row.source_url+'|'+topicKey(row.title)));
+    const retained=this.agentItems.filter(item=>!existing.has(item.source_url+'|'+topicKey(item.title))&&dailyEvidenceFor(item,this.agentAnalysis).status==='current');
+    if(retained.length)records.set('daily_agent_snapshot',retained);
+    const social=deriveSocial(records,this.statuses,this.firstSeen);return {...social,agent_analysis:this.agentAnalysis,
+      agent_status:{...agentCoverage(social.items,this.agentAnalysis),method:'daily_research_agent',snapshot_status:this.agentSnapshotStatus,continuous_model_calls:false}};
+  }
+  async snapshot(generation=this.generation){
+    try{
+      const payload=await this.request(this.snapshotUrl,true,false,generation,true);
+      if(!this.active(generation))return;
+      const social=payload?.social;
+      if(!social||!Array.isArray(social.agent_analysis||social.analysis))throw Error('每日Agent摘要快照格式异常');
+      this.agentAnalysis=(social.agent_analysis||social.analysis).filter(row=>row?.method==='daily_research_agent');
+      this.agentItems=(social.items||[]).filter(row=>['hot_topic','news_headline'].includes(row.content_kind));
+      this.agentSnapshotStatus='ok';this.onSocial(this.social());
+    }catch(error){
+      if(!this.active(generation))return;
+      this.agentSnapshotStatus='error';this.onSocial(this.social());throw error;
+    }
+  }
+  async request(url,json=true,gbk=false,generation=this.generation,direct=false){
     const controller=new AbortController(),timeout=this.scheduler.setTimeout(()=>controller.abort(),10000);
     this.controllers.add(controller);
-    const previous=this.diagnostics.get(url)||{},attempted=nowIso();let transport=this.relayBase?'server_relay':'browser_direct';
+    const useRelay=Boolean(this.relayBase&&!direct),previous=this.diagnostics.get(url)||{},attempted=nowIso(),transport=useRelay?'server_relay':direct?'daily_snapshot':'browser_direct';
     try{
       let target=url;
-      if(this.relayBase){const upstream=new URL(url),relay=new URL('/api/relay',this.relayBase);
+      if(useRelay){const upstream=new URL(url),relay=new URL('/api/relay',this.relayBase);
         if(upstream.hostname==='qt.gtimg.cn')relay.searchParams.set('feed','tencent');
         else if(upstream.hostname==='np-listapi.eastmoney.com')relay.searchParams.set('feed','news');
         else if(upstream.hostname==='uapis.cn'){relay.searchParams.set('feed','hotboard');relay.searchParams.set('platform',upstream.searchParams.get('type'));}
@@ -139,56 +189,95 @@ export class LiveFeed {
       }
       const response=await this.fetchImpl(target,{mode:'cors',credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer',signal:controller.signal});
       let result,relayTime=null;
-      if(this.relayBase){const envelope=await response.json();if(!response.ok||!envelope.ok)throw Error(envelope.error||'中继 HTTP '+response.status);
-        const bytes=Uint8Array.from(atob(envelope.body_base64),char=>char.charCodeAt(0));const text=new TextDecoder(envelope.encoding||'utf-8').decode(bytes);
+      if(useRelay){const envelope=await response.json();if(!response.ok||!envelope.ok)throw Error(envelope.error||'中继 HTTP '+response.status);
+        const bytes=Uint8Array.from(atob(envelope.body_base64),char=>char.charCodeAt(0)),text=new TextDecoder(envelope.encoding||'utf-8').decode(bytes);
         result=json?JSON.parse(text):text;relayTime=envelope.observed_at;
       }else{if(!response.ok)throw Error('HTTP '+response.status);result=json?await response.json():gbk?new TextDecoder('gbk').decode(await response.arrayBuffer()):await response.text();}
-      this.diagnostics.set(url,{url,transport,status:'ok',attempted_at:attempted,success_at:nowIso(),relay_observed_at:relayTime,error:null});return result;
-    }catch(error){this.diagnostics.set(url,{...previous,url,transport,status:'error',attempted_at:attempted,error:`${error.name||'Error'}: ${error.message||error}`.slice(0,180)});throw error;}
-    finally{this.scheduler.clearTimeout(timeout);this.controllers.delete(controller);if(this.enabled)this.onStatus('transport',{status:'updated',at:nowIso()});}
+      if(generation===this.generation)this.diagnostics.set(url,{url,transport,status:'ok',attempted_at:attempted,success_at:nowIso(),relay_observed_at:relayTime,error:null});
+      return result;
+    }catch(error){
+      if(generation===this.generation)this.diagnostics.set(url,{...previous,url,transport,status:'error',attempted_at:attempted,error:`${error.name||'Error'}: ${error.message||error}`.slice(0,180)});
+      throw error;
+    }finally{this.scheduler.clearTimeout(timeout);this.controllers.delete(controller);if(this.active(generation))this.onStatus('transport',{status:'updated',at:nowIso()});}
   }
-  async quotes(){
-    const keys=[...new Set([...Object.keys(this.mappings),...ETF_WATCHLIST.map(row=>row[0]),this.symbol])];
+  async quotes(generation=this.generation){
+    const symbol=this.symbol,keys=[...new Set([...Object.keys(this.mappings),...ETF_WATCHLIST.map(row=>row[0]),symbol])];
     try{
-      const text=await this.request('https://qt.gtimg.cn/q='+keys.join(','),false,true),data=parseTencent(text,keys);
-      if(!this.enabled)return;
+      const text=await this.request('https://qt.gtimg.cn/q='+keys.join(','),false,true,generation),data=parseTencent(text,keys);
+      if(!this.active(generation))return;
       const missing=Object.keys(this.mappings).filter(key=>!data[key]);
       this.onQuotes(data,{provider:'腾讯证券公开报价',status:missing.length?'partial':'ok',missing:missing.length,observed_at:nowIso()});
       this.onStatus('quotes',{status:missing.length?'partial':'ok',message:missing.length?`A/美股缺失 ${missing.length} 个报价`:'A/美股 · 5秒轮询',at:nowIso()});
-      if(!data[this.symbol])throw Error('所选盘口没有有效报价');
+      if(!data[symbol])throw Error('所选盘口没有有效报价');
     }catch(error){
-      if(!this.enabled||!this.visible())throw error;
-      // Alternate ordinary public quote API; it currently does not return depth.
-      const secid=(this.symbol.startsWith('sh')?'1.':'0.')+this.symbol.slice(2);
-      try{const payload=await this.request('https://push2.eastmoney.com/api/qt/stock/get?secid='+secid+'&fltt=2&invt=2&fields=f43,f57,f58,f60,f170,f86');
-        this.onQuotes({[this.symbol]:parseEastmoney(payload,this.symbol)},{provider:'东方财富',status:'partial',observed_at:nowIso()});
+      if(!this.active(generation))return;
+      // A selection changed while this batch was pending: fetch the new one next.
+      if(symbol!==this.symbol){this.quoteRefreshRequested=true;return;}
+      const secid=(symbol.startsWith('sh')?'1.':'0.')+symbol.slice(2);
+      try{
+        const payload=await this.request('https://push2.eastmoney.com/api/qt/stock/get?secid='+secid+'&fltt=2&invt=2&fields=f43,f57,f58,f60,f170,f86',true,false,generation);
+        if(!this.active(generation)||symbol!==this.symbol)return;
+        this.onQuotes({[symbol]:parseEastmoney(payload,symbol)},{provider:'东方财富',status:'partial',observed_at:nowIso()});
         this.onStatus('quotes',{status:'partial',message:'东方财富备选报价 · 五档暂缺',at:nowIso()});
-      }catch{this.onStatus('quotes',{status:'error',message:'公开行情连接失败 · 已保留原始时间',at:nowIso()});throw error;}
+      }catch{
+        if(!this.active(generation)||symbol!==this.symbol)return;
+        this.onStatus('quotes',{status:'error',message:'公开行情连接失败 · 已保留原始时间',at:nowIso()});throw error;
+      }
     }
   }
-  async source(platform){
+  async source(platform,generation=this.generation){
+    const attempted=nowIso();
     try{
       const news=platform==='eastmoney_news',url=news?'https://np-listapi.eastmoney.com/comm/web/getFastNewsList?client=web&biz=web_724&fastColumn=102&sortEnd=&pageSize=50&req_trace=orbit-live':'https://uapis.cn/api/v1/misc/hotboard?type='+platform;
-      const payload=await this.request(url),observed=nowIso(),rows=news?parseNews(payload,observed):parseHotboard(payload,platform,observed);
-      this.records.set(platform,rows);this.statuses.set(platform,{status:'ok',records:rows.length,provider_updated_at:news?null:payload.update_time,at:observed});
-    }catch(error){this.statuses.set(platform,{...this.statuses.get(platform),status:'error',at:nowIso(),error:'源不可用或跨域受限'});throw error;}
-    finally{if(this.enabled)this.onSocial(deriveSocial(this.records,this.statuses,this.firstSeen));}
+      const payload=await this.request(url,true,false,generation),observed=nowIso(),rows=news?parseNews(payload,observed):parseHotboard(payload,platform,observed);
+      if(!this.active(generation))return;
+      this.records.set(platform,rows);this.statuses.set(platform,{status:'ok',records:rows.length,provider_updated_at:news?null:payload.update_time,
+        at:observed,last_success_at:observed,attempted_at:attempted});
+    }catch(error){
+      if(!this.active(generation))return;
+      const previous=this.statuses.get(platform)||{};
+      this.statuses.set(platform,{...previous,status:'error',last_success_at:previous.last_success_at||previous.at||null,attempted_at:attempted,error:`${error.message||error}`.slice(0,180)});throw error;
+    }finally{if(this.active(generation))this.onSocial(this.social());}
   }
-  async hotboards(){
+  async hotboards(generation=this.generation){
     const platforms=Object.keys(HOT_HOSTS);let failures=0;
-    for(let i=0;i<platforms.length;i+=2){if(!this.enabled||!this.visible())return;const results=await Promise.allSettled(platforms.slice(i,i+2).map(p=>this.source(p)));failures+=results.filter(r=>r.status==='rejected').length;}
+    for(let i=0;i<platforms.length;i+=2){if(!this.active(generation))return;const results=await Promise.allSettled(platforms.slice(i,i+2).map(p=>this.source(p,generation)));failures+=results.filter(r=>r.status==='rejected').length;}
+    if(!this.active(generation))return;
     this.onStatus('hotboards',{status:failures?'partial':'ok',message:`热榜 ${6-failures}/6 · 120秒轮询`,at:nowIso()});if(failures===6)throw Error('热榜均不可用');
   }
   async run(kind){
     if(!this.enabled||!this.visible()||this.pending.has(kind))return;
-    const operation=(async()=>{try{if(kind==='quotes')await this.quotes();else if(kind==='news')await this.source('eastmoney_news');else await this.hotboards();this.failures.set(kind,0);}
-      catch{this.failures.set(kind,(this.failures.get(kind)||0)+1);}
-      finally{this.pending.delete(kind);if(this.enabled&&this.visible()){const delay=Math.min(LIVE_INTERVALS[kind]*2**(this.failures.get(kind)||0),kind==='quotes'?60000:600000);this.timers.set(kind,this.scheduler.setTimeout(()=>{this.timers.delete(kind);this.run(kind);},delay));}}})();
+    const generation=this.generation;
+    const operation=(async()=>{
+      try{
+        if(kind==='quotes')await this.quotes(generation);else if(kind==='news')await this.source('eastmoney_news',generation);else if(kind==='agent')await this.snapshot(generation);else await this.hotboards(generation);
+        if(this.active(generation))this.failures.set(kind,0);
+      }catch{if(this.active(generation))this.failures.set(kind,(this.failures.get(kind)||0)+1);}
+      finally{
+        // Old promises must not delete or schedule a restarted generation.
+        if(this.pending.get(kind)===operation)this.pending.delete(kind);
+        if(this.active(generation)){
+          let delay=Math.min(this.intervals[kind]*2**(this.failures.get(kind)||0),kind==='quotes'?60000:600000);
+          if(kind==='quotes'&&this.quoteRefreshRequested){this.quoteRefreshRequested=false;delay=0;}
+          this.timers.set(kind,this.scheduler.setTimeout(()=>{this.timers.delete(kind);this.run(kind);},delay));
+        }
+      }
+    })();
     this.pending.set(kind,operation);return operation;
   }
   start(){if(this.enabled)return;this.enabled=true;this.resume();}
-  pause(){for(const id of this.timers.values())this.scheduler.clearTimeout(id);this.timers.clear();}
-  resume(){if(!this.enabled||!this.visible())return;this.pause();for(const kind of Object.keys(LIVE_INTERVALS))this.run(kind);}
-  stop(){this.enabled=false;this.pause();for(const controller of this.controllers)controller.abort();}
-  select(symbol){if(!/^(sh|sz)\d{6}$/.test(symbol)||!([...ETF_WATCHLIST.map(r=>r[0]),...Object.keys(this.mappings)].includes(symbol)))throw Error('盘口代码不在观察列表');this.symbol=symbol;if(this.enabled){const timer=this.timers.get('quotes');if(timer)this.scheduler.clearTimeout(timer);this.timers.delete('quotes');this.run('quotes');}}
+  pause(){
+    this.generation++;
+    for(const id of this.timers.values())this.scheduler.clearTimeout(id);this.timers.clear();
+    for(const controller of this.controllers)controller.abort();
+    this.pending.clear();this.quoteRefreshRequested=false;
+  }
+  resume(){if(!this.enabled||!this.visible())return;this.pause();for(const kind of Object.keys(this.intervals))this.run(kind);}
+  stop(){this.enabled=false;this.pause();}
+  select(symbol){
+    if(!/^(sh|sz)\d{6}$/.test(symbol)||!([...ETF_WATCHLIST.map(r=>r[0]),...Object.keys(this.mappings)].includes(symbol)))throw Error('盘口代码不在观察列表');
+    this.symbol=symbol;
+    if(this.enabled){const timer=this.timers.get('quotes');if(timer)this.scheduler.clearTimeout(timer);this.timers.delete('quotes');
+      if(this.pending.has('quotes'))this.quoteRefreshRequested=true;else this.run('quotes');}
+  }
 }

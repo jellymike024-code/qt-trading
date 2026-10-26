@@ -1,5 +1,5 @@
 {
-  "served_at": "2026-10-26T04:22:50.356508+00:00",
+  "served_at": "2026-10-26T10:46:43.000674+00:00",
   "quote_mode": "real_sources_only",
   "publication": {
     "mode": "public_snapshot",
@@ -1836,10 +1836,10 @@
   },
   "social": {
     "status": {
-      "at": "2026-10-26 03:31:06.191975+00:00",
+      "at": "2026-10-26 10:14:09.355188+00:00",
       "status": "ok",
-      "active_records": 638,
-      "financial_candidates": 17,
+      "active_records": 820,
+      "financial_candidates": 22,
       "actual_comment_texts": 0,
       "trading_effect": "shadow_analysis_only_frozen_paper_unchanged",
       "sources": {
@@ -1847,44 +1847,57 @@
           "status": "ok",
           "records": 50,
           "comment_text_records": 0,
-          "provider_updated_at": "2026-10-26 03:26:43.253000+00:00"
+          "provider_updated_at": "2026-10-26 10:13:12.638000+00:00",
+          "observed_at": "2026-10-26 10:14:06.356215+00:00"
         },
         "douyin": {
           "status": "ok",
-          "records": 50,
+          "records": 49,
           "comment_text_records": 0,
-          "provider_updated_at": "2026-10-26 03:07:51.908000+00:00"
+          "provider_updated_at": "2026-10-26 10:02:20.877000+00:00",
+          "observed_at": "2026-10-26 10:14:06.875614+00:00"
         },
         "xiaohongshu": {
           "status": "ok",
           "records": 20,
           "comment_text_records": 0,
-          "provider_updated_at": "2026-10-26 03:06:45.792000+00:00"
+          "provider_updated_at": "2026-10-26 08:16:47.288000+00:00",
+          "observed_at": "2026-10-26 10:14:07.338228+00:00"
         },
         "zhihu": {
           "status": "ok",
           "records": 30,
           "comment_text_records": 0,
-          "provider_updated_at": "2026-10-26 03:28:32.026000+00:00"
+          "provider_updated_at": "2026-10-26 10:08:26.398000+00:00",
+          "observed_at": "2026-10-26 10:14:07.804535+00:00"
         },
         "bilibili": {
           "status": "ok",
           "records": 100,
           "comment_text_records": 0,
-          "provider_updated_at": "2026-10-26 02:26:53.324000+00:00"
+          "provider_updated_at": "2026-10-26 09:37:36.549000+00:00",
+          "observed_at": "2026-10-26 10:14:08.266367+00:00"
         },
         "toutiao": {
           "status": "ok",
           "records": 50,
           "comment_text_records": 0,
-          "provider_updated_at": "2026-10-26 03:26:42.835000+00:00"
+          "provider_updated_at": "2026-10-26 10:08:52.933000+00:00",
+          "observed_at": "2026-10-26 10:14:08.688325+00:00"
         },
         "eastmoney_news": {
           "status": "ok",
           "records": 50,
           "comment_text_records": 0,
-          "provider_updated_at": "2026-10-26 03:31:05.907717+00:00"
+          "provider_updated_at": "2026-10-26 10:14:09.142282+00:00",
+          "observed_at": "2026-10-26 10:14:09.142282+00:00"
         }
+      },
+      "daily_agent": {
+        "analyzed_records": 22,
+        "last_analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "method": "daily_research_agent",
+        "realtime_model_enabled": false
       }
     },
     "items": [
@@ -1915,20 +1928,6 @@
         ]
       },
       {
-        "id": "0465dd8fb3cf8fe0877c1c3529fed546bccd3aac835730f78ad4313c01c524b8",
-        "platform": "eastmoney_news",
-        "content_kind": "news_headline",
-        "title": "民德电子：向特定对象发行股票获证监会同意注册批复",
-        "source_url": "https://finance.eastmoney.com/a/202610253907217621.html",
-        "published_at": "2026-10-25 08:25:08+00:00",
-        "observed_at": "2026-10-25 14:22:46.660139+00:00",
-        "first_seen_at": "2026-10-25 13:12:35.972294+00:00",
-        "matched_keywords": [
-          "股票",
-          "证监会"
-        ]
-      },
-      {
         "id": "234a6ead0109fb8fb59541f3543b9be40e1e001122d2a4296b8e1498c560fc5f",
         "platform": "eastmoney_news",
         "content_kind": "news_headline",
@@ -1943,27 +1942,14 @@
         ]
       },
       {
-        "id": "2e31f4d92885a9396b6ff68aa2a4b8cda48472d428acfe9b36980cc6be05042c",
+        "id": "275ebc134a2121f7d8724530c2057f01ead67d5add656b659705156af9167573",
         "platform": "eastmoney_news",
         "content_kind": "news_headline",
-        "title": "科瑞思：拟购买宏钢光电100%股份 股票复牌",
-        "source_url": "https://finance.eastmoney.com/a/202610253907218232.html",
-        "published_at": "2026-10-25 08:34:43+00:00",
-        "observed_at": "2026-10-25 14:22:46.660139+00:00",
-        "first_seen_at": "2026-10-25 13:12:35.972294+00:00",
-        "matched_keywords": [
-          "股票"
-        ]
-      },
-      {
-        "id": "417e2f1c6990223d5c3fe778c3d895feab6133f963320cdb66ae11ec86e014bc",
-        "platform": "eastmoney_news",
-        "content_kind": "news_headline",
-        "title": "纳尔股份：拟回购注销1.95万股限制性股票",
-        "source_url": "https://finance.eastmoney.com/a/202610253907233254.html",
-        "published_at": "2026-10-25 09:00:41+00:00",
-        "observed_at": "2026-10-25 14:22:46.660139+00:00",
-        "first_seen_at": "2026-10-25 13:12:35.972294+00:00",
+        "title": "沙特阿拉伯股票指数上涨3.3%",
+        "source_url": "https://finance.eastmoney.com/a/202610263908113093.html",
+        "published_at": "2026-10-26 09:29:57+00:00",
+        "observed_at": "2026-10-26 10:14:09.142282+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
         "matched_keywords": [
           "股票"
         ]
@@ -2008,6 +1994,19 @@
         ]
       },
       {
+        "id": "6bd8bd26701e4bd029eb637d5efb2b2ae1735ecd6e97456abf10e25ce2082710",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "中信证券：第三季度净利润同比下降20.19% 环比下降41%",
+        "source_url": "https://finance.eastmoney.com/a/202610263908131658.html",
+        "published_at": "2026-10-26 09:44:12+00:00",
+        "observed_at": "2026-10-26 10:14:09.142282+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "matched_keywords": [
+          "证券"
+        ]
+      },
+      {
         "id": "8016169731cde7bd7696b59a1f1ef0e01d0688b450087342f5289e3a54e1f7da",
         "platform": "eastmoney_news",
         "content_kind": "news_headline",
@@ -2019,6 +2018,19 @@
         "matched_keywords": [
           "A股",
           "ETF"
+        ]
+      },
+      {
+        "id": "8020ed736a01dd5b94dc779a6e8f10b8d0e61764da9ac06054faa82164456c5c",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "冠农股份：拟变更证券简称为“新疆冠农”",
+        "source_url": "https://finance.eastmoney.com/a/202610263908145076.html",
+        "published_at": "2026-10-26 09:50:22+00:00",
+        "observed_at": "2026-10-26 10:14:09.142282+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "matched_keywords": [
+          "证券"
         ]
       },
       {
@@ -2048,6 +2060,20 @@
         ]
       },
       {
+        "id": "9c4a66bec72e9ec0fae19db24c1725abb45105d76ec9d7766da317d7a8e28c8d",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "高盛预计美联储本周维持利率不变 12月加息25个基点",
+        "source_url": "https://finance.eastmoney.com/a/202610263908127964.html",
+        "published_at": "2026-10-26 09:40:49+00:00",
+        "observed_at": "2026-10-26 10:14:09.142282+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "matched_keywords": [
+          "加息",
+          "美联储"
+        ]
+      },
+      {
         "id": "bfecf899bfc85685fd77b06cf912b603318a0d6053d605a37b253f181a77f91d",
         "platform": "eastmoney_news",
         "content_kind": "news_headline",
@@ -2061,17 +2087,29 @@
         ]
       },
       {
-        "id": "c3e01ecb0c5a000aa6e9bf07a7078b25a47e398c7d60e36ec68545a33941f0c3",
+        "id": "c502a0726346db727d6a7c351c5a8853f3fd533ab87cbc125d39a3983c01f139",
         "platform": "eastmoney_news",
         "content_kind": "news_headline",
-        "title": "华神科技：向特定对象发行股票申请获证监会同意注册批复",
-        "source_url": "https://finance.eastmoney.com/a/202610253907217761.html",
-        "published_at": "2026-10-25 08:25:12+00:00",
-        "observed_at": "2026-10-25 14:22:46.660139+00:00",
-        "first_seen_at": "2026-10-25 13:12:35.972294+00:00",
+        "title": "加拿大养老基金投资公司据悉考虑出售香港一处仓储设施的50%股权",
+        "source_url": "https://finance.eastmoney.com/a/202610263908144462.html",
+        "published_at": "2026-10-26 09:50:00+00:00",
+        "observed_at": "2026-10-26 10:14:09.142282+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
         "matched_keywords": [
-          "股票",
-          "证监会"
+          "基金"
+        ]
+      },
+      {
+        "id": "e421fefd1544e4ecf50f1e0413bb9f61e8f67e78456933278226ce8539ed5cae",
+        "platform": "eastmoney_news",
+        "content_kind": "news_headline",
+        "title": "美银证券：紫金矿业第三季纯利逊预期 产量偏软及成本上升",
+        "source_url": "https://finance.eastmoney.com/a/202610263908104169.html",
+        "published_at": "2026-10-26 09:20:57+00:00",
+        "observed_at": "2026-10-26 10:14:09.142282+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "matched_keywords": [
+          "证券"
         ]
       },
       {
@@ -2085,6 +2123,45 @@
         "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
         "matched_keywords": [
           "沪深"
+        ]
+      },
+      {
+        "id": "1a1abee3478827475582c599c88348c04a80aa40ebe618cd107989909049846d",
+        "platform": "toutiao",
+        "content_kind": "hot_topic",
+        "title": "评论员：A股修复性反弹或已开启",
+        "source_url": "https://www.toutiao.com/trending/7700881907998789146/",
+        "published_at": null,
+        "observed_at": "2026-10-26 10:14:08.688325+00:00",
+        "first_seen_at": "2026-10-26 10:14:08.688325+00:00",
+        "matched_keywords": [
+          "A股"
+        ]
+      },
+      {
+        "id": "c6cde307168a3f027600c8672d9be3b88e1bdddedcffc2acecbf852e9596268c",
+        "platform": "toutiao",
+        "content_kind": "hot_topic",
+        "title": "多所高校将通过数字人民币发工资",
+        "source_url": "https://www.toutiao.com/trending/7700842846840750602/",
+        "published_at": null,
+        "observed_at": "2026-10-26 10:14:08.688325+00:00",
+        "first_seen_at": "2026-10-26 10:14:08.688325+00:00",
+        "matched_keywords": [
+          "人民币"
+        ]
+      },
+      {
+        "id": "14611fe153af17f2d5f393eab153ed17a885570807bf4046b300b2cf0b0a3b4a",
+        "platform": "toutiao",
+        "content_kind": "hot_topic",
+        "title": "男子诈骗好友170万全部亏在股市",
+        "source_url": "https://www.toutiao.com/trending/7700831226697433129/",
+        "published_at": null,
+        "observed_at": "2026-10-26 10:14:08.688325+00:00",
+        "first_seen_at": "2026-10-26 10:14:08.688325+00:00",
+        "matched_keywords": [
+          "股市"
         ]
       },
       {
@@ -2114,572 +2191,1211 @@
         ]
       }
     ],
-    "analysis": []
+    "analysis": [
+      {
+        "record_id": "275ebc134a2121f7d8724530c2057f01ead67d5add656b659705156af9167573",
+        "method": "daily_research_agent",
+        "reason": "行情快讯。已实际阅读采集标题，但原文当前未能打开，亦未取得沙特交易所对应时点数据，指数名称、时点及涨幅尚未独立核验。海外单一市场涨幅不能直接映射为四只A股ETF的后续方向；保留中性与低置信。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T09:29:57+00:00",
+        "source_title": "沙特阿拉伯股票指数上涨3.3%",
+        "source_url": "https://finance.eastmoney.com/a/202610263908113093.html",
+        "published_at": "2026-10-26 09:29:57+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.25
+      },
+      {
+        "record_id": "6bd8bd26701e4bd029eb637d5efb2b2ae1735ecd6e97456abf10e25ce2082710",
+        "method": "daily_research_agent",
+        "reason": "企业业绩报道，非券商对市场的预测。已读标题与检索可见的财联社转载摘要：单季净利回落，但摘要同时说明前三季度累计净利增长，不能把单季与累计口径混用。公司本期原公告尚未取得，环比计算亦待原报表复核。仅记录个体业绩的温和风险线索，不据此判定证券全行业或宽基ETF下跌。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T09:44:12+00:00",
+        "source_title": "中信证券：第三季度净利润同比下降20.19% 环比下降41%",
+        "source_url": "https://finance.eastmoney.com/a/202610263908131658.html",
+        "published_at": "2026-10-26 09:44:12+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "evidence_urls": [],
+        "score": -0.15,
+        "confidence": 0.5
+      },
+      {
+        "record_id": "8020ed736a01dd5b94dc779a6e8f10b8d0e61764da9ac06054faa82164456c5c",
+        "method": "daily_research_agent",
+        "reason": "拟议公司名称事项。已读采集标题，报道正文及本次交易所公告未完成核验；“拟”不代表简称已经生效。简称变化本身不证明盈利、资产或订单改善，也不能因命中“证券”一词归为证券行业利好；对研究ETF方向未作判断。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T09:50:22+00:00",
+        "source_title": "冠农股份：拟变更证券简称为“新疆冠农”",
+        "source_url": "https://finance.eastmoney.com/a/202610263908145076.html",
+        "published_at": "2026-10-26 09:50:22+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.4
+      },
+      {
+        "record_id": "9c4a66bec72e9ec0fae19db24c1725abb45105d76ec9d7766da317d7a8e28c8d",
+        "method": "daily_research_agent",
+        "reason": "机构预测，不能写成美联储已经作出的利率决定。已实际核对美联储官方日程：本次会议安排在10月27至28日；官方日程只证实会议日期，不能证实高盛的12月预测。高盛原研报尚未取得，预测可能修订。仅提示后续决议与金融条件值得观察，不预设A股ETF方向。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T09:40:49+00:00",
+        "source_title": "高盛预计美联储本周维持利率不变 12月加息25个基点",
+        "source_url": "https://finance.eastmoney.com/a/202610263908127964.html",
+        "published_at": "2026-10-26 09:40:49+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "evidence_urls": [
+          "https://www.federalreserve.gov/newsevents/2026-october.htm?view=calendar"
+        ],
+        "score": 0.0,
+        "confidence": 0.65
+      },
+      {
+        "record_id": "c502a0726346db727d6a7c351c5a8853f3fd533ab87cbc125d39a3983c01f139",
+        "method": "daily_research_agent",
+        "reason": "含“据悉”“考虑”的未确认交易线索。已读标题，原报道正文和投资机构正式公告均未取得；尚不能视为已签约或已完成出售。单一仓储资产的潜在股权交易不能外推为外资整体撤离香港或A股资金趋势；保持中性，等待正式披露。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T09:50:00+00:00",
+        "source_title": "加拿大养老基金投资公司据悉考虑出售香港一处仓储设施的50%股权",
+        "source_url": "https://finance.eastmoney.com/a/202610263908144462.html",
+        "published_at": "2026-10-26 09:50:00+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.2
+      },
+      {
+        "record_id": "e421fefd1544e4ecf50f1e0413bb9f61e8f67e78456933278226ce8539ed5cae",
+        "method": "daily_research_agent",
+        "reason": "机构研究观点。已读标题与检索可见的转载摘要；“逊预期”比较的是该机构预测，不等同公司净利同比下降，转载摘要亦包含相反的估值及评级考量。美银原研报、公司季报及该报道正文未完整取得，生产与成本结论仍待原文核验。仅记录个体经营的温和风险提示，不直接推导宽基ETF交易方向。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T09:20:57+00:00",
+        "source_title": "美银证券：紫金矿业第三季纯利逊预期 产量偏软及成本上升",
+        "source_url": "https://finance.eastmoney.com/a/202610263908104169.html",
+        "published_at": "2026-10-26 09:20:57+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "evidence_urls": [],
+        "score": -0.1,
+        "confidence": 0.45
+      },
+      {
+        "record_id": "1a1abee3478827475582c599c88348c04a80aa40ebe618cd107989909049846d",
+        "method": "daily_research_agent",
+        "reason": "市场评论与条件性判断。已读热榜标题，但未取得评论员原文、身份及完整论据；“或”明确保留不确定性，热榜排名也不是投资者支持率。不能把乐观评论当作趋势反转已被证实，须由后续独立量价数据验证；暂不赋予ETF涨跌方向。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T10:14:08.688325+00:00",
+        "source_title": "评论员：A股修复性反弹或已开启",
+        "source_url": "https://www.toutiao.com/trending/7700881907998789146/",
+        "published_at": null,
+        "first_seen_at": "2026-10-26 10:14:08.688325+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.25
+      },
+      {
+        "record_id": "c6cde307168a3f027600c8672d9be3b88e1bdddedcffc2acecbf852e9596268c",
+        "method": "daily_research_agent",
+        "reason": "支付应用场景报道。已实际阅读新浪转载的光明日报正文，报道引述扬州大学、南通大学和江苏师范大学关于数币工资发放的通知；南通财务处官方通知详情本次未能完整读取，尚不能称逐校原文均核验。报道描述11月计划，转载日期不是学校通知首次发布日。使用数币钱包不等于货币总量增加，也不能直接推出概念公司利润或ETF收益改善；保持中性。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T10:14:08.688325+00:00",
+        "source_title": "多所高校将通过数字人民币发工资",
+        "source_url": "https://www.toutiao.com/trending/7700842846840750602/",
+        "published_at": null,
+        "first_seen_at": "2026-10-26 10:14:08.688325+00:00",
+        "evidence_urls": [
+          "https://finance.sina.com.cn/jjxw/2026-10-26/doc-iniwpwit5477263.shtml"
+        ],
+        "score": 0.0,
+        "confidence": 0.65
+      },
+      {
+        "record_id": "14611fe153af17f2d5f393eab153ed17a885570807bf4046b300b2cf0b0a3b4a",
+        "method": "daily_research_agent",
+        "reason": "刑事个案线索，并非宏观或上市公司公告。已实际阅读热榜标题，警方通报、判决及报道正文尚未取得，案情与损失口径未独立核验。个人违法融资后的投资损失不能代表市场整体收益、散户情绪比例或ETF未来走势；财经相关性较弱，不进入官方政策事件库。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T10:14:08.688325+00:00",
+        "source_title": "男子诈骗好友170万全部亏在股市",
+        "source_url": "https://www.toutiao.com/trending/7700831226697433129/",
+        "published_at": null,
+        "first_seen_at": "2026-10-26 10:14:08.688325+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.2
+      },
+      {
+        "record_id": "015d3371964af55aba867de12f0df48a2725b3fe62e6cc396cb1be72a1832371",
+        "method": "daily_research_agent",
+        "reason": "实际核对上交所9月24日原公告：综合指数增加15%单样本权重上限并调整风险警示证券剔除时间，10月26日实施。旧公告今日生效不是新发布；无法推导研究中的四只ETF有确定涨跌方向。跨平台同主题合并，不把热榜当评论支持率。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-26T13:10:56.231343+00:00",
+        "source_title": "A股指数调整10月26日落地",
+        "source_url": "https://www.douyin.com/search/A%E8%82%A1%E6%8C%87%E6%95%B0%E8%B0%83%E6%95%B410%E6%9C%8826%E6%97%A5%E8%90%BD%E5%9C%B0?type=general",
+        "published_at": null,
+        "first_seen_at": "2026-10-25 13:10:56.231343+00:00",
+        "evidence_urls": [
+          "https://www.sse.com.cn/market/sseindex/diclosure/c/c_20260924_10833342.shtml"
+        ],
+        "score": 0.0,
+        "confidence": 0.9
+      },
+      {
+        "record_id": "028922a34d0883244d0e74a33d131318f7d247a055a56cf7585e9814d083d86f",
+        "method": "daily_research_agent",
+        "reason": "标题转述海外极端情景预测，尝试打开原文但当前无法读取；不是已发生事实，不能将巴西资产情景直接映射为A股ETF方向。保持中性和低置信，不入官方事件库。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T02:55:27+00:00",
+        "source_title": "高盛：今天可能出现美元兑巴西雷亚尔汇率上涨10%、巴西股市下跌15%的极端行情",
+        "source_url": "https://finance.eastmoney.com/a/202610263907769355.html",
+        "published_at": "2026-10-26 02:55:27+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.3
+      },
+      {
+        "record_id": "234a6ead0109fb8fb59541f3543b9be40e1e001122d2a4296b8e1498c560fc5f",
+        "method": "daily_research_agent",
+        "reason": "机构关于业绩、资金或稳增长的观点具有偏积极措辞，但原文访问失败，缺少独立政策及资金流证据；不能据此推断宽基ETF短期上涨。低置信影子观察。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T02:49:00+00:00",
+        "source_title": "天风证券吴开达：业绩兑现与资金结构改善支撑A股信心",
+        "source_url": "https://finance.eastmoney.com/a/202610263907766373.html",
+        "published_at": "2026-10-26 02:49:00+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.1,
+        "confidence": 0.35
+      },
+      {
+        "record_id": "4d29d4f4ca056f18177dba1cac01d2840c2361416813a7ba8cc6ca9b86445abc",
+        "method": "daily_research_agent",
+        "reason": "特定ETF盘中表现和风格推广标题，研究池不含该产品；当日相对占优不能推出后续收益，也不能代表全部投资者情绪。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T02:51:55+00:00",
+        "source_title": "市场震荡调整，红利风格相对占优，A500红利ETF国联安(560570)跟踪指数涨超1%",
+        "source_url": "https://finance.eastmoney.com/a/202610263907767464.html",
+        "published_at": "2026-10-26 02:51:55+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.4
+      },
+      {
+        "record_id": "660efec18cbe00b2c091f88631aeecc3ee8a642a118a06c50823d6eef375b6b8",
+        "method": "daily_research_agent",
+        "reason": "公司人士关于产业与算力的观点，未核实原始发言及研究ETF成分关联，不能把产业话题转成宽基买入信号。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T03:03:28+00:00",
+        "source_title": "佳贤通信董事长任恩贤：英伟达要靠算力基站实现端侧物理AI",
+        "source_url": "https://finance.eastmoney.com/a/202610263907773360.html",
+        "published_at": "2026-10-26 03:03:28+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.3
+      },
+      {
+        "record_id": "675444b78604cc114eea898b3721435b57667173d69b9b55df964308b15862f1",
+        "method": "daily_research_agent",
+        "reason": "机构关于业绩、资金或稳增长的观点具有偏积极措辞，但原文访问失败，缺少独立政策及资金流证据；不能据此推断宽基ETF短期上涨。低置信影子观察。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T03:05:00+00:00",
+        "source_title": "长江证券伍戈：稳增长举措有序衔接 经济边际改善窗口有望打开",
+        "source_url": "https://finance.eastmoney.com/a/202610263907779187.html",
+        "published_at": "2026-10-26 03:05:00+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.1,
+        "confidence": 0.35
+      },
+      {
+        "record_id": "8016169731cde7bd7696b59a1f1ef0e01d0688b450087342f5289e3a54e1f7da",
+        "method": "daily_research_agent",
+        "reason": "标题是机构估值和修复窗口观点，尚未核实报告指标口径及预测依据。ETF产品推广及同主题转载不构成独立证据，低估值也不能保证价格上涨；仅作低置信影子观察。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T03:15:06+00:00",
+        "source_title": "A股多项指标已接近历史底部区间，大盘年底年初或迎修复窗口，大盘价值ETF博时(159391)跟踪指数上涨0.7%",
+        "source_url": "https://finance.eastmoney.com/a/202610263907788384.html",
+        "published_at": "2026-10-26 03:15:06+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.1,
+        "confidence": 0.35
+      },
+      {
+        "record_id": "80212b2feeef549bbf89043517c00c98fd265c63f937ba9ea97928f4583b8395",
+        "method": "daily_research_agent",
+        "reason": "机构对投资风格变化的观点，不是已经验证的新增资金流；缺少量化口径及反证，保持中性，不据此更改冻结目标。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T03:18:00+00:00",
+        "source_title": "首创证券韦志超：价值投资理念逐步取代短线投机 “长钱长投”格局加速成型",
+        "source_url": "https://finance.eastmoney.com/a/202610263907788886.html",
+        "published_at": "2026-10-26 03:18:00+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.35
+      },
+      {
+        "record_id": "84f5b67ad5fa74e2408b6411ccac658d5c98ece9c8999bac9fafc5f05c0ab05f",
+        "method": "daily_research_agent",
+        "reason": "标题是机构估值和修复窗口观点，尚未核实报告指标口径及预测依据。ETF产品推广及同主题转载不构成独立证据，低估值也不能保证价格上涨；仅作低置信影子观察。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-26T13:44:04+00:00",
+        "source_title": "招商策略：A股多项指标已接近历史底部区间",
+        "source_url": "https://finance.eastmoney.com/a/202610253907309672.html",
+        "published_at": "2026-10-25 13:44:04+00:00",
+        "first_seen_at": "2026-10-25 14:22:46.660139+00:00",
+        "evidence_urls": [],
+        "score": 0.1,
+        "confidence": 0.35
+      },
+      {
+        "record_id": "bfecf899bfc85685fd77b06cf912b603318a0d6053d605a37b253f181a77f91d",
+        "method": "daily_research_agent",
+        "reason": "实际核对上交所9月24日原公告：综合指数增加15%单样本权重上限并调整风险警示证券剔除时间，10月26日实施。旧公告今日生效不是新发布；无法推导研究中的四只ETF有确定涨跌方向。跨平台同主题合并，不把热榜当评论支持率。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T02:58:46+00:00",
+        "source_title": "A股指数“换算法”有何影响？看懂两大核心变化",
+        "source_url": "https://finance.eastmoney.com/a/202610263907772077.html",
+        "published_at": "2026-10-26 02:58:46+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [
+          "https://www.sse.com.cn/market/sseindex/diclosure/c/c_20260924_10833342.shtml"
+        ],
+        "score": 0.0,
+        "confidence": 0.9
+      },
+      {
+        "record_id": "f61c8c3c6ca55c498b279aae528a83a0e1e5c49f71287cc552ae834d01fa02d7",
+        "method": "daily_research_agent",
+        "reason": "盘中成交额和同比时点缩量的新闻标题，尚未独立核实统计时刻与口径；缩量既可能反映抛压下降也可能反映买盘不足，单独不能判定方向。不是已完成日线数据。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T03:29:23+00:00",
+        "source_title": "沪深两市成交额突破1万亿 较上一日此时缩量超600亿",
+        "source_url": "https://finance.eastmoney.com/a/202610263907799685.html",
+        "published_at": "2026-10-26 03:29:23+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.4
+      },
+      {
+        "record_id": "791c050d3ceab1d3654c0c68b9822a62cabc0d03125893c4957c40db211baea9",
+        "method": "daily_research_agent",
+        "reason": "实际核对上交所9月24日原公告：综合指数增加15%单样本权重上限并调整风险警示证券剔除时间，10月26日实施。旧公告今日生效不是新发布；无法推导研究中的四只ETF有确定涨跌方向。跨平台同主题合并，不把热榜当评论支持率。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-26T13:10:55.782284+00:00",
+        "source_title": "A股指数重要调整",
+        "source_url": "https://s.weibo.com/weibo?q=%23A%E8%82%A1%E6%8C%87%E6%95%B0%E9%87%8D%E8%A6%81%E8%B0%83%E6%95%B4%23",
+        "published_at": null,
+        "first_seen_at": "2026-10-25 13:10:55.782284+00:00",
+        "evidence_urls": [
+          "https://www.sse.com.cn/market/sseindex/diclosure/c/c_20260924_10833342.shtml"
+        ],
+        "score": 0.0,
+        "confidence": 0.9
+      },
+      {
+        "record_id": "47e5afc3542d8aa8c590b9fab4ca3a77854a89637d1d21cbec85d630c229384c",
+        "method": "daily_research_agent",
+        "reason": "只有市场名称和热榜热度，没有可核实的具体事件或评论文本，无法判断多空方向。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T03:31:00.866630+00:00",
+        "source_title": "A股",
+        "source_url": "https://s.weibo.com/weibo?q=%23A%E8%82%A1%23",
+        "published_at": null,
+        "first_seen_at": "2026-10-26 03:31:00.866630+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.2
+      }
+    ],
+    "agent_analysis": [
+      {
+        "record_id": "275ebc134a2121f7d8724530c2057f01ead67d5add656b659705156af9167573",
+        "method": "daily_research_agent",
+        "reason": "行情快讯。已实际阅读采集标题，但原文当前未能打开，亦未取得沙特交易所对应时点数据，指数名称、时点及涨幅尚未独立核验。海外单一市场涨幅不能直接映射为四只A股ETF的后续方向；保留中性与低置信。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T09:29:57+00:00",
+        "source_title": "沙特阿拉伯股票指数上涨3.3%",
+        "source_url": "https://finance.eastmoney.com/a/202610263908113093.html",
+        "published_at": "2026-10-26 09:29:57+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.25
+      },
+      {
+        "record_id": "6bd8bd26701e4bd029eb637d5efb2b2ae1735ecd6e97456abf10e25ce2082710",
+        "method": "daily_research_agent",
+        "reason": "企业业绩报道，非券商对市场的预测。已读标题与检索可见的财联社转载摘要：单季净利回落，但摘要同时说明前三季度累计净利增长，不能把单季与累计口径混用。公司本期原公告尚未取得，环比计算亦待原报表复核。仅记录个体业绩的温和风险线索，不据此判定证券全行业或宽基ETF下跌。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T09:44:12+00:00",
+        "source_title": "中信证券：第三季度净利润同比下降20.19% 环比下降41%",
+        "source_url": "https://finance.eastmoney.com/a/202610263908131658.html",
+        "published_at": "2026-10-26 09:44:12+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "evidence_urls": [],
+        "score": -0.15,
+        "confidence": 0.5
+      },
+      {
+        "record_id": "8020ed736a01dd5b94dc779a6e8f10b8d0e61764da9ac06054faa82164456c5c",
+        "method": "daily_research_agent",
+        "reason": "拟议公司名称事项。已读采集标题，报道正文及本次交易所公告未完成核验；“拟”不代表简称已经生效。简称变化本身不证明盈利、资产或订单改善，也不能因命中“证券”一词归为证券行业利好；对研究ETF方向未作判断。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T09:50:22+00:00",
+        "source_title": "冠农股份：拟变更证券简称为“新疆冠农”",
+        "source_url": "https://finance.eastmoney.com/a/202610263908145076.html",
+        "published_at": "2026-10-26 09:50:22+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.4
+      },
+      {
+        "record_id": "9c4a66bec72e9ec0fae19db24c1725abb45105d76ec9d7766da317d7a8e28c8d",
+        "method": "daily_research_agent",
+        "reason": "机构预测，不能写成美联储已经作出的利率决定。已实际核对美联储官方日程：本次会议安排在10月27至28日；官方日程只证实会议日期，不能证实高盛的12月预测。高盛原研报尚未取得，预测可能修订。仅提示后续决议与金融条件值得观察，不预设A股ETF方向。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T09:40:49+00:00",
+        "source_title": "高盛预计美联储本周维持利率不变 12月加息25个基点",
+        "source_url": "https://finance.eastmoney.com/a/202610263908127964.html",
+        "published_at": "2026-10-26 09:40:49+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "evidence_urls": [
+          "https://www.federalreserve.gov/newsevents/2026-october.htm?view=calendar"
+        ],
+        "score": 0.0,
+        "confidence": 0.65
+      },
+      {
+        "record_id": "c502a0726346db727d6a7c351c5a8853f3fd533ab87cbc125d39a3983c01f139",
+        "method": "daily_research_agent",
+        "reason": "含“据悉”“考虑”的未确认交易线索。已读标题，原报道正文和投资机构正式公告均未取得；尚不能视为已签约或已完成出售。单一仓储资产的潜在股权交易不能外推为外资整体撤离香港或A股资金趋势；保持中性，等待正式披露。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T09:50:00+00:00",
+        "source_title": "加拿大养老基金投资公司据悉考虑出售香港一处仓储设施的50%股权",
+        "source_url": "https://finance.eastmoney.com/a/202610263908144462.html",
+        "published_at": "2026-10-26 09:50:00+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.2
+      },
+      {
+        "record_id": "e421fefd1544e4ecf50f1e0413bb9f61e8f67e78456933278226ce8539ed5cae",
+        "method": "daily_research_agent",
+        "reason": "机构研究观点。已读标题与检索可见的转载摘要；“逊预期”比较的是该机构预测，不等同公司净利同比下降，转载摘要亦包含相反的估值及评级考量。美银原研报、公司季报及该报道正文未完整取得，生产与成本结论仍待原文核验。仅记录个体经营的温和风险提示，不直接推导宽基ETF交易方向。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T09:20:57+00:00",
+        "source_title": "美银证券：紫金矿业第三季纯利逊预期 产量偏软及成本上升",
+        "source_url": "https://finance.eastmoney.com/a/202610263908104169.html",
+        "published_at": "2026-10-26 09:20:57+00:00",
+        "first_seen_at": "2026-10-26 10:14:09.142282+00:00",
+        "evidence_urls": [],
+        "score": -0.1,
+        "confidence": 0.45
+      },
+      {
+        "record_id": "1a1abee3478827475582c599c88348c04a80aa40ebe618cd107989909049846d",
+        "method": "daily_research_agent",
+        "reason": "市场评论与条件性判断。已读热榜标题，但未取得评论员原文、身份及完整论据；“或”明确保留不确定性，热榜排名也不是投资者支持率。不能把乐观评论当作趋势反转已被证实，须由后续独立量价数据验证；暂不赋予ETF涨跌方向。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T10:14:08.688325+00:00",
+        "source_title": "评论员：A股修复性反弹或已开启",
+        "source_url": "https://www.toutiao.com/trending/7700881907998789146/",
+        "published_at": null,
+        "first_seen_at": "2026-10-26 10:14:08.688325+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.25
+      },
+      {
+        "record_id": "c6cde307168a3f027600c8672d9be3b88e1bdddedcffc2acecbf852e9596268c",
+        "method": "daily_research_agent",
+        "reason": "支付应用场景报道。已实际阅读新浪转载的光明日报正文，报道引述扬州大学、南通大学和江苏师范大学关于数币工资发放的通知；南通财务处官方通知详情本次未能完整读取，尚不能称逐校原文均核验。报道描述11月计划，转载日期不是学校通知首次发布日。使用数币钱包不等于货币总量增加，也不能直接推出概念公司利润或ETF收益改善；保持中性。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T10:14:08.688325+00:00",
+        "source_title": "多所高校将通过数字人民币发工资",
+        "source_url": "https://www.toutiao.com/trending/7700842846840750602/",
+        "published_at": null,
+        "first_seen_at": "2026-10-26 10:14:08.688325+00:00",
+        "evidence_urls": [
+          "https://finance.sina.com.cn/jjxw/2026-10-26/doc-iniwpwit5477263.shtml"
+        ],
+        "score": 0.0,
+        "confidence": 0.65
+      },
+      {
+        "record_id": "14611fe153af17f2d5f393eab153ed17a885570807bf4046b300b2cf0b0a3b4a",
+        "method": "daily_research_agent",
+        "reason": "刑事个案线索，并非宏观或上市公司公告。已实际阅读热榜标题，警方通报、判决及报道正文尚未取得，案情与损失口径未独立核验。个人违法融资后的投资损失不能代表市场整体收益、散户情绪比例或ETF未来走势；财经相关性较弱，不进入官方政策事件库。",
+        "analyzed_at": "2026-10-26T10:20:29.312446+00:00",
+        "expires_at": "2026-10-27T10:14:08.688325+00:00",
+        "source_title": "男子诈骗好友170万全部亏在股市",
+        "source_url": "https://www.toutiao.com/trending/7700831226697433129/",
+        "published_at": null,
+        "first_seen_at": "2026-10-26 10:14:08.688325+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.2
+      },
+      {
+        "record_id": "015d3371964af55aba867de12f0df48a2725b3fe62e6cc396cb1be72a1832371",
+        "method": "daily_research_agent",
+        "reason": "实际核对上交所9月24日原公告：综合指数增加15%单样本权重上限并调整风险警示证券剔除时间，10月26日实施。旧公告今日生效不是新发布；无法推导研究中的四只ETF有确定涨跌方向。跨平台同主题合并，不把热榜当评论支持率。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-26T13:10:56.231343+00:00",
+        "source_title": "A股指数调整10月26日落地",
+        "source_url": "https://www.douyin.com/search/A%E8%82%A1%E6%8C%87%E6%95%B0%E8%B0%83%E6%95%B410%E6%9C%8826%E6%97%A5%E8%90%BD%E5%9C%B0?type=general",
+        "published_at": null,
+        "first_seen_at": "2026-10-25 13:10:56.231343+00:00",
+        "evidence_urls": [
+          "https://www.sse.com.cn/market/sseindex/diclosure/c/c_20260924_10833342.shtml"
+        ],
+        "score": 0.0,
+        "confidence": 0.9
+      },
+      {
+        "record_id": "028922a34d0883244d0e74a33d131318f7d247a055a56cf7585e9814d083d86f",
+        "method": "daily_research_agent",
+        "reason": "标题转述海外极端情景预测，尝试打开原文但当前无法读取；不是已发生事实，不能将巴西资产情景直接映射为A股ETF方向。保持中性和低置信，不入官方事件库。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T02:55:27+00:00",
+        "source_title": "高盛：今天可能出现美元兑巴西雷亚尔汇率上涨10%、巴西股市下跌15%的极端行情",
+        "source_url": "https://finance.eastmoney.com/a/202610263907769355.html",
+        "published_at": "2026-10-26 02:55:27+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.3
+      },
+      {
+        "record_id": "234a6ead0109fb8fb59541f3543b9be40e1e001122d2a4296b8e1498c560fc5f",
+        "method": "daily_research_agent",
+        "reason": "机构关于业绩、资金或稳增长的观点具有偏积极措辞，但原文访问失败，缺少独立政策及资金流证据；不能据此推断宽基ETF短期上涨。低置信影子观察。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T02:49:00+00:00",
+        "source_title": "天风证券吴开达：业绩兑现与资金结构改善支撑A股信心",
+        "source_url": "https://finance.eastmoney.com/a/202610263907766373.html",
+        "published_at": "2026-10-26 02:49:00+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.1,
+        "confidence": 0.35
+      },
+      {
+        "record_id": "4d29d4f4ca056f18177dba1cac01d2840c2361416813a7ba8cc6ca9b86445abc",
+        "method": "daily_research_agent",
+        "reason": "特定ETF盘中表现和风格推广标题，研究池不含该产品；当日相对占优不能推出后续收益，也不能代表全部投资者情绪。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T02:51:55+00:00",
+        "source_title": "市场震荡调整，红利风格相对占优，A500红利ETF国联安(560570)跟踪指数涨超1%",
+        "source_url": "https://finance.eastmoney.com/a/202610263907767464.html",
+        "published_at": "2026-10-26 02:51:55+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.4
+      },
+      {
+        "record_id": "660efec18cbe00b2c091f88631aeecc3ee8a642a118a06c50823d6eef375b6b8",
+        "method": "daily_research_agent",
+        "reason": "公司人士关于产业与算力的观点，未核实原始发言及研究ETF成分关联，不能把产业话题转成宽基买入信号。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T03:03:28+00:00",
+        "source_title": "佳贤通信董事长任恩贤：英伟达要靠算力基站实现端侧物理AI",
+        "source_url": "https://finance.eastmoney.com/a/202610263907773360.html",
+        "published_at": "2026-10-26 03:03:28+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.3
+      },
+      {
+        "record_id": "675444b78604cc114eea898b3721435b57667173d69b9b55df964308b15862f1",
+        "method": "daily_research_agent",
+        "reason": "机构关于业绩、资金或稳增长的观点具有偏积极措辞，但原文访问失败，缺少独立政策及资金流证据；不能据此推断宽基ETF短期上涨。低置信影子观察。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T03:05:00+00:00",
+        "source_title": "长江证券伍戈：稳增长举措有序衔接 经济边际改善窗口有望打开",
+        "source_url": "https://finance.eastmoney.com/a/202610263907779187.html",
+        "published_at": "2026-10-26 03:05:00+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.1,
+        "confidence": 0.35
+      },
+      {
+        "record_id": "8016169731cde7bd7696b59a1f1ef0e01d0688b450087342f5289e3a54e1f7da",
+        "method": "daily_research_agent",
+        "reason": "标题是机构估值和修复窗口观点，尚未核实报告指标口径及预测依据。ETF产品推广及同主题转载不构成独立证据，低估值也不能保证价格上涨；仅作低置信影子观察。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T03:15:06+00:00",
+        "source_title": "A股多项指标已接近历史底部区间，大盘年底年初或迎修复窗口，大盘价值ETF博时(159391)跟踪指数上涨0.7%",
+        "source_url": "https://finance.eastmoney.com/a/202610263907788384.html",
+        "published_at": "2026-10-26 03:15:06+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.1,
+        "confidence": 0.35
+      },
+      {
+        "record_id": "80212b2feeef549bbf89043517c00c98fd265c63f937ba9ea97928f4583b8395",
+        "method": "daily_research_agent",
+        "reason": "机构对投资风格变化的观点，不是已经验证的新增资金流；缺少量化口径及反证，保持中性，不据此更改冻结目标。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T03:18:00+00:00",
+        "source_title": "首创证券韦志超：价值投资理念逐步取代短线投机 “长钱长投”格局加速成型",
+        "source_url": "https://finance.eastmoney.com/a/202610263907788886.html",
+        "published_at": "2026-10-26 03:18:00+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.35
+      },
+      {
+        "record_id": "84f5b67ad5fa74e2408b6411ccac658d5c98ece9c8999bac9fafc5f05c0ab05f",
+        "method": "daily_research_agent",
+        "reason": "标题是机构估值和修复窗口观点，尚未核实报告指标口径及预测依据。ETF产品推广及同主题转载不构成独立证据，低估值也不能保证价格上涨；仅作低置信影子观察。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-26T13:44:04+00:00",
+        "source_title": "招商策略：A股多项指标已接近历史底部区间",
+        "source_url": "https://finance.eastmoney.com/a/202610253907309672.html",
+        "published_at": "2026-10-25 13:44:04+00:00",
+        "first_seen_at": "2026-10-25 14:22:46.660139+00:00",
+        "evidence_urls": [],
+        "score": 0.1,
+        "confidence": 0.35
+      },
+      {
+        "record_id": "bfecf899bfc85685fd77b06cf912b603318a0d6053d605a37b253f181a77f91d",
+        "method": "daily_research_agent",
+        "reason": "实际核对上交所9月24日原公告：综合指数增加15%单样本权重上限并调整风险警示证券剔除时间，10月26日实施。旧公告今日生效不是新发布；无法推导研究中的四只ETF有确定涨跌方向。跨平台同主题合并，不把热榜当评论支持率。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T02:58:46+00:00",
+        "source_title": "A股指数“换算法”有何影响？看懂两大核心变化",
+        "source_url": "https://finance.eastmoney.com/a/202610263907772077.html",
+        "published_at": "2026-10-26 02:58:46+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [
+          "https://www.sse.com.cn/market/sseindex/diclosure/c/c_20260924_10833342.shtml"
+        ],
+        "score": 0.0,
+        "confidence": 0.9
+      },
+      {
+        "record_id": "f61c8c3c6ca55c498b279aae528a83a0e1e5c49f71287cc552ae834d01fa02d7",
+        "method": "daily_research_agent",
+        "reason": "盘中成交额和同比时点缩量的新闻标题，尚未独立核实统计时刻与口径；缩量既可能反映抛压下降也可能反映买盘不足，单独不能判定方向。不是已完成日线数据。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T03:29:23+00:00",
+        "source_title": "沪深两市成交额突破1万亿 较上一日此时缩量超600亿",
+        "source_url": "https://finance.eastmoney.com/a/202610263907799685.html",
+        "published_at": "2026-10-26 03:29:23+00:00",
+        "first_seen_at": "2026-10-26 03:31:05.907717+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.4
+      },
+      {
+        "record_id": "791c050d3ceab1d3654c0c68b9822a62cabc0d03125893c4957c40db211baea9",
+        "method": "daily_research_agent",
+        "reason": "实际核对上交所9月24日原公告：综合指数增加15%单样本权重上限并调整风险警示证券剔除时间，10月26日实施。旧公告今日生效不是新发布；无法推导研究中的四只ETF有确定涨跌方向。跨平台同主题合并，不把热榜当评论支持率。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-26T13:10:55.782284+00:00",
+        "source_title": "A股指数重要调整",
+        "source_url": "https://s.weibo.com/weibo?q=%23A%E8%82%A1%E6%8C%87%E6%95%B0%E9%87%8D%E8%A6%81%E8%B0%83%E6%95%B4%23",
+        "published_at": null,
+        "first_seen_at": "2026-10-25 13:10:55.782284+00:00",
+        "evidence_urls": [
+          "https://www.sse.com.cn/market/sseindex/diclosure/c/c_20260924_10833342.shtml"
+        ],
+        "score": 0.0,
+        "confidence": 0.9
+      },
+      {
+        "record_id": "47e5afc3542d8aa8c590b9fab4ca3a77854a89637d1d21cbec85d630c229384c",
+        "method": "daily_research_agent",
+        "reason": "只有市场名称和热榜热度，没有可核实的具体事件或评论文本，无法判断多空方向。",
+        "analyzed_at": "2026-10-26T03:35:27.812355+00:00",
+        "expires_at": "2026-10-27T03:31:00.866630+00:00",
+        "source_title": "A股",
+        "source_url": "https://s.weibo.com/weibo?q=%23A%E8%82%A1%23",
+        "published_at": null,
+        "first_seen_at": "2026-10-26 03:31:00.866630+00:00",
+        "evidence_urls": [],
+        "score": 0.0,
+        "confidence": 0.2
+      }
+    ]
   },
   "research": {
     "provider": "tencent_public",
-    "latest_session": "2026-10-23 07:00:00+00:00",
-    "holdout_start": "2025-10-10 07:00:00+00:00",
+    "latest_session": "2026-10-26 07:00:00+00:00",
+    "holdout_start": "2025-10-13 07:00:00+00:00",
     "holdout": {
       "ma_trend": {
         "sessions": 252,
-        "total_return": -0.023964904609999893,
-        "max_drawdown": 0.026614804230547406,
-        "sharpe": -0.6114151858644048,
-        "annualized_return": -0.023964904609999893,
-        "fees": 1177.00461,
-        "fills": 218,
-        "turnover": 3.8639627,
-        "mean_exposure": 0.12052711949721201
+        "total_return": -0.01260831080999969,
+        "max_drawdown": 0.026521126198885803,
+        "sharpe": -0.3087559931716709,
+        "annualized_return": -0.01260831080999969,
+        "fees": 1174.71081,
+        "fills": 217,
+        "turnover": 3.9119646,
+        "mean_exposure": 0.11965266883658862
       },
       "donchian": {
         "sessions": 252,
-        "total_return": -0.042441230569999266,
-        "max_drawdown": 0.04499706209935039,
-        "sharpe": -1.159863148410574,
-        "annualized_return": -0.042441230569999266,
-        "fees": 967.03057,
-        "fills": 184,
-        "turnover": 2.5188238,
-        "mean_exposure": 0.10539147668014345
+        "total_return": -0.03128737803999926,
+        "max_drawdown": 0.04492540409078394,
+        "sharpe": -0.837927693316948,
+        "annualized_return": -0.03128737803999926,
+        "fees": 953.77804,
+        "fills": 181,
+        "turnover": 2.5393856,
+        "mean_exposure": 0.10461052448369393
       },
       "ts_momentum": {
         "sessions": 252,
-        "total_return": -0.02585067116999895,
-        "max_drawdown": 0.037895216989935254,
-        "sharpe": -0.5847468819458381,
-        "annualized_return": -0.02585067116999895,
-        "fees": 2018.77117,
-        "fills": 401,
-        "turnover": 5.4009219,
-        "mean_exposure": 0.16976924740105195
+        "total_return": -0.014974415559999454,
+        "max_drawdown": 0.0379770598606074,
+        "sharpe": -0.32575999495604563,
+        "annualized_return": -0.014974415559999454,
+        "fees": 2009.41556,
+        "fills": 399,
+        "turnover": 5.457500400000001,
+        "mean_exposure": 0.16879567261179035
       },
       "volume_momentum": {
         "sessions": 252,
-        "total_return": -0.012920121089999848,
-        "max_drawdown": 0.019790587563028317,
-        "sharpe": -0.4864512462756843,
-        "annualized_return": -0.012920121089999848,
-        "fees": 1469.92109,
-        "fills": 283,
-        "turnover": 7.7646032,
-        "mean_exposure": 0.08152592417261927
+        "total_return": -0.007194759359999914,
+        "max_drawdown": 0.019894332958665162,
+        "sharpe": -0.2587168276334982,
+        "annualized_return": -0.007194759359999914,
+        "fees": 1470.45936,
+        "fills": 282,
+        "turnover": 7.7998093,
+        "mean_exposure": 0.08112108935647369
       },
       "ensemble": {
         "sessions": 252,
-        "total_return": -0.026601783249999178,
-        "max_drawdown": 0.02746335426193891,
-        "sharpe": -0.7643049674239826,
-        "annualized_return": -0.026601783249999178,
-        "fees": 2162.38325,
-        "fills": 431,
-        "turnover": 4.453201,
-        "mean_exposure": 0.11888132868480686
+        "total_return": -0.017331871899999296,
+        "max_drawdown": 0.027893329593672744,
+        "sharpe": -0.48366280402956585,
+        "annualized_return": -0.017331871899999296,
+        "fees": 2134.4719,
+        "fills": 425,
+        "turnover": 4.4857468,
+        "mean_exposure": 0.11817179561700962
       },
       "ensemble_sentiment": {
         "sessions": 252,
-        "total_return": -0.026601783249999178,
-        "max_drawdown": 0.02746335426193891,
-        "sharpe": -0.7643049674239826,
-        "annualized_return": -0.026601783249999178,
-        "fees": 2162.38325,
-        "fills": 431,
-        "turnover": 4.453201,
-        "mean_exposure": 0.11888132868480686
+        "total_return": -0.017331871899999296,
+        "max_drawdown": 0.027893329593672744,
+        "sharpe": -0.48366280402956585,
+        "annualized_return": -0.017331871899999296,
+        "fees": 2134.4719,
+        "fills": 425,
+        "turnover": 4.4857468,
+        "mean_exposure": 0.11817179561700962
       },
       "buy_hold": {
         "sessions": 252,
-        "total_return": -0.028567504179999426,
-        "max_drawdown": 0.07276638355589515,
-        "sharpe": -0.46651104764071283,
-        "annualized_return": -0.028567504179999426,
-        "fees": 1845.30418,
-        "fills": 368,
-        "turnover": 2.2389384,
-        "mean_exposure": 0.24546685545096364
+        "total_return": -0.01887512934999913,
+        "max_drawdown": 0.07269761577348088,
+        "sharpe": -0.2955081060196912,
+        "annualized_return": -0.01887512934999913,
+        "fees": 1870.52935,
+        "fills": 373,
+        "turnover": 2.2717628,
+        "mean_exposure": 0.2451372766622473
       }
     }
   },
   "equity": [
     {
-      "timestamp": "2026-04-27 07:00:00+00:00",
-      "equity": 983952.6167500006
-    },
-    {
       "timestamp": "2026-04-28 07:00:00+00:00",
-      "equity": 982718.1167500005
+      "equity": 992385.5281000005
     },
     {
       "timestamp": "2026-04-29 07:00:00+00:00",
-      "equity": 985070.2167500006
+      "equity": 994758.9281000005
     },
     {
       "timestamp": "2026-04-30 07:00:00+00:00",
-      "equity": 985703.4167500006
+      "equity": 995400.1281000004
     },
     {
       "timestamp": "2026-05-06 07:00:00+00:00",
-      "equity": 989613.7167500005
+      "equity": 999346.7281000004
     },
     {
       "timestamp": "2026-05-07 07:00:00+00:00",
-      "equity": 991653.2167500006
+      "equity": 1001407.3281000004
     },
     {
       "timestamp": "2026-05-08 07:00:00+00:00",
-      "equity": 989809.1167500006
+      "equity": 999544.4281000004
     },
     {
       "timestamp": "2026-05-11 07:00:00+00:00",
-      "equity": 995372.3167500007
+      "equity": 1005168.8281000004
     },
     {
       "timestamp": "2026-05-12 07:00:00+00:00",
-      "equity": 994810.7167500006
+      "equity": 1004601.8281000004
     },
     {
       "timestamp": "2026-05-13 07:00:00+00:00",
-      "equity": 999436.1167500005
+      "equity": 1009280.4281000004
     },
     {
       "timestamp": "2026-05-14 07:00:00+00:00",
-      "equity": 993070.2167500006
+      "equity": 1002838.3281000004
     },
     {
       "timestamp": "2026-05-15 07:00:00+00:00",
-      "equity": 989890.8167500005
+      "equity": 999624.9281000004
     },
     {
       "timestamp": "2026-05-18 07:00:00+00:00",
-      "equity": 989191.0167500005
+      "equity": 998966.1281000004
     },
     {
       "timestamp": "2026-05-19 07:00:00+00:00",
-      "equity": 991394.1167500005
+      "equity": 1001159.4281000005
     },
     {
       "timestamp": "2026-05-20 07:00:00+00:00",
-      "equity": 993117.3167500005
+      "equity": 1002902.0281000005
     },
     {
       "timestamp": "2026-05-21 07:00:00+00:00",
-      "equity": 987837.1167500004
+      "equity": 997561.9281000004
     },
     {
       "timestamp": "2026-05-22 07:00:00+00:00",
-      "equity": 991676.5167500004
+      "equity": 1001438.7281000004
     },
     {
       "timestamp": "2026-05-25 07:00:00+00:00",
-      "equity": 996974.3167500003
+      "equity": 1006791.3281000004
     },
     {
       "timestamp": "2026-05-26 07:00:00+00:00",
-      "equity": 997104.7167500005
+      "equity": 1006922.3281000004
     },
     {
       "timestamp": "2026-05-27 07:00:00+00:00",
-      "equity": 994638.0167500005
+      "equity": 1004436.3281000004
     },
     {
       "timestamp": "2026-05-28 07:00:00+00:00",
-      "equity": 996346.3167500005
+      "equity": 1006166.9281000004
     },
     {
       "timestamp": "2026-05-29 07:00:00+00:00",
-      "equity": 992555.9167500006
+      "equity": 1002326.0281000005
     },
     {
       "timestamp": "2026-06-01 07:00:00+00:00",
-      "equity": 988628.5167500004
+      "equity": 998353.4281000004
     },
     {
       "timestamp": "2026-06-02 07:00:00+00:00",
-      "equity": 991585.2167500005
+      "equity": 1001339.1281000004
     },
     {
       "timestamp": "2026-06-03 07:00:00+00:00",
-      "equity": 993624.0167500004
+      "equity": 1003397.9281000005
     },
     {
       "timestamp": "2026-06-04 07:00:00+00:00",
-      "equity": 992767.6167500005
+      "equity": 1002537.0281000006
     },
     {
       "timestamp": "2026-06-05 07:00:00+00:00",
-      "equity": 988442.6167500005
+      "equity": 998170.4281000006
     },
     {
       "timestamp": "2026-06-08 07:00:00+00:00",
-      "equity": 982892.6167500005
+      "equity": 992559.9281000006
     },
     {
       "timestamp": "2026-06-09 07:00:00+00:00",
-      "equity": 985666.6167500005
+      "equity": 995365.5281000006
     },
     {
       "timestamp": "2026-06-10 07:00:00+00:00",
-      "equity": 984402.4167500006
+      "equity": 994086.9281000005
     },
     {
       "timestamp": "2026-06-11 07:00:00+00:00",
-      "equity": 983843.6167500005
+      "equity": 993520.8281000005
     },
     {
       "timestamp": "2026-06-12 07:00:00+00:00",
-      "equity": 984481.4167500006
+      "equity": 994166.9281000006
     },
     {
       "timestamp": "2026-06-15 07:00:00+00:00",
-      "equity": 987418.1167500005
+      "equity": 997133.6281000006
     },
     {
       "timestamp": "2026-06-16 07:00:00+00:00",
-      "equity": 988090.8167500005
+      "equity": 997810.7281000006
     },
     {
       "timestamp": "2026-06-17 07:00:00+00:00",
-      "equity": 989998.9167500006
+      "equity": 999746.8281000006
     },
     {
       "timestamp": "2026-06-18 07:00:00+00:00",
-      "equity": 991953.6167500005
+      "equity": 1001723.1281000006
     },
     {
       "timestamp": "2026-06-22 07:00:00+00:00",
-      "equity": 995192.4167500006
+      "equity": 1005041.8281000005
     },
     {
       "timestamp": "2026-06-23 07:00:00+00:00",
-      "equity": 990442.8167500007
+      "equity": 1000215.8281000006
     },
     {
       "timestamp": "2026-06-24 07:00:00+00:00",
-      "equity": 992915.5167500007
+      "equity": 1002692.2281000006
     },
     {
       "timestamp": "2026-06-25 07:00:00+00:00",
-      "equity": 996238.8167500006
+      "equity": 1006034.9281000006
     },
     {
       "timestamp": "2026-06-26 07:00:00+00:00",
-      "equity": 991568.9167500007
+      "equity": 1001321.3281000006
     },
     {
       "timestamp": "2026-06-29 07:00:00+00:00",
-      "equity": 994157.1167500005
+      "equity": 1003927.0281000006
     },
     {
       "timestamp": "2026-06-30 07:00:00+00:00",
-      "equity": 998281.9167500006
+      "equity": 1008080.2281000006
     },
     {
       "timestamp": "2026-07-01 07:00:00+00:00",
-      "equity": 996703.6167500005
+      "equity": 1006485.6281000006
     },
     {
       "timestamp": "2026-07-02 07:00:00+00:00",
-      "equity": 989676.1167500005
+      "equity": 999292.8281000005
     },
     {
       "timestamp": "2026-07-03 07:00:00+00:00",
-      "equity": 989749.3167500006
+      "equity": 999355.0281000005
     },
     {
       "timestamp": "2026-07-06 07:00:00+00:00",
-      "equity": 989227.4167500007
+      "equity": 998827.9281000006
     },
     {
       "timestamp": "2026-07-07 07:00:00+00:00",
-      "equity": 987910.1167500007
+      "equity": 997491.9281000006
     },
     {
       "timestamp": "2026-07-08 07:00:00+00:00",
-      "equity": 986934.8167500007
+      "equity": 996510.4281000006
     },
     {
       "timestamp": "2026-07-09 07:00:00+00:00",
-      "equity": 991142.7167500007
+      "equity": 1000747.8281000005
     },
     {
       "timestamp": "2026-07-10 07:00:00+00:00",
-      "equity": 986788.8167500007
+      "equity": 996343.3281000005
     },
     {
       "timestamp": "2026-07-13 07:00:00+00:00",
-      "equity": 982075.2167500007
+      "equity": 991564.3281000005
     },
     {
       "timestamp": "2026-07-14 07:00:00+00:00",
-      "equity": 982813.8167500007
+      "equity": 992304.7281000005
     },
     {
       "timestamp": "2026-07-15 07:00:00+00:00",
-      "equity": 981029.6167500006
+      "equity": 990482.5281000006
     },
     {
       "timestamp": "2026-07-16 07:00:00+00:00",
-      "equity": 979359.5167500007
+      "equity": 988737.1281000006
     },
     {
       "timestamp": "2026-07-17 07:00:00+00:00",
-      "equity": 977012.2167500006
+      "equity": 986346.1281000006
     },
     {
       "timestamp": "2026-07-20 07:00:00+00:00",
-      "equity": 977543.5167500005
+      "equity": 986885.5281000006
     },
     {
       "timestamp": "2026-07-21 07:00:00+00:00",
-      "equity": 978064.6167500006
+      "equity": 987406.6281000007
     },
     {
       "timestamp": "2026-07-22 07:00:00+00:00",
-      "equity": 977856.5167500005
+      "equity": 987198.5281000006
     },
     {
       "timestamp": "2026-07-23 07:00:00+00:00",
-      "equity": 977619.4167500006
+      "equity": 986961.4281000006
     },
     {
       "timestamp": "2026-07-24 07:00:00+00:00",
-      "equity": 977348.2167500006
+      "equity": 986685.0281000006
     },
     {
       "timestamp": "2026-07-27 07:00:00+00:00",
-      "equity": 977443.8167500007
+      "equity": 986780.4281000006
     },
     {
       "timestamp": "2026-07-28 07:00:00+00:00",
-      "equity": 976922.6167500007
+      "equity": 986259.2281000006
     },
     {
       "timestamp": "2026-07-29 07:00:00+00:00",
-      "equity": 976914.4167500008
+      "equity": 986251.0281000007
     },
     {
       "timestamp": "2026-07-30 07:00:00+00:00",
-      "equity": 976664.0167500008
+      "equity": 986000.6281000007
     },
     {
       "timestamp": "2026-07-31 07:00:00+00:00",
-      "equity": 976852.4167500008
+      "equity": 986189.0281000007
     },
     {
       "timestamp": "2026-08-03 07:00:00+00:00",
-      "equity": 976705.2167500007
+      "equity": 986041.8281000006
     },
     {
       "timestamp": "2026-08-04 07:00:00+00:00",
-      "equity": 976817.2167500007
+      "equity": 986153.8281000006
     },
     {
       "timestamp": "2026-08-05 07:00:00+00:00",
-      "equity": 977022.1167500007
+      "equity": 986358.7281000006
     },
     {
       "timestamp": "2026-08-06 07:00:00+00:00",
-      "equity": 977030.4167500008
+      "equity": 986367.0281000007
     },
     {
       "timestamp": "2026-08-07 07:00:00+00:00",
-      "equity": 977141.8167500008
+      "equity": 986478.4281000007
     },
     {
       "timestamp": "2026-08-10 07:00:00+00:00",
-      "equity": 977141.0167500008
+      "equity": 986477.6281000007
     },
     {
       "timestamp": "2026-08-11 07:00:00+00:00",
-      "equity": 977034.2167500007
+      "equity": 986376.6281000007
     },
     {
       "timestamp": "2026-08-12 07:00:00+00:00",
-      "equity": 977121.2167500007
+      "equity": 986464.4281000007
     },
     {
       "timestamp": "2026-08-13 07:00:00+00:00",
-      "equity": 977058.4167500007
+      "equity": 986401.6281000007
     },
     {
       "timestamp": "2026-08-14 07:00:00+00:00",
-      "equity": 977076.4167500008
+      "equity": 986419.6281000008
     },
     {
       "timestamp": "2026-08-17 07:00:00+00:00",
-      "equity": 977463.9167500007
+      "equity": 986807.1281000007
     },
     {
       "timestamp": "2026-08-18 07:00:00+00:00",
-      "equity": 977380.7167500007
+      "equity": 986722.9281000007
     },
     {
       "timestamp": "2026-08-19 07:00:00+00:00",
-      "equity": 976508.5167500008
+      "equity": 985846.5281000008
     },
     {
       "timestamp": "2026-08-20 07:00:00+00:00",
-      "equity": 976540.0167500008
+      "equity": 985878.0281000008
     },
     {
       "timestamp": "2026-08-21 07:00:00+00:00",
-      "equity": 976575.7167500008
+      "equity": 985913.7281000009
     },
     {
       "timestamp": "2026-08-24 07:00:00+00:00",
-      "equity": 976324.6167500007
+      "equity": 985662.6281000008
     },
     {
       "timestamp": "2026-08-25 07:00:00+00:00",
-      "equity": 976252.7167500007
+      "equity": 985590.7281000008
     },
     {
       "timestamp": "2026-08-26 07:00:00+00:00",
-      "equity": 976316.3167500008
+      "equity": 985654.3281000009
     },
     {
       "timestamp": "2026-08-27 07:00:00+00:00",
-      "equity": 976595.8167500008
+      "equity": 985933.8281000009
     },
     {
       "timestamp": "2026-08-28 07:00:00+00:00",
-      "equity": 976375.9167500008
+      "equity": 985710.5281000008
     },
     {
       "timestamp": "2026-08-31 07:00:00+00:00",
-      "equity": 976486.5167500008
+      "equity": 985823.8281000009
     },
     {
       "timestamp": "2026-09-01 07:00:00+00:00",
-      "equity": 976213.9167500008
+      "equity": 985550.6281000008
     },
     {
       "timestamp": "2026-09-02 07:00:00+00:00",
-      "equity": 975708.2167500008
+      "equity": 985038.5281000008
     },
     {
       "timestamp": "2026-09-03 07:00:00+00:00",
-      "equity": 975777.4167500009
+      "equity": 985108.5281000008
     },
     {
       "timestamp": "2026-09-04 07:00:00+00:00",
-      "equity": 975651.1167500009
+      "equity": 984982.2281000008
     },
     {
       "timestamp": "2026-09-07 07:00:00+00:00",
-      "equity": 975837.6167500009
+      "equity": 985168.7281000008
     },
     {
       "timestamp": "2026-09-08 07:00:00+00:00",
-      "equity": 975752.6167500009
+      "equity": 985083.7281000008
     },
     {
       "timestamp": "2026-09-09 07:00:00+00:00",
-      "equity": 975731.3167500008
+      "equity": 985062.4281000007
     },
     {
       "timestamp": "2026-09-10 07:00:00+00:00",
-      "equity": 975693.2167500008
+      "equity": 985024.3281000007
     },
     {
       "timestamp": "2026-09-11 07:00:00+00:00",
-      "equity": 975604.7167500008
+      "equity": 984935.8281000007
     },
     {
       "timestamp": "2026-09-14 07:00:00+00:00",
-      "equity": 975457.0167500009
+      "equity": 984788.1281000008
     },
     {
       "timestamp": "2026-09-15 07:00:00+00:00",
-      "equity": 975395.4167500008
+      "equity": 984725.9281000007
     },
     {
       "timestamp": "2026-09-16 07:00:00+00:00",
-      "equity": 975717.6167500009
+      "equity": 985060.3281000007
     },
     {
       "timestamp": "2026-09-17 07:00:00+00:00",
-      "equity": 975620.0167500009
+      "equity": 984958.8281000006
     },
     {
       "timestamp": "2026-09-18 07:00:00+00:00",
-      "equity": 976031.2167500008
+      "equity": 985370.9281000007
     },
     {
       "timestamp": "2026-09-21 07:00:00+00:00",
-      "equity": 976178.0167500009
+      "equity": 985511.9281000007
     },
     {
       "timestamp": "2026-09-22 07:00:00+00:00",
-      "equity": 976025.3167500008
+      "equity": 985346.1281000007
     },
     {
       "timestamp": "2026-09-23 07:00:00+00:00",
-      "equity": 975806.0167500009
+      "equity": 985124.5281000007
     },
     {
       "timestamp": "2026-09-24 07:00:00+00:00",
-      "equity": 974970.2167500008
+      "equity": 984281.2281000006
     },
     {
       "timestamp": "2026-09-28 07:00:00+00:00",
-      "equity": 974056.0167500009
+      "equity": 983351.4281000007
     },
     {
       "timestamp": "2026-09-29 07:00:00+00:00",
-      "equity": 974008.2167500008
+      "equity": 983302.9281000006
     },
     {
       "timestamp": "2026-09-30 07:00:00+00:00",
-      "equity": 973897.0167500009
+      "equity": 983187.6281000007
     },
     {
       "timestamp": "2026-10-08 07:00:00+00:00",
-      "equity": 973710.4167500009
+      "equity": 982993.1281000007
     },
     {
       "timestamp": "2026-10-09 07:00:00+00:00",
-      "equity": 973720.0167500009
+      "equity": 983003.1281000007
     },
     {
       "timestamp": "2026-10-12 07:00:00+00:00",
-      "equity": 973636.0167500009
+      "equity": 982915.6281000007
     },
     {
       "timestamp": "2026-10-13 07:00:00+00:00",
-      "equity": 973638.4167500009
+      "equity": 982918.1281000007
     },
     {
       "timestamp": "2026-10-14 07:00:00+00:00",
-      "equity": 973520.8167500008
+      "equity": 982795.6281000007
     },
     {
       "timestamp": "2026-10-15 07:00:00+00:00",
-      "equity": 973398.2167500008
+      "equity": 982668.1281000007
     },
     {
       "timestamp": "2026-10-16 07:00:00+00:00",
-      "equity": 973398.2167500008
+      "equity": 982668.1281000007
     },
     {
       "timestamp": "2026-10-19 07:00:00+00:00",
-      "equity": 973398.2167500008
+      "equity": 982668.1281000007
     },
     {
       "timestamp": "2026-10-20 07:00:00+00:00",
-      "equity": 973398.2167500008
+      "equity": 982668.1281000007
     },
     {
       "timestamp": "2026-10-21 07:00:00+00:00",
-      "equity": 973398.2167500008
+      "equity": 982668.1281000007
     },
     {
       "timestamp": "2026-10-22 07:00:00+00:00",
-      "equity": 973398.2167500008
+      "equity": 982668.1281000007
     },
     {
       "timestamp": "2026-10-23 07:00:00+00:00",
-      "equity": 973398.2167500008
+      "equity": 982668.1281000007
+    },
+    {
+      "timestamp": "2026-10-26 07:00:00+00:00",
+      "equity": 982668.1281000007
     }
   ],
   "paper": {},

@@ -20,6 +20,23 @@ class SourceRestricted(RuntimeError):
     """Stop rather than retry a platform access restriction."""
 
 
+def failure_details(exc, previous_status=None):
+    """Classify a proven native launch crash without mistaking it for login loss."""
+    text = str(exc).lower()
+    native_crash = any(value in text for value in (
+        'exitcode=3221225477', 'exitcode=-1073741819', 'exitcode=0xc0000005'))
+    if (type(exc).__name__ == 'TargetClosedError'
+            and text.lstrip().startswith('browsertype.launch_persistent_context:')
+            and native_crash):
+        return {'status': 'browser_startup_crash', 'error_type': type(exc).__name__,
+                'error_code': '0xC0000005', 'failure_stage': 'browser_startup',
+                'message': '独立采集浏览器启动时崩溃，尚未验证平台登录；请查看本地运行日志'}
+    status = ('source_unavailable' if isinstance(exc, SourceRestricted) else
+              'login_required' if previous_status in ('awaiting_login', 'manual_verification', 'login_required') else 'error')
+    return {'status': status, 'error_type': type(exc).__name__,
+            'message': '采集未完成，请查看平台登录状态或本地运行日志'}
+
+
 class SafeSourceLogs(logging.Filter):
     def filter(self,record):
         message=record.getMessage()
@@ -301,7 +318,6 @@ if __name__=='__main__':
         if isinstance(exc,KeyboardInterrupt):raise
         previous=json.loads(STATUS.read_text(encoding='utf-8')) if STATUS.exists() else {}
         state=previous.get('platforms',{}).get(args.platform,{}).get('status')
-        update(args.platform,'source_unavailable' if isinstance(exc,SourceRestricted) else 'login_required' if state in ('awaiting_login','manual_verification','login_required') else 'error',
-            error_type=type(exc).__name__,message='采集未完成，请查看平台登录状态或本地运行日志')
+        update(args.platform,**failure_details(exc,state))
         logging.exception('Collector did not complete: %s',type(exc).__name__)
         sys.exit(1)

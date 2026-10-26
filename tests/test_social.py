@@ -8,7 +8,7 @@ import pytest
 import requests
 
 from quantlab.social import (append_observations, candidates, collect, latest_items,
-                             parse_eastmoney, parse_hotboard, read_records, topic_hash, annotate)
+                             parse_eastmoney, parse_hotboard, read_records, topic_hash, annotate, reconcile_analysis)
 from quantlab.storage import write_json
 
 
@@ -142,7 +142,7 @@ def test_agent_annotation_references_observed_candidate_and_merges_topic(tmp_pat
     write_json(tmp_path / "social_sources.json", {"hotboards": ["weibo"], "eastmoney_fast_news": False,
                "max_source_age_hours": 6, "lookback_hours": 24, "keywords": ["ETF"]})
     response = Mock()
-    clock = pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=2)
+    clock = pd.Timestamp.now(tz="UTC") - pd.Timedelta(minutes=3)
     response.json.return_value = payload(updated=str(clock-pd.Timedelta(hours=1)))
     collect(tmp_path, clock, Mock(return_value=response))
     candidate = json.loads((tmp_path / "data/social/candidates.json").read_text(encoding="utf-8"))["items"][0]
@@ -164,3 +164,132 @@ def test_agent_annotation_references_observed_candidate_and_merges_topic(tmp_pat
             write_json(inbox, [bad])
         with pytest.raises(ValueError):
             annotate(inbox, tmp_path)
+
+
+def setup_collection(root):
+    write_json(root / "social_sources.json", {"hotboards": ["weibo"], "eastmoney_fast_news": False,
+               "max_source_age_hours": 6, "lookback_hours": 24, "keywords": ["ETF"]})
+    response = Mock()
+    response.json.return_value = payload()
+    return response
+
+
+def saved_review(source, analyzed_at):
+    return {"record_id": source["id"], "score": -.2, "confidence": .7,
+            "analyzed_at": str(analyzed_at), "reason": "实际审核保留的解释", "topic_group": "one-theme",
+            "source_url": source["source_url"], "agent": "test_research",
+            "mode": "agent_topic_interpretation_not_verified_fact"}
+
+
+def test_refresh_keeps_matching_analysis_without_fabricating_a_new_analysis_time(tmp_path):
+    response = setup_collection(tmp_path)
+    collect(tmp_path, NOW, Mock(return_value=response))
+    source = json.loads((tmp_path / "data/social/candidates.json").read_text(encoding="utf-8"))["items"][0]
+    review = saved_review(source, NOW+pd.Timedelta(minutes=1))
+    write_json(tmp_path / "reports/social_analysis.json", {"items": [review]})
+    refreshed = collect(tmp_path, NOW+pd.Timedelta(minutes=2), Mock(return_value=response))
+    assert refreshed["analysis"]["analyzed_records"] == 1
+    assert refreshed["analysis"]["pending_records"] == 0
+    assert refreshed["analysis"]["last_analyzed_at"] == review["analyzed_at"]
+    assert refreshed["analysis"]["count_basis"] == "annotation_records_not_model_calls"
+    queue = json.loads((tmp_path / "data/social/pending_analysis.json").read_text(encoding="utf-8"))
+    assert queue["items"] == []
+    current = json.loads((tmp_path / "data/social/candidates.json").read_text(encoding="utf-8"))["items"][0]
+    assert not current["needs_semantic_review"]
+    assert review["reason"] in (tmp_path / "reports/social_dashboard.html").read_text(encoding="utf-8")
+
+
+@pytest.mark.parametrize("change,reason", [
+    ({"source_url": "https://www.weibo.com/another"}, "source_mismatch"),
+    ({"source_topic_hash": "different-content"}, "source_mismatch"),
+    ({"analyzed_at": str(NOW-pd.Timedelta(minutes=1))}, "before_observation"),
+    ({"agent": ""}, "invalid_annotation"),
+])
+def test_invalid_or_mismatched_analysis_is_explicitly_pending(change, reason):
+    source = record() | {"first_seen_at": str(NOW)}
+    review = saved_review(source, NOW+pd.Timedelta(minutes=1)) | change
+    selected, pending, analysis = reconcile_analysis([source], [review], NOW+pd.Timedelta(minutes=2), 24)
+    assert analysis["items"] == []
+    assert analysis["status"]["last_analyzed_at"] is None
+    assert pending[0]["review_reason"] == reason
+    assert selected[0]["needs_semantic_review"]
+
+
+def test_expired_analysis_does_not_become_current_when_report_is_rebuilt():
+    source = record() | {"first_seen_at": str(NOW)}
+    review = saved_review(source, NOW+pd.Timedelta(minutes=1))
+    _, pending, analysis = reconcile_analysis([source], [review], NOW+pd.Timedelta(hours=25), 24)
+    assert not analysis["items"]
+    assert pending[0]["review_reason"] == "expired_annotation"
+    assert analysis["status"]["latest_recorded_analysis_at"] == review["analyzed_at"]
+
+
+def test_source_outage_does_not_count_cached_analysis_and_recovery_preserves_it(tmp_path):
+    response = setup_collection(tmp_path)
+    collect(tmp_path, NOW, Mock(return_value=response))
+    source = json.loads((tmp_path / "data/social/candidates.json").read_text(encoding="utf-8"))["items"][0]
+    review = saved_review(source, NOW+pd.Timedelta(minutes=1))
+    write_json(tmp_path / "reports/social_analysis.json", {"items": [review]})
+    failed = collect(tmp_path, NOW+pd.Timedelta(minutes=2), Mock(side_effect=requests.ConnectionError("offline")))
+    assert failed["sources"]["weibo"]["status"] == "error"
+    assert failed["analysis"]["analyzed_records"] == 0
+    assert failed["analysis"]["last_analyzed_at"] is None
+    assert json.loads((tmp_path / "reports/social_analysis.json").read_text(encoding="utf-8"))["items"] == []
+    recovered = collect(tmp_path, NOW+pd.Timedelta(minutes=3), Mock(return_value=response))
+    assert recovered["analysis"]["analyzed_records"] == 1
+    assert recovered["analysis"]["last_analyzed_at"] == review["analyzed_at"]
+
+
+def test_empty_response_is_not_a_successful_current_source(tmp_path):
+    response = setup_collection(tmp_path)
+    collect(tmp_path, NOW, Mock(return_value=response))
+    response.json.return_value = payload() | {"list": []}
+    status = collect(tmp_path, NOW+pd.Timedelta(minutes=2), Mock(return_value=response))
+    assert status["sources"]["weibo"]["status"] == "empty"
+    assert status["financial_candidates"] == 0
+    assert status["analysis"]["status"] == "no_candidates"
+
+
+def test_partial_annotation_batch_preserves_other_still_valid_reviews(tmp_path):
+    response = setup_collection(tmp_path)
+    clock = pd.Timestamp.now(tz="UTC")-pd.Timedelta(minutes=3)
+    response.json.return_value = payload(updated=str(clock-pd.Timedelta(hours=1)))
+    response.json.return_value["list"].append({"title": "另一条ETF新闻", "index": 2,
+                                              "url": "https://weibo.com/another"})
+    collect(tmp_path, clock, Mock(return_value=response))
+    sources = json.loads((tmp_path / "data/social/candidates.json").read_text(encoding="utf-8"))["items"]
+    inbox = tmp_path / "agent.json"
+    write_json(inbox, [saved_review(sources[0], clock+pd.Timedelta(minutes=1))])
+    assert annotate(inbox, tmp_path)["status"]["pending_records"] == 1
+    write_json(inbox, [saved_review(sources[1], clock+pd.Timedelta(minutes=2))])
+    result = annotate(inbox, tmp_path)
+    assert result["status"]["analyzed_records"] == 2
+    assert result["status"]["pending_records"] == 0
+    assert len(result["items"]) == 2
+
+
+def test_annotation_cannot_be_added_to_an_expired_candidate(tmp_path):
+    response = setup_collection(tmp_path)
+    clock = pd.Timestamp.now(tz="UTC")-pd.Timedelta(hours=25)
+    response.json.return_value = payload(updated=str(clock-pd.Timedelta(hours=1)))
+    collect(tmp_path, clock, Mock(return_value=response))
+    source = json.loads((tmp_path / "data/social/candidates.json").read_text(encoding="utf-8"))["items"][0]
+    inbox = tmp_path / "agent.json"
+    write_json(inbox, [saved_review(source, clock+pd.Timedelta(minutes=1))])
+    with pytest.raises(ValueError, match="expired"):
+        annotate(inbox, tmp_path)
+
+
+def test_analysis_completed_before_refresh_can_be_imported_for_unchanged_content(tmp_path):
+    response = setup_collection(tmp_path)
+    clock = pd.Timestamp.now(tz="UTC")-pd.Timedelta(minutes=5)
+    response.json.return_value = payload(updated=str(clock-pd.Timedelta(hours=1)))
+    collect(tmp_path, clock, Mock(return_value=response))
+    source = json.loads((tmp_path / "data/social/candidates.json").read_text(encoding="utf-8"))["items"][0]
+    review = saved_review(source, clock+pd.Timedelta(minutes=1))
+    collect(tmp_path, clock+pd.Timedelta(minutes=2), Mock(return_value=response))
+    inbox = tmp_path / "agent.json"
+    write_json(inbox, [review])
+    result = annotate(inbox, tmp_path)
+    assert result["status"]["analyzed_records"] == 1
+    assert result["items"][0]["analyzed_at"] == review["analyzed_at"]

@@ -177,12 +177,109 @@ def candidates(records, keywords):
     return result
 
 
+def annotation_records(root):
+    """Retain real annotations across refreshes and temporary source outages."""
+    rows, seen = [], set()
+    for path in (root / "data/social/annotations.json", root / "reports/social_analysis.json"):
+        for row in (read_json(path).get("items", []) if path.exists() else []):
+            key = digest(json.dumps(row, sort_keys=True, ensure_ascii=False))
+            if key not in seen:
+                rows.append(row)
+                seen.add(key)
+    return rows
+
+
+def reconcile_analysis(records, annotations, asof, hours):
+    """Only matching, timely annotations count as analysis of current candidates."""
+    asof, known = stamp(asof), {row["id"]: row for row in records}
+    reviews, pending_reasons, rejected, recorded_times = {}, {}, Counter(), []
+    for row in annotations:
+        source = known.get(row.get("record_id")) if isinstance(row, dict) else None
+        try:
+            analyzed = stamp(row["analyzed_at"])
+            if pd.isna(analyzed) or analyzed > asof:
+                raise ValueError("invalid analysis time")
+            for key, lower, upper in (("score", -1, 1), ("confidence", 0, 1)):
+                value = row[key]
+                if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or not lower <= value <= upper:
+                    raise ValueError("invalid analysis number")
+            if not isinstance(row.get("reason"), str) or not row["reason"].strip():
+                raise ValueError("missing explanation")
+            valid_url(row["source_url"])
+            if not isinstance(row.get("agent"), str) or not row["agent"].strip():
+                raise ValueError("missing analysis provenance")
+            if not isinstance(row.get("topic_group"), str) or not row["topic_group"].strip():
+                raise ValueError("missing topic group")
+            if "method" in row and (not isinstance(row["method"], str) or not row["method"].strip()):
+                raise ValueError("invalid analysis method")
+        except (ValueError, TypeError, KeyError):
+            rejected["invalid_annotation"] += 1
+            if source:
+                pending_reasons[source["id"]] = "invalid_annotation"
+            continue
+        recorded_times.append(analyzed)
+        if source is None:
+            rejected["not_current_candidate"] += 1
+            continue
+        first_seen = stamp(source.get("first_seen_at", source["observed_at"]))
+        source_age = stamp(source["published_at"]) if source.get("published_at") else first_seen
+        reason = None
+        if row["source_url"] != source["source_url"] or row.get("source_topic_hash", source["topic_hash"]) != source["topic_hash"]:
+            reason = "source_mismatch"
+        elif analyzed < first_seen:
+            reason = "before_observation"
+        elif asof-analyzed > pd.Timedelta(hours=hours) or asof-source_age > pd.Timedelta(hours=hours):
+            reason = "expired_annotation"
+        if reason:
+            rejected[reason] += 1
+            pending_reasons[source["id"]] = reason
+            continue
+        previous = reviews.get(source["id"])
+        if previous is None or analyzed > stamp(previous["analyzed_at"]):
+            reviews[source["id"]] = row
+    selected, pending = [], []
+    for source in records:
+        reviewed = source["id"] in reviews
+        row = source | {"needs_semantic_review": not reviewed,
+                        "semantic_review_status": "analyzed" if reviewed else "pending",
+                        "review_reason": None if reviewed else pending_reasons.get(source["id"], "not_analyzed")}
+        selected.append(row)
+        if not reviewed:
+            pending.append(row)
+    checked = [reviews[row["id"]] for row in selected if row["id"] in reviews]
+    summary = {"status": "no_candidates" if not selected else "pending" if not checked else "partial" if pending else "complete",
+               "candidate_records": len(selected), "analyzed_records": len(checked), "pending_records": len(pending),
+               "last_analyzed_at": str(max(stamp(row["analyzed_at"]) for row in checked)) if checked else None,
+               "latest_recorded_analysis_at": str(max(recorded_times)) if recorded_times else None,
+               "method_counts": dict(Counter(row.get("method", "external_agent_annotation") for row in checked)),
+               "stored_annotation_records": len(annotations), "rejected_annotations": dict(rejected),
+               "count_basis": "annotation_records_not_model_calls"}
+    analysis = {"asof": str(asof), "items": checked, "status": summary,
+                "distinct_interpreted_topics": len({row["topic_group"] for row in checked}),
+                "trading_effect": "shadow_only", "warning": "题目判断不能代表评论样本情绪或未来涨跌概率"}
+    return selected, pending, analysis
+
+
+def save_analysis_state(root, status, records, annotations, asof, hours):
+    selected, pending, analysis = reconcile_analysis(records, annotations, asof, hours)
+    status["analysis"] = analysis["status"]
+    write_json(root / "data/social/annotations.json", {"items": annotations})
+    write_json(root / "data/social/candidates.json", {"asof": str(stamp(asof)), "items": selected})
+    write_json(root / "data/social/pending_analysis.json", {"asof": str(stamp(asof)), "items": pending,
+                                                            "analysis": analysis["status"]})
+    write_json(root / "reports/social_analysis.json", analysis)
+    write_json(root / "data/social/status.json", status)
+    write_json(root / "reports/social_status.json", status)
+    render_social(root / "reports", status, selected, analysis["items"])
+    return analysis
+
+
 def collect(root=ROOT, clock=None, get=requests.get):
     root = Path(root)
     fixed_clock = clock is not None
     clock = stamp(clock if clock is not None else pd.Timestamp.now(tz="UTC"))
     config = read_json(root / "social_sources.json")
-    social_dir, output = root / "data" / "social", root / "reports"
+    social_dir = root / "data" / "social"
     social_dir.mkdir(parents=True, exist_ok=True)
     lock = social_dir / ".collect.lock"
     descriptor = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
@@ -200,14 +297,17 @@ def collect(root=ROOT, clock=None, get=requests.get):
                 payload = response.json()
                 observed = clock if fixed_clock else stamp(pd.Timestamp.now(tz="UTC"))
                 parsed, errors = parse_eastmoney(payload, observed) if platform == "eastmoney_news" else parse_hotboard(payload, platform, observed)
-                updated = max((stamp(r["provider_updated_at"]) for r in parsed), default=clock)
-                stale = observed-updated > pd.Timedelta(hours=config["max_source_age_hours"])
+                updated = max((stamp(r["provider_updated_at"]) for r in parsed), default=None)
+                if updated is None and platform != "eastmoney_news":
+                    updated = stamp(payload["update_time"])
+                stale = updated is not None and observed-updated > pd.Timedelta(hours=config["max_source_age_hours"])
                 snapshot = social_dir / "snapshots" / (clock.strftime("%Y%m%dT%H%M%S%fZ") + '-' + platform + '.json')
                 write_json(snapshot, {"fetched_at": str(observed), "endpoint": endpoint, "params": params, "payload": payload})
                 records.extend(parsed)
-                results[platform] = {"status": "stale" if stale else "partial" if errors else "ok",
+                results[platform] = {"status": "stale" if stale else "empty" if not parsed else "partial" if errors else "ok",
                                      "records": len(parsed), "comment_text_records": 0,
-                                     "provider_updated_at": str(updated), "validation_errors": errors,
+                                     "provider_updated_at": str(updated) if updated is not None else None,
+                                     "observed_at": str(observed), "validation_errors": errors,
                                      "snapshot": str(snapshot), "snapshot_sha256": digest(snapshot.read_text(encoding="utf-8"))}
             except (requests.RequestException, ValueError, TypeError, KeyError) as exc:
                 results[platform] = {"status": "error", "records": 0, "comment_text_records": 0, "error": str(exc)}
@@ -223,10 +323,7 @@ def collect(root=ROOT, clock=None, get=requests.get):
                   "coverage_gaps": {"guba_comments": "HTTP403_not_connected", "eastmoney_comments": "counts_only_no_comment_text",
                                     "weibo_comments": "hot_topics_only", "xiaohongshu_comments": "hot_topics_only", "douyin_comments": "hot_topics_only"},
                   "trading_effect": "shadow_analysis_only_frozen_paper_unchanged"}
-        write_json(social_dir / "status.json", status)
-        write_json(social_dir / "candidates.json", {"asof": str(clock), "items": selected})
-        write_json(output / "social_status.json", status)
-        render_social(output, status, selected)
+        save_analysis_state(root, status, selected, annotation_records(root), clock, config["lookback_hours"])
         return status
     finally:
         os.close(descriptor)
@@ -234,8 +331,21 @@ def collect(root=ROOT, clock=None, get=requests.get):
 
 
 def annotate(candidate, root=ROOT):
-    """Validate scheduled Agent interpretations without turning titles into facts."""
+    """Serialize annotation updates with collection; never overwrite a refresh."""
     root = Path(root)
+    directory = root / "data/social"
+    directory.mkdir(parents=True, exist_ok=True)
+    lock = directory / ".collect.lock"
+    descriptor = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+    try:
+        return _annotate(candidate, root)
+    finally:
+        os.close(descriptor)
+        lock.unlink(missing_ok=True)
+
+
+def _annotate(candidate, root):
+    """Validate scheduled Agent interpretations without turning titles into facts."""
     items = read_json(root / "data" / "social" / "candidates.json")
     known = {r["id"]: r for r in items["items"]}
     records = read_json(candidate)
@@ -243,6 +353,8 @@ def annotate(candidate, root=ROOT):
         raise ValueError("expected a list of Agent annotations")
     checked = []
     for record in records:
+        if not isinstance(record, dict):
+            raise ValueError("annotation must be an object")
         source = known.get(record.get("record_id"))
         if not source:
             raise ValueError("annotation must reference a collected financial candidate")
@@ -251,8 +363,8 @@ def annotate(candidate, root=ROOT):
             if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or not lower <= value <= upper:
                 raise ValueError("invalid annotation score/confidence")
         analyzed = stamp(record["analyzed_at"])
-        if analyzed < stamp(source["observed_at"]) or analyzed > pd.Timestamp.now(tz="UTC"):
-            raise ValueError("analysis timestamp must follow observation and cannot be in the future")
+        if analyzed < stamp(source.get("first_seen_at", source["observed_at"])) or analyzed > pd.Timestamp.now(tz="UTC"):
+            raise ValueError("analysis timestamp must follow first observation and cannot be in the future")
         if not isinstance(record.get("reason"), str) or not record["reason"].strip():
             raise ValueError("analysis requires an explanation")
         group = record.get("topic_group", source["topic_hash"])
@@ -265,14 +377,21 @@ def annotate(candidate, root=ROOT):
             valid_url(url)
         checked.append({"record_id": source["id"], "score": record["score"], "confidence": record["confidence"],
                         "analyzed_at": str(analyzed), "reason": record["reason"], "source_url": source["source_url"],
-                        "topic_group": group, "evidence_urls": urls,
+                        "topic_group": group, "evidence_urls": urls, "source_topic_hash": source["topic_hash"],
+                        "method": "external_agent_annotation",
                         "mode": "agent_topic_interpretation_not_verified_fact", "agent": str(record.get("agent", "scheduled_research"))})
-    analysis = {"asof": str(pd.Timestamp.now(tz="UTC")), "items": checked,
-                "distinct_interpreted_topics": len({r["topic_group"] for r in checked}),
-                "trading_effect": "shadow_only", "warning": "题目判断不能代表评论样本情绪或未来涨跌概率"}
-    write_json(root / "data" / "social" / "analysis" / (pd.Timestamp.now(tz="UTC").strftime("%Y%m%dT%H%M%S%fZ") + '.json'), analysis)
-    write_json(root / "reports" / "social_analysis.json", analysis)
-    render_social(root / "reports", read_json(root / "data" / "social" / "status.json"), items["items"], checked)
+    now = pd.Timestamp.now(tz="UTC")
+    config = read_json(root / "social_sources.json")
+    status = read_json(root / "data/social/status.json")
+    selected, _, current = reconcile_analysis(items["items"], checked, now, config["lookback_hours"])
+    if len(current["items"]) != len(checked):
+        raise ValueError("annotation is expired or does not match a current observed candidate")
+    existing = annotation_records(root)
+    additions = [row for row in checked if row not in existing]
+    analysis = save_analysis_state(root, status, selected, existing+additions, now, config["lookback_hours"])
+    write_json(root / "data/social/analysis" / (now.strftime("%Y%m%dT%H%M%S%fZ") + '.json'),
+               {"asof": str(now), "items": checked, "submitted_annotation_records": len(checked),
+                "method": "external_agent_annotation", "count_basis": "annotation_records_not_model_calls"})
     return analysis
 
 
@@ -280,14 +399,22 @@ def render_social(output, status, records, annotations=None):
     output = Path(output)
     output.mkdir(parents=True, exist_ok=True)
     reviews = {r["record_id"]: r for r in annotations or []}
-    source_rows = ''.join(f'<tr><td>{html.escape(PLATFORMS[p])}</td><td>{html.escape(v["status"])}</td><td>{v["records"]}</td><td>0</td></tr>' for p, v in status["sources"].items())
+    source_rows = ''.join(f'<tr><td>{html.escape(PLATFORMS[p])}</td><td>{html.escape(v["status"])}</td><td>{v["records"]}</td><td>{v.get("comment_text_records", 0)}</td></tr>' for p, v in status["sources"].items())
+    review_status = status.get("analysis", {})
+    analysis_note = (f'有效解释 {review_status.get("analyzed_records", len(reviews))} 条 · '
+                     f'待分析 {review_status.get("pending_records", len(records)-len(reviews))} 条 · '
+                     f'最近有效分析 {review_status.get("last_analyzed_at") or "暂无"}')
+    pending_labels = {"expired_annotation": "旧解释已过期", "source_mismatch": "旧解释与当前来源不匹配",
+                      "invalid_annotation": "旧解释未通过校验", "before_observation": "分析时间早于首次获取",
+                      "not_analyzed": "尚无有效解释"}
     cards = []
     for record in records:
         analysis = reviews.get(record["id"])
-        explanation = '待Agent语义审核' if analysis is None else f'倾向分数 {analysis["score"]:.2f}；置信度 {analysis["confidence"]:.0%}；' + analysis["reason"]
+        explanation = ('待Agent语义审核：' + pending_labels.get(record.get("review_reason"), "尚无有效解释")
+                       if analysis is None else f'倾向分数 {analysis["score"]:.2f}；置信度 {analysis["confidence"]:.0%}；' + analysis["reason"])
         pub = record["published_at"] or '未知（榜单更新时间不是原帖发布时间）'
         cards.append(f'<article><p class="meta">{html.escape(PLATFORMS[record["platform"]])} · {html.escape(record["content_kind"])} · ID {record["id"][:12]}</p><a href="{html.escape(record["source_url"], quote=True)}" target="_blank" rel="noreferrer noopener">{html.escape(record["title"])}</a><p>{html.escape(explanation)}</p><p class="meta">发布时间：{html.escape(pub)}<br>首次获取：{html.escape(record["first_seen_at"])}</p></article>')
-    body = f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>免费舆情采集</title><style>body{{background:#101622;color:#e8edf5;font:16px/1.7 system-ui,"Microsoft YaHei",sans-serif;max-width:1100px;margin:32px auto;padding:0 24px}}a{{color:#80c8ff}}.notice,article{{background:#1c2738;padding:16px;margin:15px 0;border-radius:8px}}.meta{{color:#aab9cc;font-size:13px}}table{{width:100%;border-collapse:collapse}}th,td{{text-align:left;border-bottom:1px solid #354053;padding:10px}}</style><h1>免费舆情采集与影子分析</h1><div class="notice">已采集热榜/财经标题；本次完整评论文本为0条。话题热度、新闻报道与真实评论情绪分开统计。当前不修改已冻结模拟盘仓位。</div><p>采集时间 {html.escape(status["at"])} · 状态 {html.escape(status["status"])} · 活跃条目 {status["active_records"]} · 财经候选 {status["financial_candidates"]}</p><table><tr><th>来源</th><th>状态</th><th>条数</th><th>评论文本</th></tr>{source_rows}</table><h2>财经候选与Agent解释</h2>{''.join(cards) or '<p>当前热榜没有匹配的财经候选；不能据此推断市场没有风险。</p>'}<h2>覆盖缺口</h2><p>股吧评论未接通；东方财富仅获取快讯及评论数量；微博/抖音/小红书为聚合热榜，未获取完整评论区。免费第三方源可能延迟或中断，必须回查原始来源。</p></html>'''
+    body = f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>免费舆情采集</title><style>body{{background:#101622;color:#e8edf5;font:16px/1.7 system-ui,"Microsoft YaHei",sans-serif;max-width:1100px;margin:32px auto;padding:0 24px}}a{{color:#80c8ff}}.notice,article{{background:#1c2738;padding:16px;margin:15px 0;border-radius:8px}}.meta{{color:#aab9cc;font-size:13px}}table{{width:100%;border-collapse:collapse}}th,td{{text-align:left;border-bottom:1px solid #354053;padding:10px}}</style><h1>免费舆情采集与影子分析</h1><div class="notice">本模块采集热榜/财经标题，不采集评论正文；真实评论数量和状态见独立BettaFish报告。话题热度、新闻报道与真实评论情绪分开统计。当前不修改已冻结模拟盘仓位。</div><p>采集时间 {html.escape(status["at"])} · 状态 {html.escape(status["status"])} · 活跃条目 {status["active_records"]} · 财经候选 {status["financial_candidates"]}</p><table><tr><th>来源</th><th>状态</th><th>条数</th><th>评论文本</th></tr>{source_rows}</table><h2>财经候选与Agent解释</h2><p>{html.escape(analysis_note)}。统计为解释记录数，不是模型调用次数。</p>{''.join(cards) or '<p>当前热榜没有匹配的财经候选；不能据此推断市场没有风险。</p>'}<h2>覆盖缺口</h2><p>股吧评论未接通；东方财富仅获取快讯及评论数量；本模块的微博/抖音/小红书来源为聚合热榜；独立评论采集覆盖以BettaFish逐平台状态为准。免费第三方源可能延迟或中断，必须回查原始来源。</p></html>'''
     (output / "social_dashboard.html").write_text(body, encoding="utf-8")
 
 

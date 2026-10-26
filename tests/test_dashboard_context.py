@@ -30,3 +30,16 @@ def test_api_excludes_analyses_of_no_longer_active_candidates(tmp_path,monkeypat
     assert data['social']['analysis']==[{'record_id':'actual-active-record'}]
     assert data['configuration']['initial_cash']==1000000
     assert 'private_unused_field' not in data['configuration']
+
+
+def test_dashboard_script_starts_from_its_own_directory():
+    import os
+    import subprocess
+    import sys
+    root=Path(__file__).resolve().parents[1]
+    env=dict(os.environ)
+    env.pop('PYTHONPATH',None)
+    result=subprocess.run([sys.executable,'-B','-c',
+        "import runpy; data=runpy.run_path('serve.py')['context'](); assert 'agent_analysis' in data['social']"],
+        cwd=root/'frontend',env=env,capture_output=True,text=True)
+    assert result.returncode==0, result.stderr
