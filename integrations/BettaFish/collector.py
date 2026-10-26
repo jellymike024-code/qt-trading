@@ -89,6 +89,9 @@ def database_start():
         finally:pwfile.unlink(missing_ok=True)
         with (data/'postgresql.conf').open('a',encoding='utf-8') as stream:
             stream.write(f"\nlisten_addresses = '127.0.0.1'\nport = {conf['database_port']}\nshared_buffers = '64MB'\nmax_connections = 30\ntimezone = 'Asia/Shanghai'\n")
+            if os.name!='nt':
+                socket_directory=str(RUNTIME.resolve()).replace("'","''")
+                stream.write(f"unix_socket_directories = '{socket_directory}'\n")
     status=subprocess.run([str(pg_tool('pg_ctl')),'-D',str(data),'status'],env=environment(),capture_output=True,
         creationflags=subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0)
     if status.returncode:

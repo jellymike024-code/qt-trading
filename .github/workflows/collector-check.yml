@@ -29,5 +29,8 @@ jobs:
       - name: Verify fresh cloud environment has no platform credentials
         run: python -E integrations/BettaFish/collector.py crawl --automatic
       - run: python -E integrations/BettaFish/collector.py export
+      - name: PostgreSQL startup diagnostics
+        if: failure()
+        run: tail -n 30 integrations/BettaFish/.runtime/postgres.log || true
       - if: always()
         run: python -E integrations/BettaFish/collector.py db-stop
