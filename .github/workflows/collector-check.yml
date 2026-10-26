@@ -1,0 +1,33 @@
+name: Linux collector readiness
+on:
+  push:
+    paths:
+      - '.github/workflows/collector-check.yml'
+      - '.devcontainer/**'
+      - 'integrations/BettaFish/**'
+      - 'deploy/bootstrap_collector.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  initialize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install -r integrations/BettaFish/requirements-cloud.txt
+      - run: python -m deploy.bootstrap_collector
+      - name: Locate PostgreSQL tools
+        run: echo "QUANTLAB_PG_BIN=$(pg_config --bindir)" >> "$GITHUB_ENV"
+      - run: python -E integrations/BettaFish/collector.py init
+      - name: Verify fresh cloud environment has no platform credentials
+        run: python -E integrations/BettaFish/collector.py crawl --automatic
+      - run: python -E integrations/BettaFish/collector.py export
+      - if: always()
+        run: python -E integrations/BettaFish/collector.py db-stop
