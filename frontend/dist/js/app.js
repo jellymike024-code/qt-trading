@@ -97,6 +97,7 @@ function formatTime(value) {try{return new Intl.DateTimeFormat('zh-CN',{timeZone
 function category(item){return /证监会|央行|政策|注册|国常会|降息|降准/.test(item.title)?'policy':'market';}
 
 function renderNews() {
+  const publicSnapshot=state.context?.publication?.mode==='public_snapshot';
   const comments=state.context?.bettafish?.dashboard?.regions?.[state.city];
   const items=[...(state.context?.social?.items||[]),...(comments?.items||[]).filter(item=>item.traceable)];
   const filtered=(state.newsFilter==='all'?items:state.newsFilter==='comments'?items.filter(item=>item.content_kind==='comment'):items.filter(item=>category(item)===state.newsFilter)).sort((a,b)=>(Date.parse(b.published_at||b.first_seen_at||b.observed_at)||0)-(Date.parse(a.published_at||a.first_seen_at||a.observed_at)||0));
@@ -107,6 +108,7 @@ function renderNews() {
   $('#feed-subtitle').textContent=status?`采集快照 ${formatTime(status.at)} · 非实时`:'本地舆情暂不可用';
   if(status){const healthy=Object.values(status.sources||{}).filter(s=>s.status==='ok').length;const total=Object.keys(status.sources||{}).length;$('#source-health').textContent=`公开源 ${healthy}/${total} · 真实评论 ${state.context?.bettafish?.status?.comments||0} 条`;}
   else $('#source-health').textContent='未连接本地数据 · 不生成虚构舆情';
+  if(publicSnapshot)$('#source-health').textContent+=' · 原始评论未公开';
   const words=new Map();for(const item of items)for(const word of item.matched_keywords||[])words.set(word,(words.get(word)||0)+1);
   const top=[...words.entries()].sort((a,b)=>b[1]-a[1]).slice(0,5),max=Math.max(1,...top.map(x=>x[1]));
   $('#keyword-list').innerHTML=top.length?top.map(([word,count],i)=>`<div class="keyword-row"><em>${i+1}</em><span>${escapeHtml(word)}</span><div class="keyword-track"><i style="width:${count/max*100}%"></i></div><b>${count}</b></div>`).join(''):'<p class="empty-state">等待财经主题数据</p>';
@@ -117,6 +119,7 @@ function renderNews() {
   $('#bettafish-status').textContent=platform?`BettaFish ${platform.toUpperCase()} · ${collectorLabels[platformState]||platformState||'运行中'}`:
     integration?.status==='connected'?`BettaFish 已导入 · 评论 ${integration.comments} 条`:
     collector?.status==='ready_for_login'?'BettaFish 采集端已部署 · 等待首次扫码':collector?.status==='idle'?'BettaFish 采集端已部署 · 请查看平台状态':'BettaFish 适配就绪 · 评论源未连接';
+  if(publicSnapshot)$('#bettafish-status').textContent='公开快照 · 采集端与原始评论保留在私有运行环境';
   const analysis=state.context?.social?.analysis||[],groups=new Map();for(const row of analysis)if(!groups.has(row.topic_group||row.record_id))groups.set(row.topic_group||row.record_id,row);
   const unique=[...groups.values()],counts={positive:0,neutral:0,negative:0};
   for(const item of unique)counts[item.score>.15?'positive':item.score<-.15?'negative':'neutral']++;
@@ -126,6 +129,7 @@ function renderNews() {
   $('#donut-arc').style.strokeDasharray=total?'288 302':'0 302';
   $('#sentiment-wave').textContent=isComments?`原始 ${comments?.comments||0} · 去重 ${comments?.deduplicated_sample||0} · 已评分 ${comments?.scored_sample||0}`:'主题判断为模型解释，不是投资者支持率';
   $('#sentiment-note').textContent=isComments?'未评分不计为中性 · 缺失比例留空':'新闻事实与模型判断分开 · 非涨跌概率';
+  if(publicSnapshot)$('#sentiment-note').textContent='原始评论及模拟账户未公开 · 未展示不表示没有采集';
 }
 
 function renderResearch() {
