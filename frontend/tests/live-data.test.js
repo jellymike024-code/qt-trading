@@ -28,6 +28,20 @@ test('fallback price cannot invent depth or use the wrong security',()=>{
   assert.equal(parseEastmoney(p,'sh510300',observed).order_book,undefined);
   assert.throws(()=>parseEastmoney(p,'sh510500',observed));
 });
+test('configured relay is the actual fetch destination and preserves exact source bytes',async()=>{
+  let destination,options;
+  const feed=new LiveFeed({relayBase:'https://relay.example',universe:{shanghai:{sectors:[]},newyork:{sectors:[]}},fetchImpl:async(url,init)=>{
+    destination=url;options=init;return {ok:true,json:async()=>({ok:true,encoding:'utf-8',observed_at:observed,body_base64:btoa('actual source text')})};
+  }});
+  assert.equal(await feed.request('https://qt.gtimg.cn/q=sh510300',false,true),'actual source text');
+  assert.equal(destination,'https://relay.example/api/relay?feed=tencent');assert.equal(options.credentials,'omit');
+  const diagnostic=[...feed.diagnostics.values()][0];assert.equal(diagnostic.status,'ok');assert.equal(diagnostic.relay_observed_at,observed);
+});
+test('relay errors remain visible instead of looking like successful live updates',async()=>{
+  const feed=new LiveFeed({relayBase:'https://relay.example',universe:{shanghai:{sectors:[]},newyork:{sectors:[]}},fetchImpl:async()=>({ok:false,json:async()=>({ok:false,error:'Upstream HTTP 403'})})});
+  await assert.rejects(feed.request('https://uapis.cn/api/v1/misc/hotboard?type=weibo'),/403/);
+  const diagnostic=[...feed.diagnostics.values()][0];assert.equal(diagnostic.status,'error');assert.equal(diagnostic.success_at,undefined);
+});
 test('news keeps publication time while hotboard time never becomes publication',()=>{
   const news=parseNews({code:'1',data:{fastNewsList:[{code:'202610263907832429',title:'A股回购',summary:'<b>回购</b>计划',showTime:'2026-10-26 13:02:04'}]}},observed)[0];
   assert.equal(news.published_at,'2026-10-26T05:02:04.000Z');assert.equal(news.excerpt,'回购计划');

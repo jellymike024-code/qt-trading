@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-live-relay="https://quant-orbit-live-data.rightthyme5.chatgpt.site">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,6 +8,7 @@
   <title>观澜 ORBIT · 全球量化监控台</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='23' fill='%2307162c' stroke='%2337c7ff' stroke-width='4'/%3E%3Cellipse cx='32' cy='32' rx='30' ry='11' fill='none' stroke='%2337c7ff' stroke-width='3' transform='rotate(-30 32 32)'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./live-health.css?v=20261026-relay1">
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/"}}</script>
 </head>
 <body>
@@ -64,6 +65,7 @@
         <div class="book-quote"><strong id="book-price">—</strong><span id="book-change">—</span><small id="book-name">沪深300ETF</small></div>
         <div class="book-table-wrap"><table class="book-table"><thead><tr><th>档位</th><th>价格 / 元</th><th>数量 / 手</th></tr></thead><tbody id="book-levels"></tbody></table></div>
         <p class="data-note" id="book-source">正在连接真实五档报价…</p><p class="data-note" id="book-freshness">每5秒请求；源行情时间与请求时间分别显示</p>
+        <details class="live-health"><summary>连接诊断：来源、错误和最后成功时间</summary><div id="live-health">等待首次请求</div></details>
       </section>
       <div class="region-footer"><span class="legend-dot positive"></span>红涨绿跌<span class="region-footer-divider">|</span>点击A股样本切换盘口 · 缺失留空</div>
     </aside>
@@ -75,6 +77,6 @@
   </main>
   <footer class="app-footer"><span><i></i> ORBIT / LIVE PUBLIC FEEDS</span><span id="data-timestamp">正在启动公开数据自动更新</span><button id="live-toggle" class="live-toggle" aria-pressed="true">暂停自动更新</button></footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="./js/app.js?v=20261026-live"></script>
+  <script type="module" src="./js/app.js?v=20261026-relay1"></script>
 </body>
 </html>

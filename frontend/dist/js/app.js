@@ -1,5 +1,5 @@
 import { MarketGlobe } from './globe.js';
-import { mountLiveUI, renderLiveEvidence } from './live-ui.js';
+import { mountLiveUI, renderLiveEvidence } from './live-ui.js?v=20261026-relay1';
 import { MARKETS, CITY_ORDER, STRIP_ORDER, getMarket, getSector, signed, number, localTime, sessionReference } from './markets.js';
 
 const $ = selector => document.querySelector(selector);

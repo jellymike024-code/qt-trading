@@ -55,11 +55,11 @@ def build(output,context):
         raise ValueError('Refuse to copy into an unrelated nonempty directory')
     output.mkdir(parents=True,exist_ok=True);(output/'.orbit-public-build').touch()
     dist=ROOT/'frontend/dist'
-    for name in ('index.html','styles.css'):
+    for name in ('index.html','styles.css','live-health.css'):
         shutil.copy2(dist/name,output/name)
     for name in ('js','vendor','assets','data'):
         shutil.copytree(dist/name,output/name,dirs_exist_ok=True)
-    page=(output/'index.html').read_text(encoding='utf-8').replace('<html lang="zh-CN">','<html lang="zh-CN" data-context-url="./data/context.json">')
+    page=(output/'index.html').read_text(encoding='utf-8').replace('<html lang="zh-CN"','<html lang="zh-CN" data-context-url="./data/context.json"',1)
     (output/'index.html').write_text(page,encoding='utf-8')
     (output/'data/context.json').write_text(json.dumps(context,ensure_ascii=False,allow_nan=False),encoding='utf-8')
     (output/'.nojekyll').touch()

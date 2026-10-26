@@ -115,19 +115,37 @@ export function recalculateSectors(context,universe){
 
 export class LiveFeed {
   constructor({universe,onQuotes=()=>{},onSocial=()=>{},onStatus=()=>{},fetchImpl=globalThis.fetch,
-    scheduler={setTimeout:(fn,delay)=>setTimeout(fn,delay),clearTimeout:id=>clearTimeout(id)},visible=()=>!globalThis.document?.hidden}){
+    relayBase=globalThis.document?.documentElement?.dataset.liveRelay||'',scheduler={setTimeout:(fn,delay)=>setTimeout(fn,delay),clearTimeout:id=>clearTimeout(id)},visible=()=>!globalThis.document?.hidden}){
     this.universe=universe;this.onQuotes=onQuotes;this.onSocial=onSocial;this.onStatus=onStatus;this.fetchImpl=fetchImpl;this.scheduler=scheduler;this.visible=visible;
     this.timers=new Map();this.pending=new Map();this.failures=new Map();this.records=new Map();this.statuses=new Map();this.firstSeen=new Map();this.controllers=new Set();this.enabled=false;
     this.mappings={'sh000001':['shanghai',null],'us.IXIC':['newyork',null]};
     for(const city of ['shanghai','newyork'])for(const sector of universe[city].sectors)for(const stock of sector.stocks){const key=city==='shanghai'?(stock.code.startsWith('6')?'sh':'sz')+stock.code:'us'+stock.code;this.mappings[key]=[city,stock.code];}
     this.symbol='sh510300';
+    this.relayBase=relayBase;this.diagnostics=new Map();
   }
   async request(url,json=true,gbk=false){
     const controller=new AbortController(),timeout=this.scheduler.setTimeout(()=>controller.abort(),10000);
     this.controllers.add(controller);
-    try{const response=await this.fetchImpl(url,{mode:'cors',credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer',signal:controller.signal});
-      if(!response.ok)throw Error('HTTP '+response.status);return json?await response.json():gbk?new TextDecoder('gbk').decode(await response.arrayBuffer()):await response.text();
-    }finally{this.scheduler.clearTimeout(timeout);this.controllers.delete(controller);}
+    const previous=this.diagnostics.get(url)||{},attempted=nowIso();let transport=this.relayBase?'server_relay':'browser_direct';
+    try{
+      let target=url;
+      if(this.relayBase){const upstream=new URL(url),relay=new URL('/api/relay',this.relayBase);
+        if(upstream.hostname==='qt.gtimg.cn')relay.searchParams.set('feed','tencent');
+        else if(upstream.hostname==='np-listapi.eastmoney.com')relay.searchParams.set('feed','news');
+        else if(upstream.hostname==='uapis.cn'){relay.searchParams.set('feed','hotboard');relay.searchParams.set('platform',upstream.searchParams.get('type'));}
+        else if(upstream.hostname==='push2.eastmoney.com'){const [market,code]=(upstream.searchParams.get('secid')||'').split('.');relay.searchParams.set('feed','eastmoney');relay.searchParams.set('symbol',(market==='1'?'sh':'sz')+code);}
+        else throw Error('不支持的中继数据源');
+        target=relay.href;
+      }
+      const response=await this.fetchImpl(target,{mode:'cors',credentials:'omit',cache:'no-store',referrerPolicy:'no-referrer',signal:controller.signal});
+      let result,relayTime=null;
+      if(this.relayBase){const envelope=await response.json();if(!response.ok||!envelope.ok)throw Error(envelope.error||'中继 HTTP '+response.status);
+        const bytes=Uint8Array.from(atob(envelope.body_base64),char=>char.charCodeAt(0));const text=new TextDecoder(envelope.encoding||'utf-8').decode(bytes);
+        result=json?JSON.parse(text):text;relayTime=envelope.observed_at;
+      }else{if(!response.ok)throw Error('HTTP '+response.status);result=json?await response.json():gbk?new TextDecoder('gbk').decode(await response.arrayBuffer()):await response.text();}
+      this.diagnostics.set(url,{url,transport,status:'ok',attempted_at:attempted,success_at:nowIso(),relay_observed_at:relayTime,error:null});return result;
+    }catch(error){this.diagnostics.set(url,{...previous,url,transport,status:'error',attempted_at:attempted,error:`${error.name||'Error'}: ${error.message||error}`.slice(0,180)});throw error;}
+    finally{this.scheduler.clearTimeout(timeout);this.controllers.delete(controller);if(this.enabled)this.onStatus('transport',{status:'updated',at:nowIso()});}
   }
   async quotes(){
     const keys=[...new Set([...Object.keys(this.mappings),...ETF_WATCHLIST.map(row=>row[0]),this.symbol])];
